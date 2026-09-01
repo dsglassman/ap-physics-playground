@@ -1,0 +1,1716 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="An interactive AP Physics 1 stopping-distance problem family with synchronized graphs, equations, and geometric derivation." />
+  <link rel="icon" href="favicon.svg" />
+  <title>Kinematics Problem Families</title>
+  <style>
+    :root {
+      --background: #f6f9ff;
+      --foreground: #182238;
+      --muted-foreground: #65728a;
+      --card: rgba(255, 255, 255, .92);
+      --border: #d6e0ee;
+      --grid: #dce5f2;
+      --primary: #4d5fd0;
+      --velocity: #008f8a;
+      --acceleration: #d34272;
+      --reaction: #dce7ff;
+      --reaction-label: #7b8ddd;
+      --braking: #ffe1eb;
+      --braking-label: #d97899;
+      --total-label: #5f6876;
+      --shadow: 0 12px 32px rgba(40, 58, 96, .09);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-width: 320px; background: var(--background); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--foreground);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--background);
+      background-image:
+        linear-gradient(rgba(79, 101, 151, .065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 101, 151, .065) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+
+    .shell {
+      width: min(1560px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 10px 0 40px;
+    }
+
+    .card {
+      border: 1px solid color-mix(in srgb, var(--border) 92%, transparent);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .6rem;
+      padding: .58rem .8rem;
+    }
+
+    .brand { display: grid; gap: .08rem; }
+    .kicker {
+      color: var(--primary);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .brand strong { font-size: clamp(1.1rem, 2vw, 1.45rem); }
+    .topbar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem; }
+
+    .btn {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: .5rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--foreground);
+      cursor: pointer;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(35, 49, 80, .08);
+    }
+    .btn:hover { filter: brightness(.985); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { border-color: var(--primary); background: var(--primary); color: #fff; }
+    :focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 28%, transparent); outline-offset: 2px; }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h2 { margin-bottom: .35rem; font-size: clamp(1.25rem, 2.4vw, 1.75rem); }
+    h3 { margin-bottom: .3rem; font-size: 1rem; }
+    p { line-height: 1.5; }
+    .module-heading p { margin-bottom: 0; color: var(--muted-foreground); }
+    .schematic-badge {
+      padding: .42rem .65rem;
+      border: 1px solid color-mix(in srgb, var(--primary) 42%, var(--border));
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--reaction) 74%, white);
+      color: #31458a;
+      font-size: .74rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .module {
+      display: grid;
+      gap: .65rem;
+    }
+    .module-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .72rem .9rem;
+      border-left: 6px solid var(--acceleration);
+    }
+    .module-heading h2 { margin-bottom: .12rem; }
+    .recognition {
+      display: inline-flex;
+      margin-bottom: .24rem;
+      padding: .2rem .46rem;
+      border-radius: 999px;
+      background: #fff0f5;
+      color: #a72f58;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(17rem, 20rem) minmax(0, 1fr);
+      gap: .65rem;
+      align-items: stretch;
+    }
+    .controls, .solution { padding: .78rem .88rem; }
+    .controls { display: grid; gap: .68rem; align-content: start; }
+    .control {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: .24rem .65rem;
+      align-items: center;
+    }
+    .control label { font-size: .86rem; font-weight: 750; }
+    .control output {
+      color: var(--primary);
+      font-size: .88rem;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .control input { grid-column: 1 / -1; width: 100%; accent-color: var(--primary); cursor: pointer; }
+    .control-note { grid-column: 1 / -1; color: var(--muted-foreground); font-size: .7rem; line-height: 1.28; }
+
+    .timeline-control {
+      display: grid;
+      grid-template-columns: 6.1rem minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      gap: .28rem .6rem;
+      padding-top: .62rem;
+      border-top: 1px solid var(--border);
+    }
+    .timeline-reset {
+      justify-self: center;
+      width: 42px;
+      min-height: 42px;
+      padding: 2px;
+      border-color: color-mix(in srgb, var(--acceleration) 65%, #29314e);
+      background: var(--acceleration);
+      color: white;
+      font-size: 1.15rem;
+    }
+    .timeline-value { align-self: center; justify-self: end; color: var(--muted-foreground); font-size: .8rem; font-variant-numeric: tabular-nums; }
+    .timeline-play { width: 6.1rem; }
+    #timeline { width: 100%; min-width: 0; accent-color: var(--primary); }
+
+    .solution { display: grid; gap: .55rem; align-content: start; }
+    .solution-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .solution-heading h3 { margin: 0; }
+    .solution-heading .insight { max-width: 52rem; }
+    .equation-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+    .phase {
+      min-width: 0;
+      padding: .58rem .68rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .phase-reaction { background: color-mix(in srgb, var(--reaction) 58%, white); }
+    .phase-braking { background: color-mix(in srgb, var(--braking) 58%, white); }
+    .phase-label {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--muted-foreground);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .equation {
+      margin: .12rem 0;
+      overflow-wrap: anywhere;
+      color: #223051;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: clamp(.76rem, 1.3vw, .9rem);
+      line-height: 1.35;
+      font-variant-numeric: tabular-nums;
+    }
+    .total-equation {
+      padding: .58rem .68rem;
+      border: 2px solid color-mix(in srgb, var(--primary) 45%, var(--border));
+      border-radius: 12px;
+      background: #fff;
+    }
+    .insight {
+      margin: 0;
+      padding: .42rem .58rem;
+      border-left: 4px solid var(--velocity);
+      background: #eefaf8;
+      color: #315e5b;
+      font-size: .72rem;
+      line-height: 1.34;
+    }
+
+    .graph-column { display: grid; grid-template-rows: auto 1fr; gap: .38rem; min-width: 0; }
+    .graph-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+    .graph-card {
+      position: relative;
+      min-width: 0;
+      padding: .42rem .55rem .28rem;
+      overflow: hidden;
+    }
+    .graph-title {
+      display: flex;
+      justify-content: space-between;
+      gap: .75rem;
+      align-items: baseline;
+      margin: 0 .2rem .05rem;
+    }
+    .graph-title strong { font-size: .92rem; }
+    .graph-title span { color: var(--muted-foreground); font-size: .7rem; }
+    .graph-title-actions { display: flex; align-items: center; justify-content: flex-end; gap: .45rem; }
+    .graph-derivation-btn {
+      min-height: 28px;
+      padding: .25rem .55rem;
+      border: 1px solid color-mix(in srgb, var(--velocity) 48%, var(--border));
+      border-radius: 8px;
+      background: color-mix(in srgb, #e8faf8 76%, white);
+      color: #176d69;
+      cursor: pointer;
+      font-size: .68rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .graph-derivation-btn:hover { background: #ddf6f3; }
+    .graph { display: block; width: 100%; height: clamp(256px, 30vh, 363px); overflow: visible; }
+    .graph text { fill: var(--muted-foreground); font-family: inherit; font-size: 10.5px; }
+    .graph .grid line { stroke: var(--grid); stroke-width: 1; }
+    .graph .grid path { display: none; }
+    .graph .axis path, .graph .axis line { stroke: #26334e; stroke-width: 1.25; }
+    .graph .curve { fill: none; stroke-width: 3.2; stroke-linejoin: round; stroke-linecap: round; }
+    .graph .cursor { stroke: #283550; stroke-width: 1.35; stroke-dasharray: 4 4; }
+    .graph .stop-line { stroke: var(--acceleration); stroke-width: 1.3; stroke-dasharray: 5 4; opacity: .8; }
+    .graph .point { stroke: white; stroke-width: 2; }
+    .graph .phase-label { font-size: 9.5px; font-weight: 800; letter-spacing: .03em; }
+    .graph .symbolic-axis-tick { stroke: var(--velocity); stroke-width: 2.25; }
+    .graph .symbolic-axis-label { fill: var(--velocity); font-size: 16px; font-weight: 900; font-style: italic; }
+    .graph .symbolic-axis-subscript { font-size: 10px; font-style: normal; }
+    .graph .symbolic-acceleration-axis-label { fill: var(--acceleration); font-size: 16px; font-weight: 900; }
+    .graph .symbolic-x-axis-tick { stroke-width: 2.25; }
+    .graph .symbolic-x-axis-label {
+      font-size: 15.5px;
+      font-weight: 900;
+      font-style: italic;
+    }
+    .graph .symbolic-x-axis-subscript { font-size: 9.5px; font-style: normal; }
+    .graph .phase-span-label { font-size: 12.5px; font-weight: 850; }
+    .graph .total-span-label { fill: var(--total-label); }
+    .graph .span-label-layer { opacity: 0; pointer-events: none; transition: opacity .12s ease; }
+    .graph .stopping-span-hit { fill: transparent; cursor: pointer; pointer-events: all; }
+    .graph .stopping-span-interactive:focus-visible .stopping-span-hit {
+      stroke: color-mix(in srgb, var(--primary) 64%, white);
+      stroke-width: 1.5;
+    }
+    .graph .distance-guide { fill: none; stroke-width: 1.4; stroke-dasharray: 4 4; opacity: .9; pointer-events: none; }
+    .graph .distance-guide-label { font-size: 12.5px; font-weight: 850; pointer-events: none; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem .85rem;
+      align-items: center;
+      color: var(--muted-foreground);
+      font-size: .7rem;
+    }
+    .legend-item { display: inline-flex; gap: .38rem; align-items: center; }
+    .swatch { width: 22px; height: 10px; border-radius: 3px; }
+    .swatch.reaction { background: var(--reaction); }
+    .swatch.braking { background: var(--braking); }
+    .swatch.cursor { height: 0; border-top: 2px dashed #283550; border-radius: 0; }
+
+    .families { margin-top: .65rem; padding: .7rem .85rem; }
+    .families > summary { cursor: pointer; font-weight: 800; }
+    .families[open] > summary { margin-bottom: .8rem; }
+    .families-header { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: .8rem; }
+    .families-header p { margin: 0; color: var(--muted-foreground); font-size: .8rem; }
+    .family-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
+    .family {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: .55rem;
+      align-items: start;
+      min-width: 0;
+      padding: .72rem .75rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .7);
+    }
+    .family.active { border: 2px solid var(--primary); background: color-mix(in srgb, var(--reaction) 52%, white); }
+    .family-number {
+      display: grid;
+      width: 1.7rem;
+      height: 1.7rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #edf1f8;
+      color: #53617b;
+      font-size: .72rem;
+      font-weight: 850;
+    }
+    .family.active .family-number { background: var(--primary); color: #fff; }
+    .family strong { display: block; margin-bottom: .12rem; font-size: .8rem; }
+    .family small { display: block; color: var(--muted-foreground); font-size: .68rem; line-height: 1.35; }
+
+    .guide-dialog {
+      width: 100vw;
+      max-width: none;
+      height: 100vh;
+      max-height: none;
+      margin: 0;
+      padding: clamp(.6rem, 2vw, 1.5rem);
+      border: 0;
+      background: transparent;
+    }
+    .guide-dialog::backdrop { background: rgba(19, 29, 50, .58); backdrop-filter: blur(3px); }
+    .guide-dialog-card {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      width: min(1240px, 100%);
+      height: min(92vh, 980px);
+      margin: auto;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(18, 30, 58, .28);
+    }
+    .guide-dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .8rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--reaction) 48%, white);
+    }
+    .guide-dialog-header h2 { margin: 0; font-size: clamp(1.2rem, 2.2vw, 1.7rem); }
+    .guide-close { min-width: 42px; padding-inline: .65rem; font-size: 1.25rem; }
+    .guide-content { overflow: auto; padding: clamp(.9rem, 2.2vw, 1.6rem); }
+    .guide-content h3 { margin: 1.5rem 0 .65rem; color: #293d8f; font-size: 1.2rem; }
+    .guide-content h3:first-child { margin-top: 0; }
+    .guide-content p, .guide-content li { line-height: 1.52; }
+    .guide-content ul, .guide-content ol { padding-left: 1.45rem; }
+    .guide-content li + li { margin-top: .42rem; }
+    .guide-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+    .guide-table { width: 100%; min-width: 850px; border-collapse: collapse; }
+    .guide-table th, .guide-table td { padding: .7rem .75rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.42; }
+    .guide-table th { background: #eef2ff; color: #293d8f; font-size: .82rem; }
+    .guide-table td { font-size: .84rem; }
+    .guide-table tbody tr:last-child td { border-bottom: 0; }
+    .guide-table td:first-child { width: 24%; font-weight: 800; }
+    .guide-table td:nth-child(2) { width: 35%; }
+
+    .geometry-dialog {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      bottom: auto;
+      left: auto;
+      width: min(1040px, calc(100vw - 360px));
+      max-width: calc(100vw - 24px);
+      height: min(88vh, 860px);
+      max-height: calc(100vh - 24px);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      overflow: visible;
+    }
+    .geometry-dialog-card {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #f8fbff;
+      box-shadow: 0 30px 90px rgba(18, 30, 58, .32);
+    }
+    .geometry-dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, color-mix(in srgb, var(--reaction) 62%, white), color-mix(in srgb, var(--braking) 52%, white));
+    }
+    .geometry-dialog-header h2 { margin: .08rem 0 0; font-size: clamp(1.2rem, 2vw, 1.65rem); }
+    .geometry-close { min-width: 42px; padding-inline: .65rem; font-size: 1.25rem; }
+    .geometry-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(19rem, .8fr);
+      min-height: 0;
+      overflow: hidden;
+    }
+    .geometry-graph-panel {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      min-width: 0;
+      min-height: 0;
+      margin: 0;
+      padding: .8rem .85rem .65rem;
+      border-right: 1px solid var(--border);
+      background: #fff;
+    }
+    .geometry-legend { display: flex; flex-wrap: wrap; gap: .45rem .9rem; color: var(--muted-foreground); font-size: .78rem; }
+    .geometry-legend .swatch { width: 26px; }
+    .swatch.projected { height: 0; border-top: 2px dashed var(--braking-label); border-radius: 0; }
+    .geometry-graph { display: block; width: 100%; height: min(68vh, 690px); min-height: 430px; overflow: visible; }
+    .geometry-graph text { fill: #53617b; font-family: inherit; font-size: 12px; }
+    .geometry-graph .grid line { stroke: var(--grid); stroke-width: 1; }
+    .geometry-graph .grid path { display: none; }
+    .geometry-graph .axis path, .geometry-graph .axis line { stroke: #26334e; stroke-width: 1.35; }
+    .geometry-graph .actual-velocity { fill: none; stroke: var(--velocity); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .geometry-graph .projected-line { fill: none; stroke: var(--braking-label); stroke-width: 2.4; stroke-dasharray: 8 6; }
+    .geometry-graph .dimension-line { stroke: var(--braking-label); stroke-width: 2.6; }
+    .geometry-graph .dimension-witness { stroke: var(--braking-label); stroke-width: 1.2; stroke-dasharray: 3 3; }
+    .geometry-graph .geometry-label { font-size: 13px; font-weight: 850; }
+    .geometry-graph .geometry-equation-label { fill: #8e3154; font-size: 13px; font-weight: 800; }
+    .geometry-graph-panel figcaption { margin: .15rem .25rem 0; color: var(--muted-foreground); font-size: .78rem; line-height: 1.42; }
+    .geometry-equations { display: grid; align-content: start; gap: .65rem; min-height: 0; overflow: auto; padding: .8rem; }
+    .geometry-step {
+      padding: .68rem .72rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .geometry-step.rectangle { border-left: 5px solid var(--reaction-label); }
+    .geometry-step.triangle, .geometry-step.line-equation { border-left: 5px solid var(--braking-label); }
+    .geometry-step.total { border-left: 5px solid var(--total-label); }
+    .geometry-step h3 { margin: 0 0 .35rem; font-size: .95rem; }
+    .geometry-step .equation { font-size: .8rem; line-height: 1.42; }
+    .geometry-step-note { margin: .35rem 0 0; color: var(--muted-foreground); font-size: .76rem; line-height: 1.4; }
+
+    @media (max-width: 980px) {
+      .workspace { grid-template-columns: 1fr; }
+      .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .controls > h3, .timeline-control { grid-column: 1 / -1; }
+      .equation-row { grid-template-columns: 1fr; }
+      .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .geometry-dialog {
+        top: auto;
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        width: auto;
+        max-width: none;
+        height: min(64vh, 680px);
+        max-height: calc(100vh - 16px);
+      }
+      .geometry-content { grid-template-columns: 1fr; overflow: auto; }
+      .geometry-dialog-card { overflow: hidden; }
+      .geometry-graph-panel { min-height: 560px; border-right: 0; border-bottom: 1px solid var(--border); }
+      .geometry-equations { overflow: visible; }
+    }
+
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 16px, 1420px); padding-top: 8px; }
+      .topbar, .module-heading, .families-header, .solution-heading { align-items: stretch; }
+      .topbar, .module-heading, .solution-heading { flex-direction: column; }
+      .topbar-actions { display: grid; }
+      .topbar .btn { width: 100%; }
+      .schematic-badge { justify-self: start; }
+      .controls, .graph-stack, .family-grid { grid-template-columns: 1fr; }
+      .controls > h3, .timeline-control { grid-column: auto; }
+      .controls, .solution { padding: .9rem; }
+      .graph { height: 288px; }
+      .graph-title { align-items: flex-start; }
+      .graph-title-actions { flex-direction: column; align-items: flex-end; gap: .2rem; }
+      .graph-derivation-btn { white-space: normal; text-align: center; }
+      .geometry-dialog { right: 4px; bottom: 4px; left: 4px; height: 62vh; max-height: calc(100vh - 8px); }
+      .geometry-dialog-card { border-radius: 12px; }
+      .geometry-dialog-header { align-items: flex-start; }
+      .geometry-graph-panel { min-height: 500px; padding-inline: .35rem; }
+      .geometry-graph { min-height: 410px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav class="card topbar" aria-label="Kinematics trainer navigation">
+      <div class="brand">
+        <span class="kicker">Vector Motion Studio</span>
+        <strong>Kinematics Problem Families</strong>
+      </div>
+      <div class="topbar-actions">
+        <button id="family-guide-open" type="button" class="btn btn-primary">AP Physics 1 Kinematics Problem Family Guide</button>
+        <a class="btn" href="index.html" target="_top">← Back to the playground</a>
+      </div>
+    </nav>
+
+    <section class="module" aria-labelledby="module-title">
+      <header class="card module-heading">
+        <div>
+          <span class="recognition">Family 7 · threshold + multistage</span>
+          <h2 id="module-title">Stopping distance with reaction delay</h2>
+          <p>Constant velocity during the reaction delay; constant negative acceleration after braking begins.</p>
+        </div>
+        <span class="schematic-badge">Schematic world · lightweight</span>
+      </header>
+
+      <div class="workspace">
+        <section class="card controls" aria-labelledby="controls-title">
+          <h3 id="controls-title">Change the situation</h3>
+
+          <div class="control">
+            <label for="initial-speed">Initial velocity, v<sub>0</sub></label>
+            <output id="initial-speed-value" for="initial-speed">20.0 m/s</output>
+            <input id="initial-speed" type="range" min="10" max="25" step="0.5" value="20" />
+            <span class="control-note">The car maintains this velocity throughout the reaction delay.</span>
+          </div>
+
+          <div class="control">
+            <label for="reaction-time">Reaction delay, t<sub>r</sub></label>
+            <output id="reaction-time-value" for="reaction-time">0.75 s</output>
+            <input id="reaction-time" type="range" min="0.5" max="1.5" step="0.05" value="0.75" />
+            <span class="control-note">Acceleration is zero until the driver begins braking.</span>
+          </div>
+
+          <div class="control">
+            <label for="braking-magnitude">Braking magnitude, |a|</label>
+            <output id="braking-magnitude-value" for="braking-magnitude">5.0 m/s²</output>
+            <input id="braking-magnitude" type="range" min="5" max="10" step="0.25" value="5" />
+            <span class="control-note">The signed acceleration during braking is negative: a = −|a|.</span>
+          </div>
+
+          <div class="timeline-control" aria-label="Explore the solution timeline">
+            <button id="timeline-reset" type="button" class="btn timeline-reset" aria-label="Reset timeline to zero" title="Reset timeline">↺</button>
+            <output id="timeline-value" class="timeline-value" for="timeline">t = 0.00 s</output>
+            <button id="timeline-play" type="button" class="btn btn-primary timeline-play">Play</button>
+            <input id="timeline" type="range" min="0" max="5.35" step="0.01" value="0" aria-label="Current time in the stopping sequence" />
+          </div>
+        </section>
+
+        <div class="graph-column">
+          <div class="legend" aria-label="Graph phase legend">
+            <span class="legend-item"><span class="swatch reaction"></span>Reaction phase</span>
+            <span class="legend-item"><span class="swatch braking"></span>Braking phase</span>
+            <span class="legend-item"><span class="swatch cursor"></span>Same selected instant</span>
+          </div>
+
+          <section class="graph-stack" aria-label="Synchronized stopping motion graphs">
+            <article class="card graph-card">
+              <div class="graph-title"><strong>Displacement vs time</strong><span>x (m)</span></div>
+              <svg id="position-graph" class="graph" role="img" aria-label="Displacement versus time during reaction and braking"></svg>
+            </article>
+            <article class="card graph-card">
+              <div class="graph-title">
+                <strong>Velocity vs time</strong>
+                <div class="graph-title-actions">
+                  <span>v (m/s)</span>
+                  <button id="geometry-open" type="button" class="graph-derivation-btn">Geometric derivation</button>
+                </div>
+              </div>
+              <svg id="velocity-graph" class="graph" role="img" aria-label="Velocity versus time during reaction and braking"></svg>
+            </article>
+            <article class="card graph-card">
+              <div class="graph-title"><strong>Acceleration vs time</strong><span>a (m/s²)</span></div>
+              <svg id="acceleration-graph" class="graph" role="img" aria-label="Acceleration versus time during reaction and braking"></svg>
+            </article>
+            <article class="card graph-card">
+              <div class="graph-title"><strong>Velocity vs distance</strong><span>v (m/s) vs x (m)</span></div>
+              <svg id="velocity-distance-graph" class="graph" role="img" aria-label="Velocity versus distance during reaction and braking"></svg>
+            </article>
+          </section>
+        </div>
+      </div>
+
+      <section class="card solution" aria-labelledby="solution-title">
+        <div class="solution-heading">
+          <h3 id="solution-title">Solved equations</h3>
+          <p id="insight" class="insight">Reaction delay adds distance without changing the braking time. Initial velocity affects the braking distance quadratically.</p>
+        </div>
+        <div class="equation-row">
+          <article class="phase phase-reaction">
+            <span class="phase-label">Phase 1 · reaction</span>
+            <div class="equation">a = 0; v = v<sub>0</sub> = <span data-value="v0">20.0</span> m/s</div>
+            <div class="equation">d<sub>r</sub> = v<sub>0</sub>t<sub>r</sub> = (<span data-value="v0">20.0</span>)(<span data-value="delay">0.75</span>) = <strong data-value="reaction-distance">15.0</strong> m</div>
+          </article>
+
+          <article class="phase phase-braking">
+            <span class="phase-label">Phase 2 · braking</span>
+            <div class="equation">a = −<span data-value="braking">5.0</span> m/s²; 0 = v<sub>0</sub>² + 2a d<sub>b</sub></div>
+            <div class="equation">d<sub>b</sub> = v<sub>0</sub>²/(2|a|) = <span data-value="v0">20.0</span>²/[2(<span data-value="braking">5.0</span>)] = <strong data-value="braking-distance">40.0</strong> m</div>
+          </article>
+
+          <div class="total-equation">
+            <span class="phase-label">Combine the phases</span>
+            <div class="equation">t<sub>stop</sub> = t<sub>r</sub> + v<sub>0</sub>/|a| = <strong data-value="total-time">4.75</strong> s</div>
+            <div class="equation">d<sub>stop</sub> = v<sub>0</sub>t<sub>r</sub> + v<sub>0</sub>²/(2|a|) = <strong data-value="total-distance">55.0</strong> m</div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <details class="card families" aria-labelledby="families-title">
+      <summary>Show all recurring problem families</summary>
+      <div class="families-header">
+        <div>
+          <span class="kicker">Interactive roadmap</span>
+          <h2 id="families-title">The recurring problem families</h2>
+        </div>
+        <p>The highlighted family is the first completed interactive model.</p>
+      </div>
+      <div class="family-grid">
+        <article class="family"><span class="family-number">1</span><div><strong>Definitions, averages, and signs</strong><small>Distance vs displacement; average vs instantaneous quantities.</small></div></article>
+        <article class="family"><span class="family-number">2</span><div><strong>Constant velocity</strong><small>Linear position change with zero acceleration.</small></div></article>
+        <article class="family"><span class="family-number">3</span><div><strong>Constant acceleration with time</strong><small>Find position or velocity after a stated interval.</small></div></article>
+        <article class="family"><span class="family-number">4</span><div><strong>Endpoint condition without time</strong><small>Stopping distance or final speed when time is absent.</small></div></article>
+        <article class="family"><span class="family-number">5</span><div><strong>Turnaround and return</strong><small>Distinguish v = 0 from returning to the initial position.</small></div></article>
+        <article class="family"><span class="family-number">6</span><div><strong>Free fall and vertical launch</strong><small>Constant downward acceleration with several possible endpoints.</small></div></article>
+        <article class="family active"><span class="family-number">7</span><div><strong>Threshold and decision problems</strong><small>Minimum, maximum, “just barely,” and stopping-distance decisions.</small></div></article>
+        <article class="family"><span class="family-number">8</span><div><strong>Multistage motion</strong><small>Reaction–braking or accelerate–cruise–brake sequences.</small></div></article>
+        <article class="family"><span class="family-number">9</span><div><strong>Meeting and chase</strong><small>Two position functions evaluated on the same clock.</small></div></article>
+        <article class="family"><span class="family-number">10</span><div><strong>Relative motion</strong><small>Motion as observed from another moving reference frame.</small></div></article>
+        <article class="family"><span class="family-number">11</span><div><strong>Two-dimensional projectiles</strong><small>Independent x and y motion connected by one shared time.</small></div></article>
+      </div>
+    </details>
+  </main>
+
+  <dialog id="geometry-dialog" class="geometry-dialog" aria-labelledby="geometry-title">
+    <section class="geometry-dialog-card">
+      <header class="geometry-dialog-header">
+        <div>
+          <span class="kicker">Area under the velocity–time curve</span>
+          <h2 id="geometry-title">Geometric derivation of stopping distance</h2>
+        </div>
+        <button id="geometry-close" type="button" class="btn geometry-close" aria-label="Close geometric derivation">×</button>
+      </header>
+
+      <div class="geometry-content">
+        <figure class="geometry-graph-panel">
+          <div class="geometry-legend" aria-label="Geometric derivation legend">
+            <span class="legend-item"><span class="swatch reaction"></span>Delay rectangle</span>
+            <span class="legend-item"><span class="swatch braking"></span>Braking triangle</span>
+            <span class="legend-item"><span class="swatch projected"></span>Braking line projected to the v-axis</span>
+          </div>
+          <svg id="geometry-velocity-graph" class="geometry-graph" role="img" aria-label="Enlarged velocity versus time graph showing the rectangular and triangular areas that determine stopping distance"></svg>
+          <figcaption>The solid velocity line is the car’s actual motion. The dashed segment extends the braking line backward only to reveal its vertical-axis intercept and slope-intercept equation.</figcaption>
+        </figure>
+
+        <aside class="geometry-equations" aria-label="Area and line-equation derivation">
+          <article class="geometry-step rectangle">
+            <h3>1. Delay phase: rectangle</h3>
+            <div class="equation">base = t<sub>r</sub> = <span data-geometry-value="delay">0.75</span> s</div>
+            <div class="equation">height = v<sub>0</sub> = <span data-geometry-value="v0">20.0</span> m/s</div>
+            <div class="equation">x<sub>r</sub> = A<sub>rectangle</sub> = base × height</div>
+            <div class="equation">x<sub>r</sub> = v<sub>0</sub>t<sub>r</sub> = (<span data-geometry-value="v0">20.0</span>)(<span data-geometry-value="delay">0.75</span>) = <strong data-geometry-value="reaction-distance">15.0</strong> m</div>
+          </article>
+
+          <article class="geometry-step triangle">
+            <h3>2. Braking phase: triangle</h3>
+            <div class="equation">base = t<sub>b</sub> = t<sub>total</sub> − t<sub>r</sub> = v<sub>0</sub>/|a| = <strong data-geometry-value="braking-time">4.00</strong> s</div>
+            <div class="equation">height = v<sub>0</sub> = <span data-geometry-value="v0">20.0</span> m/s</div>
+            <div class="equation">x<sub>b</sub> = A<sub>triangle</sub> = ½(base)(height)</div>
+            <div class="equation">x<sub>b</sub> = ½(v<sub>0</sub>/|a|)v<sub>0</sub> = v<sub>0</sub>²/(2|a|) = <strong data-geometry-value="braking-distance">40.0</strong> m</div>
+          </article>
+
+          <article class="geometry-step line-equation">
+            <h3>3. Equation of the braking line</h3>
+            <div class="equation">m = Δv/Δt = (0 − v<sub>0</sub>)/(v<sub>0</sub>/|a|) = −|a|</div>
+            <div class="equation">v(t) − v<sub>0</sub> = −|a|(t − t<sub>r</sub>)</div>
+            <div class="equation"><strong>v(t) = −|a|t + (v<sub>0</sub> + |a|t<sub>r</sub>)</strong></div>
+            <div class="equation">t<sub>r</sub> ≤ t ≤ t<sub>total</sub></div>
+            <div class="equation">v(t) = −(<span data-geometry-value="braking">5.00</span>)t + <strong data-geometry-value="intercept">23.75</strong></div>
+            <div class="equation">v-axis intercept: v(0) = v<sub>0</sub> + |a|t<sub>r</sub> = <strong data-geometry-value="intercept">23.75</strong> m/s</div>
+            <p class="geometry-step-note">The dashed projection is not an extra phase of motion. It exposes the intercept of the same straight braking line.</p>
+          </article>
+
+          <article class="geometry-step total">
+            <h3>4. Add the two areas</h3>
+            <div class="equation">x<sub>total</sub> = x<sub>r</sub> + x<sub>b</sub></div>
+            <div class="equation">x<sub>total</sub> = v<sub>0</sub>t<sub>r</sub> + v<sub>0</sub>²/(2|a|)</div>
+            <div class="equation">x<sub>total</sub> = <span data-geometry-value="reaction-distance">15.0</span> + <span data-geometry-value="braking-distance">40.0</span> = <strong data-geometry-value="total-distance">55.0</strong> m</div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </dialog>
+
+  <dialog id="family-guide-dialog" class="guide-dialog" aria-labelledby="family-guide-title">
+    <section class="guide-dialog-card">
+      <header class="guide-dialog-header">
+        <h2 id="family-guide-title">AP Physics 1 Kinematics Problem Family Guide</h2>
+        <button id="family-guide-close" type="button" class="btn guide-close" aria-label="Close problem family guide">×</button>
+      </header>
+      <div class="guide-content">
+        <h3>Core kinematics problem families</h3>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead><tr><th>Type</th><th>Recognition clues</th><th>Basic approach</th></tr></thead>
+            <tbody>
+              <tr><td>1. Definitions, averages, and signs</td><td>Distance versus displacement; speed versus velocity; average versus instantaneous; “which direction?”</td><td>Choose a positive direction first. Calculate displacement from x<sub>f</sub>−x<sub>i</sub>; use total path length only for distance.</td></tr>
+              <tr><td>2. Constant-velocity motion</td><td>“Constant speed,” a=0, or distance and travel time are given</td><td>Use x<sub>f</sub>=x<sub>i</sub>+vt. The position graph is linear; velocity is constant.</td></tr>
+              <tr><td>3. Constant acceleration with time</td><td>a and t are given; asks for position or velocity after a stated interval</td><td>Use v<sub>f</sub>=v<sub>i</sub>+at and/or Δx=v<sub>i</sub>t+½at².</td></tr>
+              <tr><td>4. Endpoint condition with no time</td><td>Time is absent; asks for stopping distance, final speed, or speed after a displacement</td><td>Use v<sub>f</sub>²=v<sub>i</sub>²+2aΔx. This is the “eliminate time” family.</td></tr>
+              <tr><td>5. Turnaround or return motion</td><td>“Momentarily stops,” “reverses direction,” “returns to its starting point”</td><td>At a turnaround, set v=0. At return to the starting point, set Δx=0. These are different events.</td></tr>
+              <tr><td>6. Free fall and vertical launches</td><td>Dropped, thrown upward/downward, maximum height, time to hit the ground</td><td>Treat it as constant acceleration with a<sub>y</sub>=−g if upward is positive. At maximum height, v<sub>y</sub>=0, but a<sub>y</sub>≠0.</td></tr>
+              <tr><td>7. Threshold or decision problems</td><td>“Minimum,” “maximum,” “just barely,” “safe,” “before the light changes,” “will it clear?”</td><td>First solve the boundary case using equality—stops exactly at the line, arrives exactly at the deadline—then compare the actual result with that threshold.</td></tr>
+              <tr><td>8. Multistage or piecewise motion</td><td>Reaction then braking; accelerate–cruise–brake; delayed start; acceleration changes</td><td>Divide the story into stages. The final x, v, and t of one stage become the initial conditions of the next. Add displacements and elapsed times.</td></tr>
+              <tr><td>9. Two-object meeting or chase problems</td><td>Meet, collide, catch, overtake, arrive simultaneously; trains approaching each other</td><td>Write a separate position equation for each object using one coordinate system and one clock. At the event, set x<sub>A</sub>(t)=x<sub>B</sub>(t).</td></tr>
+              <tr><td>10. Relative-motion problems</td><td>“As observed from,” “relative to,” a moving platform, one car appearing to move backward</td><td>Use v⃗<sub>A/B</sub>=v⃗<sub>A/G</sub>−v⃗<sub>B/G</sub>. This concerns perceived velocity, not necessarily where two objects meet.</td></tr>
+              <tr><td>11. Two-dimensional projectile motion</td><td>Launched horizontally or at an angle; range, height, flight time, landing velocity</td><td>Split into independent axes: a<sub>x</sub>=0 and a<sub>y</sub>=−g. The horizontal and vertical motions share the same time.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>The disguises AP tests use</h3>
+        <p>Any one of those physical problem families can appear in several different forms:</p>
+        <ul>
+          <li><strong>Numerical calculation:</strong> Find a specific time, velocity, or displacement.</li>
+          <li><strong>Symbolic derivation:</strong> Produce an expression without substituting numbers.</li>
+          <li><strong>Graph translation:</strong> Convert among x(t), v(t), a(t), a motion diagram, and a written description.</li>
+          <li><strong>Comparison/scaling:</strong> Predict what happens if speed, acceleration, height, or time is doubled.</li>
+          <li><strong>Experimental/data problem:</strong> Determine motion from a table, video, graph, or proposed experiment.</li>
+          <li><strong>Claim and justification:</strong> Decide which prediction is correct and explain using signs, slopes, areas, or an equation.</li>
+        </ul>
+        <p>That last layer matters because the current AP framework expressly emphasizes translating among equations, graphs, diagrams, tables, and verbal descriptions—not merely selecting a kinematic equation. Unit 1 also explicitly includes relative motion and two-dimensional motion. <a href="https://apcentral.collegeboard.org/media/pdf/ap-physics-1-course-and-exam-description.pdf" target="_blank" rel="noopener">Current College Board AP Physics 1 description</a></p>
+
+        <h3>A universal recognition routine</h3>
+        <p>Before using an equation, she should write:</p>
+        <ol>
+          <li><strong>What object or objects are moving?</strong></li>
+          <li><strong>Is this one stage or multiple stages?</strong></li>
+          <li><strong>What event defines the requested moment?</strong><br />Examples: v=0, x<sub>A</sub>=x<sub>B</sub>, x<sub>f</sub>=x<sub>i</sub>, or the object reaches a boundary.</li>
+          <li><strong>Is acceleration constant during this stage?</strong></li>
+          <li><strong>Which variable is missing from the problem?</strong><br />Select the equation that does not contain that variable.</li>
+          <li><strong>Do the signs and units make physical sense?</strong></li>
+        </ol>
+      </div>
+    </section>
+  </dialog>
+
+  <script src="vendor/d3.v7.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var guideDialog = document.getElementById("family-guide-dialog");
+      var guideOpen = document.getElementById("family-guide-open");
+      var guideClose = document.getElementById("family-guide-close");
+
+      guideOpen.addEventListener("click", function () {
+        guideDialog.showModal();
+      });
+      guideClose.addEventListener("click", function () {
+        guideDialog.close();
+      });
+      guideDialog.addEventListener("click", function (event) {
+        if (event.target === guideDialog) guideDialog.close();
+      });
+      guideDialog.addEventListener("close", function () {
+        guideOpen.focus();
+      });
+
+      var d3lib = window.d3;
+      if (!d3lib) return;
+
+      var elements = {
+        v0: document.getElementById("initial-speed"),
+        delay: document.getElementById("reaction-time"),
+        braking: document.getElementById("braking-magnitude"),
+        timeline: document.getElementById("timeline"),
+        play: document.getElementById("timeline-play"),
+        reset: document.getElementById("timeline-reset"),
+        positionGraph: document.getElementById("position-graph"),
+        velocityGraph: document.getElementById("velocity-graph"),
+        accelerationGraph: document.getElementById("acceleration-graph"),
+        velocityDistanceGraph: document.getElementById("velocity-distance-graph"),
+        geometryGraph: document.getElementById("geometry-velocity-graph")
+      };
+
+      var geometryDialog = document.getElementById("geometry-dialog");
+      var geometryOpen = document.getElementById("geometry-open");
+      var geometryClose = document.getElementById("geometry-close");
+
+      var state = {
+        time: 0,
+        playing: false,
+        lastFrame: null,
+        pinnedSpanLabels: { time: false, distance: false, verticalDistance: false }
+      };
+      var animationId = null;
+
+      geometryOpen.addEventListener("click", function () {
+        stopAnimation();
+        geometryDialog.show();
+        updateGeometryText(values());
+        requestAnimationFrame(function () {
+          drawGeometricDerivation(elements.geometryGraph, values());
+        });
+      });
+      geometryClose.addEventListener("click", function () {
+        geometryDialog.close();
+      });
+      geometryDialog.addEventListener("click", function (event) {
+        if (event.target === geometryDialog) geometryDialog.close();
+      });
+      geometryDialog.addEventListener("close", function () {
+        geometryOpen.focus();
+      });
+
+      /* These domains describe the full selectable parameter space. They are
+         intentionally computed once so moving a slider changes the curves,
+         never the horizontal or vertical graph scales. */
+      var fixedDomains = {
+        time: [0, 7],
+        x: [0, 120],
+        v: [0, 30],
+        a: [-12, 2]
+      };
+
+      function values() {
+        var v0 = Number(elements.v0.value);
+        var delay = Number(elements.delay.value);
+        var braking = Number(elements.braking.value);
+        var brakingTime = v0 / braking;
+        var stopTime = delay + brakingTime;
+        var reactionDistance = v0 * delay;
+        var brakingDistance = v0 * v0 / (2 * braking);
+        var stopDistance = reactionDistance + brakingDistance;
+        return {
+          v0: v0,
+          delay: delay,
+          braking: braking,
+          brakingTime: brakingTime,
+          stopTime: stopTime,
+          reactionDistance: reactionDistance,
+          brakingDistance: brakingDistance,
+          stopDistance: stopDistance,
+          displayEnd: fixedDomains.time[1]
+        };
+      }
+
+      function motionAt(time, model) {
+        if (time <= model.delay) {
+          return { x: model.v0 * time, v: model.v0, a: 0, phase: "reaction" };
+        }
+        if (time < model.stopTime) {
+          var brakingElapsed = time - model.delay;
+          return {
+            x: model.reactionDistance + model.v0 * brakingElapsed - .5 * model.braking * brakingElapsed * brakingElapsed,
+            v: Math.max(0, model.v0 - model.braking * brakingElapsed),
+            a: -model.braking,
+            phase: "braking"
+          };
+        }
+        return { x: model.stopDistance, v: 0, a: 0, phase: "stopped" };
+      }
+
+      function fixed(value, digits) {
+        return Number(value).toFixed(digits).replace("-", "−");
+      }
+
+      function setAll(name, value) {
+        document.querySelectorAll('[data-value="' + name + '"]').forEach(function (node) {
+          node.textContent = value;
+        });
+      }
+
+      function setAllGeometry(name, value) {
+        document.querySelectorAll('[data-geometry-value="' + name + '"]').forEach(function (node) {
+          node.textContent = value;
+        });
+      }
+
+      function updateGeometryText(model) {
+        var intercept = model.v0 + model.braking * model.delay;
+        setAllGeometry("v0", fixed(model.v0, 1));
+        setAllGeometry("delay", fixed(model.delay, 2));
+        setAllGeometry("braking", fixed(model.braking, 2));
+        setAllGeometry("braking-time", fixed(model.brakingTime, 2));
+        setAllGeometry("reaction-distance", fixed(model.reactionDistance, 1));
+        setAllGeometry("braking-distance", fixed(model.brakingDistance, 1));
+        setAllGeometry("total-distance", fixed(model.stopDistance, 1));
+        setAllGeometry("intercept", fixed(intercept, 2));
+      }
+
+      function updateText(model) {
+        document.getElementById("initial-speed-value").textContent = fixed(model.v0, 1) + " m/s";
+        document.getElementById("reaction-time-value").textContent = fixed(model.delay, 2) + " s";
+        document.getElementById("braking-magnitude-value").textContent = fixed(model.braking, 2) + " m/s²";
+        document.getElementById("timeline-value").textContent = "t = " + fixed(state.time, 2) + " s";
+
+        setAll("v0", fixed(model.v0, 1));
+        setAll("delay", fixed(model.delay, 2));
+        setAll("braking", fixed(model.braking, 2));
+        setAll("reaction-distance", fixed(model.reactionDistance, 1));
+        setAll("braking-distance", fixed(model.brakingDistance, 1));
+        setAll("total-time", fixed(model.stopTime, 2));
+        setAll("total-distance", fixed(model.stopDistance, 1));
+
+        var current = motionAt(state.time, model);
+        var insight = current.phase === "reaction"
+          ? "Reaction phase: velocity remains constant, so displacement grows linearly while acceleration stays at zero."
+          : current.phase === "braking"
+            ? "Braking phase: negative acceleration makes velocity decrease linearly while the displacement graph bends toward a horizontal slope."
+            : "Stopped: velocity and acceleration are zero, and displacement remains fixed at the total stopping distance.";
+        document.getElementById("insight").textContent = insight;
+        updateGeometryText(model);
+      }
+
+      function samples(model) {
+        return d3lib.range(161).map(function (index) {
+          var time = model.displayEnd * index / 160;
+          var motion = motionAt(time, model);
+          return { t: time, x: motion.x, v: motion.v, a: motion.a };
+        });
+      }
+
+      function distanceSamples(model) {
+        var reaction = d3lib.range(31).map(function (index) {
+          return { x: model.reactionDistance * index / 30, v: model.v0 };
+        });
+        var braking = d3lib.range(1, 82).map(function (index) {
+          var brakingDistance = model.brakingDistance * index / 81;
+          return {
+            x: model.reactionDistance + brakingDistance,
+            v: Math.sqrt(Math.max(0, model.v0 * model.v0 - 2 * model.braking * brakingDistance))
+          };
+        });
+        return reaction.concat(braking);
+      }
+
+      function clearSvg(svg, width, height) {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.setAttribute("viewBox", "0 0 " + width + " " + height);
+        svg.setAttribute("preserveAspectRatio", "none");
+      }
+
+      function graphWidth(svg) {
+        return Math.max(300, Math.round(svg.getBoundingClientRect().width || 900));
+      }
+
+      function graphHeight(svg) {
+        return Math.max(256, Math.round(svg.getBoundingClientRect().height || 300));
+      }
+
+      function appendSymbolicXAxisMarker(selection, axisX, axisY, baseSymbol, subscript, color) {
+        selection.append("line")
+          .attr("class", "symbolic-x-axis-tick")
+          .style("stroke", color)
+          .attr("x1", axisX).attr("x2", axisX)
+          .attr("y1", axisY - 5).attr("y2", axisY + 7);
+
+        var label = selection.append("text")
+          .attr("class", "symbolic-x-axis-label")
+          .style("fill", color)
+          .attr("x", axisX).attr("y", axisY + 19)
+          .attr("text-anchor", "middle").attr("dominant-baseline", "middle");
+        label.append("tspan").text(baseSymbol);
+        label.append("tspan")
+          .attr("class", "symbolic-x-axis-subscript")
+          .attr("baseline-shift", "sub")
+          .text(subscript);
+      }
+
+      function attachSpanLabelInteraction(group, labelLayer, key, accessibleLabel) {
+        var pinned = Boolean(state.pinnedSpanLabels[key]);
+        var suppressHoverUntilLeave = false;
+
+        group
+          .attr("class", "stopping-span-interactive")
+          .attr("tabindex", 0)
+          .attr("focusable", "true")
+          .attr("role", "button")
+          .attr("aria-label", accessibleLabel)
+          .attr("aria-pressed", pinned ? "true" : "false");
+        labelLayer.style("opacity", pinned ? 1 : 0);
+
+        function showLabels() {
+          if (!suppressHoverUntilLeave) labelLayer.style("opacity", 1);
+        }
+
+        function hideLabels() {
+          if (!state.pinnedSpanLabels[key]) labelLayer.style("opacity", 0);
+        }
+
+        function toggleLabels(event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          state.pinnedSpanLabels[key] = !state.pinnedSpanLabels[key];
+          var isPinned = state.pinnedSpanLabels[key];
+          group.attr("aria-pressed", isPinned ? "true" : "false");
+          suppressHoverUntilLeave = !isPinned;
+          labelLayer.style("opacity", isPinned ? 1 : 0);
+        }
+
+        group
+          .on("mouseenter", showLabels)
+          .on("mouseleave", function () {
+            suppressHoverUntilLeave = false;
+            hideLabels();
+          })
+          .on("focus", showLabels)
+          .on("blur", hideLabels)
+          .on("click", toggleLabels)
+          .on("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") toggleLabels(event);
+          });
+      }
+
+      function appendStoppingSpanBar(selection, startX, splitX, endX, axisY, delayLabel, brakingLabel, totalLabel, interactionKey) {
+        var barThickness = 10;
+        var phaseThickness = 6;
+        var totalThickness = 4;
+        var barTop = axisY - 28;
+        var group = selection.append("g");
+
+        group.append("rect")
+          .attr("class", "stopping-span-total")
+          .attr("x", startX).attr("y", barTop + phaseThickness)
+          .attr("width", Math.max(0, endX - startX)).attr("height", totalThickness)
+          .attr("fill", "var(--total-label)");
+        group.append("rect")
+          .attr("class", "stopping-span-delay")
+          .attr("x", startX).attr("y", barTop)
+          .attr("width", Math.max(0, splitX - startX)).attr("height", phaseThickness)
+          .attr("fill", "var(--reaction-label)");
+        group.append("rect")
+          .attr("class", "stopping-span-braking")
+          .attr("x", splitX).attr("y", barTop)
+          .attr("width", Math.max(0, endX - splitX)).attr("height", phaseThickness)
+          .attr("fill", "var(--braking-label)");
+
+        var labelLayer = group.append("g").attr("class", "span-label-layer");
+        var labelY = barTop - 6;
+        var delayText = labelLayer.append("text")
+          .attr("class", "phase-span-label")
+          .style("fill", "var(--reaction-label)")
+          .attr("x", (startX + splitX) / 2).attr("y", labelY)
+          .attr("text-anchor", "middle")
+          .text(delayLabel);
+        var brakingText = labelLayer.append("text")
+          .attr("class", "phase-span-label")
+          .style("fill", "var(--braking-label)")
+          .attr("x", (splitX + endX) / 2).attr("y", labelY)
+          .attr("text-anchor", "middle")
+          .text(brakingLabel);
+
+        var delayWidth = delayText.node().getComputedTextLength() || delayLabel.length * 7;
+        var brakingWidth = brakingText.node().getComputedTextLength() || brakingLabel.length * 7;
+        var delayRight = (startX + splitX) / 2 + delayWidth / 2;
+        var brakingLeft = (splitX + endX) / 2 - brakingWidth / 2;
+        if (delayRight + 8 > brakingLeft) delayText.attr("y", labelY - 15);
+
+        labelLayer.append("text")
+          .attr("class", "phase-span-label total-span-label")
+          .style("fill", "var(--total-label)")
+          .attr("x", (startX + endX) / 2).attr("y", barTop + barThickness + 13)
+          .attr("text-anchor", "middle")
+          .text(totalLabel);
+
+        group.append("rect")
+          .attr("class", "stopping-span-hit")
+          .attr("x", startX).attr("y", barTop - 6)
+          .attr("width", Math.max(1, endX - startX)).attr("height", barThickness + 12);
+        attachSpanLabelInteraction(
+          group, labelLayer, interactionKey,
+          "Show " + delayLabel + ", " + brakingLabel + ", and " + totalLabel + " labels. Click to keep them visible."
+        );
+      }
+
+      function appendInitialVelocityMarker(selection, axisX, markerY) {
+        selection.append("line")
+          .attr("class", "symbolic-axis-tick")
+          .attr("x1", axisX - 7).attr("x2", axisX + 5)
+          .attr("y1", markerY).attr("y2", markerY);
+        var symbolicVelocity = selection.append("text")
+          .attr("class", "symbolic-axis-label")
+          .attr("x", axisX - 10).attr("y", markerY + 1)
+          .attr("text-anchor", "end").attr("dominant-baseline", "middle");
+        symbolicVelocity.append("tspan").text("v");
+        symbolicVelocity.append("tspan")
+          .attr("class", "symbolic-axis-subscript")
+          .attr("baseline-shift", "sub")
+          .text("0");
+      }
+
+      function appendBrakingAccelerationMarker(selection, axisX, markerY) {
+        selection.append("text")
+          .attr("class", "symbolic-acceleration-axis-label")
+          .attr("x", axisX - 10).attr("y", markerY + 1)
+          .attr("text-anchor", "end").attr("dominant-baseline", "middle")
+          .text("−|a|");
+      }
+
+      function appendSymbolicYAxisMarker(selection, axisX, markerY, baseSymbol, subscript, color, side) {
+        selection.append("line")
+          .attr("class", "symbolic-x-axis-tick")
+          .style("stroke", color)
+          .attr("x1", axisX - 7).attr("x2", axisX + 5)
+          .attr("y1", markerY).attr("y2", markerY);
+        var onRight = side === "right";
+        var label = selection.append("text")
+          .attr("class", "symbolic-x-axis-label")
+          .style("fill", color)
+          .attr("x", axisX + (onRight ? 18 : -10)).attr("y", markerY + 1)
+          .attr("text-anchor", onRight ? "start" : "end")
+          .attr("dominant-baseline", "middle");
+        label.append("tspan").text(baseSymbol);
+        label.append("tspan")
+          .attr("class", "symbolic-x-axis-subscript")
+          .attr("baseline-shift", "sub")
+          .text(subscript);
+      }
+
+      function appendVerticalStoppingDistanceBar(selection, axisX, zeroY, reactionY, totalY, reactionPointX, totalPointX) {
+        var barLeft = axisX + 5;
+        var group = selection.append("g");
+        group.append("rect")
+          .attr("class", "vertical-span-total")
+          .attr("x", barLeft).attr("y", totalY)
+          .attr("width", 4).attr("height", Math.max(0, zeroY - totalY))
+          .attr("fill", "var(--total-label)");
+        group.append("rect")
+          .attr("class", "vertical-span-delay")
+          .attr("x", barLeft + 4).attr("y", reactionY)
+          .attr("width", 6).attr("height", Math.max(0, zeroY - reactionY))
+          .attr("fill", "var(--reaction-label)");
+        group.append("rect")
+          .attr("class", "vertical-span-braking")
+          .attr("x", barLeft + 4).attr("y", totalY)
+          .attr("width", 6).attr("height", Math.max(0, reactionY - totalY))
+          .attr("fill", "var(--braking-label)");
+
+        group.append("line")
+          .attr("class", "distance-guide")
+          .style("stroke", "var(--reaction-label)")
+          .attr("x1", axisX).attr("x2", reactionPointX)
+          .attr("y1", reactionY).attr("y2", reactionY);
+        group.append("line")
+          .attr("class", "distance-guide")
+          .style("stroke", "var(--total-label)")
+          .attr("x1", axisX).attr("x2", totalPointX)
+          .attr("y1", totalY).attr("y2", totalY);
+
+        var labelLayer = group.append("g").attr("class", "span-label-layer");
+        labelLayer.append("text")
+          .attr("class", "distance-guide-label")
+          .style("fill", "var(--reaction-label)")
+          .attr("x", reactionPointX + 6).attr("y", reactionY - 7)
+          .attr("text-anchor", "start")
+          .text("delay distance");
+        labelLayer.append("text")
+          .attr("class", "distance-guide-label")
+          .style("fill", "var(--braking-label)")
+          .attr("x", barLeft + 13).attr("y", (reactionY + totalY) / 2)
+          .attr("text-anchor", "start").attr("dominant-baseline", "middle")
+          .text("braking distance");
+        labelLayer.append("text")
+          .attr("class", "distance-guide-label")
+          .style("fill", "var(--total-label)")
+          .attr("x", totalPointX - 6).attr("y", totalY - 7)
+          .attr("text-anchor", "end")
+          .text("total distance");
+
+        group.append("rect")
+          .attr("class", "stopping-span-hit")
+          .attr("x", barLeft - 5).attr("y", totalY)
+          .attr("width", 20).attr("height", Math.max(1, zeroY - totalY));
+        attachSpanLabelInteraction(
+          group, labelLayer, "verticalDistance",
+          "Show delay distance, braking distance, and total distance labels. Click to keep them visible."
+        );
+      }
+
+      function appendPhaseHeading(selection, centerX, topY, phaseName) {
+        var heading = selection.append("text")
+          .attr("class", "phase-label")
+          .attr("x", centerX).attr("y", topY)
+          .attr("text-anchor", "middle");
+        heading.append("tspan").attr("x", centerX).text(phaseName);
+        heading.append("tspan").attr("x", centerX).attr("dy", "1.05em").text("PHASE");
+      }
+
+      function appendTwoLineGeometryLabel(selection, centerX, centerY, firstLine, secondLine, color) {
+        var label = selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", color)
+          .attr("x", centerX).attr("y", centerY - 7)
+          .attr("text-anchor", "middle");
+        label.append("tspan").attr("x", centerX).text(firstLine);
+        label.append("tspan").attr("x", centerX).attr("dy", "1.2em").text(secondLine);
+      }
+
+      function drawGeometricDerivation(svg, model) {
+        var measuredWidth = Math.round(svg.getBoundingClientRect().width || 980);
+        var measuredHeight = Math.round(svg.getBoundingClientRect().height || 620);
+        var width = Math.max(340, measuredWidth);
+        var height = Math.max(430, measuredHeight);
+        var margin = { left: 72, right: 24, top: 34, bottom: 86 };
+        var plotWidth = width - margin.left - margin.right;
+        var plotHeight = height - margin.top - margin.bottom;
+        var intercept = model.v0 + model.braking * model.delay;
+        clearSvg(svg, width, height);
+
+        var selection = d3lib.select(svg);
+        var x = d3lib.scaleLinear().domain(fixedDomains.time).range([margin.left, width - margin.right]);
+        var y = d3lib.scaleLinear().domain([0, 45]).range([height - margin.bottom, margin.top]);
+        var axisY = y(0);
+
+        var defs = selection.append("defs");
+        defs.append("marker")
+          .attr("id", "geometry-dimension-arrow")
+          .attr("viewBox", "0 -5 10 10")
+          .attr("refX", 5).attr("refY", 0)
+          .attr("markerWidth", 7).attr("markerHeight", 7)
+          .attr("orient", "auto-start-reverse")
+          .append("path")
+          .attr("d", "M 0,-4 L 9,0 L 0,4 z")
+          .attr("fill", "var(--braking-label)");
+
+        selection.append("rect")
+          .attr("x", x(0)).attr("y", y(model.v0))
+          .attr("width", Math.max(0, x(model.delay) - x(0)))
+          .attr("height", Math.max(0, axisY - y(model.v0)))
+          .attr("fill", "var(--reaction-label)").attr("opacity", .42);
+        selection.append("path")
+          .attr("d", "M" + x(model.delay) + "," + axisY
+            + "L" + x(model.delay) + "," + y(model.v0)
+            + "L" + x(model.stopTime) + "," + axisY + "Z")
+          .attr("fill", "var(--braking-label)").attr("opacity", .34);
+
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(0," + axisY + ")")
+          .call(d3lib.axisBottom(x).ticks(7).tickSize(-plotHeight).tickFormat(""));
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).ticks(6).tickSize(-plotWidth).tickFormat(""));
+        selection.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(0," + axisY + ")")
+          .call(d3lib.axisBottom(x).ticks(7).tickFormat(function (tick) { return fixed(tick, 0); }));
+        selection.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).ticks(6).tickFormat(function (tick) { return fixed(tick, 0); }));
+
+        selection.append("path")
+          .attr("class", "projected-line")
+          .attr("d", "M" + x(0) + "," + y(intercept) + "L" + x(model.delay) + "," + y(model.v0));
+        selection.append("path")
+          .attr("class", "actual-velocity")
+          .attr("d", "M" + x(0) + "," + y(model.v0)
+            + "L" + x(model.delay) + "," + y(model.v0)
+            + "L" + x(model.stopTime) + "," + axisY);
+
+        selection.append("line")
+          .attr("x1", margin.left - 7).attr("x2", margin.left + 6)
+          .attr("y1", y(model.v0)).attr("y2", y(model.v0))
+          .attr("stroke", "var(--velocity)").attr("stroke-width", 2.4);
+        selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", "var(--velocity)")
+          .attr("x", margin.left - 11).attr("y", y(model.v0) + 4)
+          .attr("text-anchor", "end").text("v₀");
+
+        selection.append("circle")
+          .attr("cx", x(0)).attr("cy", y(intercept)).attr("r", 4.5)
+          .attr("fill", "var(--braking-label)");
+        selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", "var(--braking-label)")
+          .attr("x", x(0) + 9).attr("y", y(intercept) - 9)
+          .text("v(0) = v₀ + |a|tᵣ = " + fixed(intercept, 2) + " m/s");
+
+        appendTwoLineGeometryLabel(
+          selection,
+          (x(0) + x(model.delay)) / 2,
+          (y(model.v0) + axisY) / 2,
+          "delay rectangle",
+          "A = v₀tᵣ",
+          "var(--reaction-label)"
+        );
+        appendTwoLineGeometryLabel(
+          selection,
+          (x(model.delay) + x(model.delay) + x(model.stopTime)) / 3,
+          (axisY + y(model.v0) + axisY) / 3,
+          "braking triangle",
+          "A = ½(v₀/|a|)v₀",
+          "var(--braking-label)"
+        );
+
+        var equationX = width - margin.right - 8;
+        var equationLabel = selection.append("text")
+          .attr("class", "geometry-equation-label")
+          .attr("x", equationX).attr("y", margin.top + 17)
+          .attr("text-anchor", "end");
+        equationLabel.append("tspan")
+          .attr("x", equationX)
+          .text("v(t) = −|a|t + (v₀ + |a|tᵣ)");
+        equationLabel.append("tspan")
+          .attr("x", equationX).attr("dy", "1.35em")
+          .text("v(t) = −" + fixed(model.braking, 2) + "t + " + fixed(intercept, 2));
+
+        var baseY = axisY + 34;
+        selection.append("line")
+          .attr("class", "dimension-witness")
+          .attr("x1", x(model.delay)).attr("x2", x(model.delay))
+          .attr("y1", axisY + 3).attr("y2", baseY + 6);
+        selection.append("line")
+          .attr("class", "dimension-witness")
+          .attr("x1", x(model.stopTime)).attr("x2", x(model.stopTime))
+          .attr("y1", axisY + 3).attr("y2", baseY + 6);
+        selection.append("line")
+          .attr("class", "dimension-line")
+          .attr("x1", x(model.delay) + 5).attr("x2", x(model.stopTime) - 5)
+          .attr("y1", baseY).attr("y2", baseY)
+          .attr("marker-start", "url(#geometry-dimension-arrow)")
+          .attr("marker-end", "url(#geometry-dimension-arrow)");
+        selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", "var(--braking-label)")
+          .attr("x", (x(model.delay) + x(model.stopTime)) / 2).attr("y", baseY + 22)
+          .attr("text-anchor", "middle")
+          .text("base = braking time = v₀/|a| = " + fixed(model.brakingTime, 2) + " s");
+
+        selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", "var(--reaction-label)")
+          .attr("x", x(model.delay)).attr("y", axisY + 19)
+          .attr("text-anchor", "middle").text("tᵣ");
+        selection.append("text")
+          .attr("class", "geometry-label")
+          .style("fill", "var(--braking-label)")
+          .attr("x", x(model.stopTime)).attr("y", axisY + 19)
+          .attr("text-anchor", "middle").text("tₜₒₜₐₗ");
+        selection.append("text")
+          .attr("x", margin.left - 52).attr("y", margin.top - 10)
+          .attr("text-anchor", "start").text("v (m/s)");
+        selection.append("text")
+          .attr("x", width - margin.right).attr("y", height - 9)
+          .attr("text-anchor", "end").text("t (s)");
+      }
+
+      function drawGraph(svg, model, data, options) {
+        var width = graphWidth(svg);
+        var height = graphHeight(svg);
+        var margin = { left: 44, right: 16, top: 22, bottom: 34 };
+        var plotWidth = width - margin.left - margin.right;
+        var plotHeight = height - margin.top - margin.bottom;
+        clearSvg(svg, width, height);
+
+        var selection = d3lib.select(svg);
+        var x = d3lib.scaleLinear().domain(fixedDomains.time).range([margin.left, width - margin.right]);
+        var y = d3lib.scaleLinear().domain(fixedDomains[options.key]).range([height - margin.bottom, margin.top]);
+        var xTicks = x.ticks(6);
+        var yTicks = y.ticks(5);
+        var hasReactionTimeMarker = options.key === "x" || options.key === "v";
+        var hasTotalTimeMarker = options.key === "v";
+        var labeledXTicks = xTicks.filter(function (tick) {
+          var clearsReactionMarker = !hasReactionTimeMarker || Math.abs(tick - model.delay) > .18;
+          var clearsTotalMarker = !hasTotalTimeMarker || Math.abs(tick - model.stopTime) > .18;
+          return clearsReactionMarker && clearsTotalMarker;
+        });
+        var labeledYTicks = yTicks;
+        if (options.key === "v") {
+          labeledYTicks = yTicks.filter(function (tick) { return Math.abs(tick - model.v0) > 1.5; });
+        } else if (options.key === "a") {
+          labeledYTicks = yTicks.filter(function (tick) { return Math.abs(tick + model.braking) > 1; });
+        } else if (options.key === "x") {
+          labeledYTicks = yTicks.filter(function (tick) {
+            return Math.abs(tick - model.reactionDistance) > 4
+              && Math.abs(tick - model.stopDistance) > 4;
+          });
+        }
+
+        selection.append("rect")
+          .attr("x", x(0)).attr("y", margin.top)
+          .attr("width", Math.max(0, x(model.delay) - x(0))).attr("height", plotHeight)
+          .attr("fill", "var(--reaction)");
+        selection.append("rect")
+          .attr("x", x(model.delay)).attr("y", margin.top)
+          .attr("width", Math.max(0, x(model.stopTime) - x(model.delay))).attr("height", plotHeight)
+          .attr("fill", "var(--braking)");
+
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+          .call(d3lib.axisBottom(x).tickValues(xTicks).tickSize(-plotHeight).tickFormat(""));
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).tickValues(yTicks).tickSize(-plotWidth).tickFormat(""));
+
+        var zeroY = y(0);
+        selection.append("g")
+          .attr("class", "axis axis-x")
+          .attr("transform", "translate(0," + zeroY + ")")
+          .call(d3lib.axisBottom(x).tickValues(labeledXTicks).tickFormat(function (tick) { return fixed(tick, tick < 10 ? 1 : 0); }));
+        selection.append("g")
+          .attr("class", "axis axis-y")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).tickValues(labeledYTicks).tickFormat(function (tick) { return fixed(tick, Math.abs(tick) < 10 ? 1 : 0); }));
+
+        var clipId = options.key + "-clip";
+        selection.append("defs").append("clipPath").attr("id", clipId)
+          .append("rect").attr("x", margin.left).attr("y", margin.top).attr("width", plotWidth).attr("height", plotHeight);
+
+        selection.append("line")
+          .attr("class", "stop-line")
+          .attr("x1", x(model.stopTime)).attr("x2", x(model.stopTime))
+          .attr("y1", margin.top).attr("y2", height - margin.bottom);
+        if (hasTotalTimeMarker) {
+          appendStoppingSpanBar(
+            selection, x(0), x(model.delay), x(model.stopTime), y(0),
+            "delay time", "braking time", "total time", "time"
+          );
+        }
+
+        var line = d3lib.line()
+          .x(function (point) { return x(point.t); })
+          .y(function (point) { return y(point[options.key]); });
+        if (options.step) line.curve(d3lib.curveStepAfter);
+
+        var curveData = options.step
+          ? [
+              { t: 0, a: 0 },
+              { t: model.delay, a: 0 },
+              { t: model.delay, a: -model.braking },
+              { t: model.stopTime, a: -model.braking },
+              { t: model.stopTime, a: 0 },
+              { t: model.displayEnd, a: 0 }
+            ]
+          : data;
+
+        selection.append("path")
+          .datum(curveData)
+          .attr("clip-path", "url(#" + clipId + ")")
+          .attr("class", "curve")
+          .attr("stroke", options.color)
+          .attr("d", line);
+
+        if (options.key === "x") {
+          appendVerticalStoppingDistanceBar(
+            selection, margin.left, y(0), y(model.reactionDistance), y(model.stopDistance),
+            x(model.delay), x(model.stopTime)
+          );
+        }
+
+        selection.append("line")
+          .attr("class", "cursor")
+          .attr("x1", x(state.time)).attr("x2", x(state.time))
+          .attr("y1", margin.top).attr("y2", height - margin.bottom);
+
+        var current = motionAt(state.time, model);
+        selection.append("circle")
+          .attr("class", "point")
+          .attr("cx", x(state.time))
+          .attr("cy", y(current[options.key]))
+          .attr("r", 5)
+          .attr("fill", options.color);
+
+        if (options.key === "v") {
+          appendInitialVelocityMarker(selection, margin.left, y(model.v0));
+        }
+        if (options.key === "a") {
+          appendBrakingAccelerationMarker(selection, margin.left, y(-model.braking));
+        }
+        if (options.key === "x") {
+          var distanceLabelsAreClose = Math.abs(y(model.reactionDistance) - y(model.stopDistance)) < 18;
+          appendSymbolicYAxisMarker(
+            selection, margin.left, y(model.reactionDistance), "x", "r", "var(--reaction-label)",
+            distanceLabelsAreClose ? "right" : "left"
+          );
+          appendSymbolicYAxisMarker(
+            selection, margin.left, y(model.stopDistance), "x", "total", "var(--braking-label)", "left"
+          );
+        }
+        if (hasReactionTimeMarker) {
+          appendSymbolicXAxisMarker(selection, x(model.delay), y(0), "t", "r", "var(--reaction-label)");
+        }
+        if (hasTotalTimeMarker) {
+          appendSymbolicXAxisMarker(selection, x(model.stopTime), y(0), "t", "total", "var(--braking-label)");
+        }
+
+        appendPhaseHeading(selection, (x(0) + x(model.delay)) / 2, margin.top + 10, "REACTION");
+        appendPhaseHeading(selection, (x(model.delay) + x(model.stopTime)) / 2, margin.top + 10, "BRAKING");
+        selection.append("text")
+          .attr("x", width - margin.right).attr("y", height - 5)
+          .attr("text-anchor", "end").text("t (s)");
+      }
+
+      function drawVelocityDistanceGraph(svg, model, data) {
+        var width = graphWidth(svg);
+        var height = graphHeight(svg);
+        var margin = { left: 44, right: 16, top: 22, bottom: 34 };
+        var plotWidth = width - margin.left - margin.right;
+        var plotHeight = height - margin.top - margin.bottom;
+        clearSvg(svg, width, height);
+
+        var selection = d3lib.select(svg);
+        var x = d3lib.scaleLinear().domain(fixedDomains.x).range([margin.left, width - margin.right]);
+        var y = d3lib.scaleLinear().domain(fixedDomains.v).range([height - margin.bottom, margin.top]);
+        var xTicks = x.ticks(6);
+        var yTicks = y.ticks(5);
+        var labeledYTicks = yTicks.filter(function (tick) { return Math.abs(tick - model.v0) > 1.5; });
+        var labeledXTicks = xTicks.filter(function (tick) {
+          return Math.abs(tick - model.reactionDistance) > 4
+            && Math.abs(tick - model.stopDistance) > 4;
+        });
+
+        selection.append("rect")
+          .attr("x", x(0)).attr("y", margin.top)
+          .attr("width", Math.max(0, x(model.reactionDistance) - x(0))).attr("height", plotHeight)
+          .attr("fill", "var(--reaction)");
+        selection.append("rect")
+          .attr("x", x(model.reactionDistance)).attr("y", margin.top)
+          .attr("width", Math.max(0, x(model.stopDistance) - x(model.reactionDistance))).attr("height", plotHeight)
+          .attr("fill", "var(--braking)");
+
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+          .call(d3lib.axisBottom(x).tickValues(xTicks).tickSize(-plotHeight).tickFormat(""));
+        selection.append("g")
+          .attr("class", "grid")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).tickValues(yTicks).tickSize(-plotWidth).tickFormat(""));
+        selection.append("g")
+          .attr("class", "axis axis-x")
+          .attr("transform", "translate(0," + y(0) + ")")
+          .call(d3lib.axisBottom(x).tickValues(labeledXTicks).tickFormat(function (tick) { return fixed(tick, 0); }));
+        selection.append("g")
+          .attr("class", "axis axis-y")
+          .attr("transform", "translate(" + margin.left + ",0)")
+          .call(d3lib.axisLeft(y).tickValues(labeledYTicks).tickFormat(function (tick) { return fixed(tick, 0); }));
+
+        selection.append("defs").append("clipPath").attr("id", "velocity-distance-clip")
+          .append("rect").attr("x", margin.left).attr("y", margin.top).attr("width", plotWidth).attr("height", plotHeight);
+        selection.append("line")
+          .attr("class", "stop-line")
+          .attr("x1", x(model.stopDistance)).attr("x2", x(model.stopDistance))
+          .attr("y1", margin.top).attr("y2", height - margin.bottom);
+        appendStoppingSpanBar(
+          selection, x(0), x(model.reactionDistance), x(model.stopDistance), y(0),
+          "delay distance", "braking distance", "total distance", "distance"
+        );
+
+        var line = d3lib.line()
+          .x(function (point) { return x(point.x); })
+          .y(function (point) { return y(point.v); });
+        selection.append("path")
+          .datum(data)
+          .attr("clip-path", "url(#velocity-distance-clip)")
+          .attr("class", "curve")
+          .attr("stroke", "var(--velocity)")
+          .attr("d", line);
+
+        var current = motionAt(state.time, model);
+        selection.append("line")
+          .attr("class", "cursor")
+          .attr("x1", x(current.x)).attr("x2", x(current.x))
+          .attr("y1", margin.top).attr("y2", height - margin.bottom);
+        selection.append("circle")
+          .attr("class", "point")
+          .attr("cx", x(current.x)).attr("cy", y(current.v))
+          .attr("r", 5).attr("fill", "var(--velocity)");
+
+        appendInitialVelocityMarker(selection, margin.left, y(model.v0));
+
+        appendSymbolicXAxisMarker(
+          selection, x(model.reactionDistance), y(0), "x", "r", "var(--reaction-label)"
+        );
+        appendSymbolicXAxisMarker(
+          selection, x(model.stopDistance), y(0), "x", "total", "var(--braking-label)"
+        );
+
+        appendPhaseHeading(selection, (x(0) + x(model.reactionDistance)) / 2, margin.top + 10, "REACTION");
+        appendPhaseHeading(selection, (x(model.reactionDistance) + x(model.stopDistance)) / 2, margin.top + 10, "BRAKING");
+
+        selection.append("text")
+          .attr("x", width - margin.right).attr("y", height - 5)
+          .attr("text-anchor", "end").text("x (m)");
+      }
+
+      function render() {
+        var model = values();
+        state.time = Math.max(0, Math.min(state.time, model.displayEnd));
+        elements.timeline.max = model.displayEnd.toFixed(3);
+        elements.timeline.value = state.time.toFixed(3);
+        updateText(model);
+        var data = samples(model);
+        drawGraph(elements.positionGraph, model, data, {
+          key: "x", color: "var(--primary)"
+        });
+        drawGraph(elements.velocityGraph, model, data, {
+          key: "v", color: "var(--velocity)"
+        });
+        drawGraph(elements.accelerationGraph, model, data, {
+          key: "a", color: "var(--acceleration)", step: true
+        });
+        drawVelocityDistanceGraph(elements.velocityDistanceGraph, model, distanceSamples(model));
+        if (geometryDialog.open) drawGeometricDerivation(elements.geometryGraph, model);
+      }
+
+      function stopAnimation() {
+        state.playing = false;
+        state.lastFrame = null;
+        elements.play.textContent = "Play";
+        if (animationId !== null) cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+
+      function animationStep(timestamp) {
+        if (!state.playing) return;
+        var model = values();
+        if (state.lastFrame === null) state.lastFrame = timestamp;
+        state.time += Math.min(.08, (timestamp - state.lastFrame) / 1000);
+        state.lastFrame = timestamp;
+        if (state.time >= model.displayEnd) {
+          state.time = model.displayEnd;
+          render();
+          stopAnimation();
+          return;
+        }
+        render();
+        animationId = requestAnimationFrame(animationStep);
+      }
+
+      [elements.v0, elements.delay, elements.braking].forEach(function (input) {
+        input.addEventListener("input", function () {
+          stopAnimation();
+          render();
+        });
+      });
+
+      elements.timeline.addEventListener("input", function () {
+        stopAnimation();
+        state.time = Number(elements.timeline.value);
+        render();
+      });
+
+      elements.play.addEventListener("click", function () {
+        if (state.playing) {
+          stopAnimation();
+          return;
+        }
+        var model = values();
+        if (state.time >= model.displayEnd - .01) state.time = 0;
+        state.playing = true;
+        state.lastFrame = null;
+        elements.play.textContent = "Pause";
+        animationId = requestAnimationFrame(animationStep);
+      });
+
+      elements.reset.addEventListener("click", function () {
+        stopAnimation();
+        state.time = 0;
+        render();
+      });
+
+      var resizeTimer = null;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(render, 100);
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

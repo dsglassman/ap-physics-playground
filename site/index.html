@@ -80,6 +80,7 @@
       color: var(--foreground);
       cursor: pointer;
       font-weight: 700;
+      text-decoration: none;
       box-shadow: 0 3px 9px rgba(25, 39, 67, .08);
     }
     .btn:hover { filter: brightness(.98); transform: translateY(-1px); }
@@ -164,6 +165,7 @@
     </button>
   </div>
   <p id="kin-world-status" class="kin-world-status" aria-live="polite">Select a world to begin.</p>
+  <a class="btn kin-problem-families-link" href="problem-families.html" target="_top">Explore problem families</a>
 </section>
 
 <div id="kinematics-paired" data-kin-theme="schematic" hidden>
@@ -191,6 +193,7 @@
     <div class="viz-row kin-mode-switch" role="group" aria-label="Choose the motion lesson">
       <button id="kp-mode-time" type="button" class="btn btn-primary" aria-pressed="true">Motion vs time</button>
       <button id="kp-mode-position" type="button" class="btn" aria-pressed="false">Motion vs position</button>
+      <a class="btn" href="problem-families.html" target="_top">Problem families</a>
     </div>
   </div>
 
@@ -233,16 +236,15 @@
     </div>
 
     <div class="card kin-control-strip kin-time-control-strip">
-      <div class="kin-slider">
-      <div class="kin-slider-heading kin-time-slider-heading">
-        <label class="form-label" for="kp-time">Time</label>
-        <svg id="kp-time-vectors" class="kin-time-vectors" role="img" aria-label="Centered velocity and acceleration vectors"></svg>
-        <div class="viz-row kin-value-reset"><output id="kp-time-value">0.0 s</output><button type="button" class="btn" data-zero="time" aria-label="Reset time to zero" title="Reset time"><span class="kin-reset-icon" aria-hidden="true">↺</span><span class="kin-reset-label" aria-hidden="true">reset</span></button></div>
-      </div>
-      <div class="kin-time-progress-row">
+      <div class="kin-time-control-grid">
+        <button type="button" class="btn kin-time-reset" data-zero="time" aria-label="Reset time to zero" title="Reset time"><span class="kin-reset-icon" aria-hidden="true">↺</span><span class="kin-reset-label" aria-hidden="true">reset</span></button>
+        <div class="kin-slider-heading kin-time-slider-heading">
+          <label class="form-label" for="kp-time">Time</label>
+          <svg id="kp-time-vectors" class="kin-time-vectors" role="img" aria-label="Centered velocity and acceleration vectors"></svg>
+          <div class="viz-row kin-time-value"><output id="kp-time-value">0.0 s</output></div>
+        </div>
         <button id="kp-play" type="button" class="btn btn-primary kin-play-control">Play</button>
         <input id="kp-time" class="form-range" type="range" min="0" max="8" step="0.05" value="0" />
-      </div>
       </div>
     </div>
 
@@ -1066,24 +1068,30 @@
   }
 
   #kinematics-paired .kin-time-slider-heading > .form-label,
-  #kinematics-paired .kin-time-slider-heading > .kin-value-reset {
+  #kinematics-paired .kin-time-slider-heading > .kin-time-value {
     position: relative;
     z-index: 1;
   }
 
-  #kinematics-paired .kin-time-progress-row {
+  #kinematics-paired .kin-time-control-grid {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: .75rem;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    grid-template-rows: 42px auto;
+    column-gap: .75rem;
+    row-gap: .4rem;
     align-items: center;
   }
 
+  #kinematics-paired .kin-time-reset {
+    justify-self: center;
+  }
+
   #kinematics-paired .kin-play-control {
-    min-width: 6.5rem;
+    width: 6.5rem;
     white-space: nowrap;
   }
 
-  #kinematics-paired .kin-time-progress-row .form-range {
+  #kinematics-paired .kin-time-control-grid .form-range {
     min-width: 0;
   }
 
@@ -2564,7 +2572,7 @@
         .call(d3lib.axisLeft(yScale).tickValues(options.yTicks).tickSize(-pw).tickFormat(""));
       selection.append("g")
         .attr("class", "d3-axis d3-axis-x")
-        .attr("transform", "translate(0," + (h - m.bottom) + ")")
+        .attr("transform", "translate(0," + (options.xAxisAtZero ? yScale(0) : (h - m.bottom)) + ")")
         .call(d3lib.axisBottom(xScale).tickValues(options.xTicks).tickFormat(tickLabel));
       selection.append("g")
         .attr("class", "d3-axis d3-axis-y")
@@ -2591,6 +2599,7 @@
         yMax: yMax,
         xTicks: [0, 2, 4, 6, 8],
         yTicks: yTicks,
+        xAxisAtZero: true,
         title: title,
         xLabel: "t (s)",
         yLabel: yLabel

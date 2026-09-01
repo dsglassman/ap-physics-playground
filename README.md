@@ -1,10 +1,11 @@
 # AP Physics Playground
 
-An interactive collection of AP Physics 1 learning modules, beginning with the Kinematics Motion Trainer.
+An interactive collection of AP Physics 1 learning modules, beginning with kinematics.
 
-## Current module
+## Current kinematics modules
 
 - **Kinematics Motion Trainer** — connect position, velocity, and acceleration through synchronized animation, graphs, tables, and themed environments.
+- **Kinematics Problem Families** — recognize common AP Physics 1 problem structures and explore a stopping-distance problem through synchronized graphs, equations, and a geometric derivation.
 
 ## Open the site
 
