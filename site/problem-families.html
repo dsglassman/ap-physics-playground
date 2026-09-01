@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <meta name="description" content="An interactive AP Physics 1 stopping-distance problem family with synchronized graphs, equations, and geometric derivation." />
+  <meta name="description" content="An interactive AP Physics 1 stopping-distance problem family with synchronized animation, graphs, equations, and geometric derivation." />
   <link rel="icon" href="favicon.svg" />
   <title>Kinematics Problem Families</title>
   <style>
@@ -77,7 +77,6 @@
     }
     .brand strong { font-size: clamp(1.1rem, 2vw, 1.45rem); }
     .topbar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem; }
-
     .btn {
       display: inline-flex;
       min-height: 40px;
@@ -138,6 +137,197 @@
       font-weight: 850;
       letter-spacing: .04em;
       text-transform: uppercase;
+    }
+
+    .cinematic {
+      position: relative;
+      overflow: hidden;
+      background: #101827;
+      color: #fff;
+      box-shadow: 0 18px 44px rgba(16, 24, 39, .18);
+    }
+    .cinematic-head {
+      position: absolute;
+      z-index: 8;
+      top: .72rem;
+      left: .78rem;
+      right: .78rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .8rem;
+      pointer-events: none;
+    }
+    .cinematic-title {
+      display: grid;
+      gap: .1rem;
+      padding: .46rem .62rem;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 10px;
+      background: rgba(9, 16, 29, .58);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+      backdrop-filter: blur(8px);
+    }
+    .cinematic-title strong { font-size: .9rem; letter-spacing: .01em; }
+    .cinematic-title span { color: rgba(255, 255, 255, .76); font-size: .68rem; }
+    .cinematic-toggle {
+      min-height: 36px;
+      padding: .42rem .68rem;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 9px;
+      background: rgba(9, 16, 29, .64);
+      color: #fff;
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 800;
+      pointer-events: auto;
+      backdrop-filter: blur(8px);
+    }
+    .cinematic-stage {
+      position: relative;
+      min-height: 238px;
+      aspect-ratio: 10 / 3;
+      isolation: isolate;
+      background: #172238;
+    }
+    .cinematic-world {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      opacity: var(--scene-opacity, 1);
+      will-change: opacity;
+    }
+    .cinematic-road {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.01);
+    }
+    .cinematic-tree {
+      position: absolute;
+      z-index: 3;
+      right: -1.5%;
+      bottom: 17%;
+      width: clamp(180px, 27%, 430px);
+      max-height: 92%;
+      object-fit: contain;
+      object-position: bottom right;
+      filter: drop-shadow(0 12px 12px rgba(11, 18, 30, .24));
+      transform: rotate(0deg);
+      transform-origin: 73% 95%;
+      will-change: transform;
+    }
+    .cinematic-skid {
+      position: absolute;
+      z-index: 2;
+      left: 31%;
+      bottom: 19.7%;
+      width: 0;
+      height: 10px;
+      opacity: 0;
+      overflow: hidden;
+      will-change: width, opacity;
+    }
+    .cinematic-skid::before,
+    .cinematic-skid::after {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(18, 22, 28, .72) 7%, rgba(18, 22, 28, .8));
+      content: "";
+      filter: blur(.25px);
+    }
+    .cinematic-skid::before { top: 1px; }
+    .cinematic-skid::after { bottom: 1px; }
+    .cinematic-car {
+      position: absolute;
+      z-index: 5;
+      left: -25%;
+      bottom: 18%;
+      width: clamp(150px, 23%, 360px);
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      transform-origin: 52% 82%;
+      will-change: left, transform, filter;
+    }
+    .cinematic-car img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 8px rgba(8, 13, 22, .34));
+    }
+    .cinematic-brake-glow {
+      position: absolute;
+      left: 6.5%;
+      top: 43%;
+      width: 11%;
+      aspect-ratio: 1.8;
+      border-radius: 50%;
+      opacity: 0;
+      background: radial-gradient(ellipse, rgba(255, 34, 45, .98), rgba(255, 34, 45, .3) 46%, transparent 72%);
+      filter: blur(1.5px);
+      transition: opacity .12s linear;
+    }
+    .cinematic-car.is-braking .cinematic-brake-glow { opacity: 1; }
+    .cinematic-smoke {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      bottom: 19%;
+      width: 12%;
+      height: 15%;
+      border-radius: 50%;
+      opacity: 0;
+      background: radial-gradient(ellipse at center, rgba(235, 239, 242, .68), rgba(218, 225, 229, .24) 45%, transparent 72%);
+      filter: blur(7px);
+      will-change: left, opacity, transform;
+    }
+    .cinematic-vignette {
+      position: absolute;
+      z-index: 6;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5, 10, 19, .2), transparent 28%, transparent 65%, rgba(5, 10, 19, .58)),
+        radial-gradient(ellipse at center, transparent 48%, rgba(5, 10, 19, .34) 100%);
+      pointer-events: none;
+    }
+    .cinematic-phase {
+      position: absolute;
+      z-index: 7;
+      left: .85rem;
+      bottom: 1rem;
+      padding: .36rem .56rem;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 8px;
+      background: rgba(9, 16, 29, .6);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(7px);
+    }
+    .cinematic-progress {
+      position: absolute;
+      z-index: 7;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, .24);
+    }
+    .cinematic-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--reaction-label), var(--braking-label));
+      transform: scaleX(0);
+      transform-origin: left;
+      will-change: transform;
     }
 
     .workspace {
@@ -521,6 +711,10 @@
 
     @media (prefers-reduced-motion: reduce) {
       .btn { transition: none; }
+      .cinematic-car,
+      .cinematic-tree,
+      .cinematic-smoke,
+      .cinematic-progress span { will-change: auto; }
     }
   </style>
 </head>
@@ -546,6 +740,31 @@
         </div>
         <span class="schematic-badge">Schematic world · lightweight</span>
       </header>
+
+      <section id="stopping-cinematic" class="card cinematic" aria-labelledby="stopping-cinematic-title">
+        <div class="cinematic-head">
+          <div class="cinematic-title">
+            <strong id="stopping-cinematic-title">The stopping sequence in motion</strong>
+            <span>The sliders set the reaction and braking timing</span>
+          </div>
+          <button id="cinematic-toggle" class="cinematic-toggle" type="button" aria-pressed="false">Pause animation</button>
+        </div>
+        <div class="cinematic-stage" role="img" aria-label="A continuous animation of a car driving along a rural road as a tree falls ahead. The car continues during the reaction delay, then visibly decelerates and skids to a stop just before the trunk.">
+          <div id="cinematic-world" class="cinematic-world">
+            <img class="cinematic-road" src="themes/stopping-road-background.webp" alt="" aria-hidden="true" />
+            <div id="cinematic-skid" class="cinematic-skid" aria-hidden="true"></div>
+            <img id="cinematic-tree" class="cinematic-tree" src="themes/stopping-tree-cutout.webp" alt="" aria-hidden="true" />
+            <div id="cinematic-smoke" class="cinematic-smoke" aria-hidden="true"></div>
+            <div id="cinematic-car" class="cinematic-car" aria-hidden="true">
+              <img src="themes/stopping-car-cutout.webp" alt="" />
+              <span class="cinematic-brake-glow"></span>
+            </div>
+          </div>
+          <div class="cinematic-vignette" aria-hidden="true"></div>
+          <div id="cinematic-phase" class="cinematic-phase" aria-hidden="true">Cruising</div>
+          <div class="cinematic-progress" aria-hidden="true"><span id="cinematic-progress-fill"></span></div>
+        </div>
+      </section>
 
       <div class="workspace">
         <section class="card controls" aria-labelledby="controls-title">
@@ -815,7 +1034,16 @@
         velocityGraph: document.getElementById("velocity-graph"),
         accelerationGraph: document.getElementById("acceleration-graph"),
         velocityDistanceGraph: document.getElementById("velocity-distance-graph"),
-        geometryGraph: document.getElementById("geometry-velocity-graph")
+        geometryGraph: document.getElementById("geometry-velocity-graph"),
+        cinematic: document.getElementById("stopping-cinematic"),
+        cinematicToggle: document.getElementById("cinematic-toggle"),
+        cinematicWorld: document.getElementById("cinematic-world"),
+        cinematicCar: document.getElementById("cinematic-car"),
+        cinematicTree: document.getElementById("cinematic-tree"),
+        cinematicSkid: document.getElementById("cinematic-skid"),
+        cinematicSmoke: document.getElementById("cinematic-smoke"),
+        cinematicPhase: document.getElementById("cinematic-phase"),
+        cinematicProgress: document.getElementById("cinematic-progress-fill")
       };
 
       var geometryDialog = document.getElementById("geometry-dialog");
@@ -829,6 +1057,12 @@
         pinnedSpanLabels: { time: false, distance: false, verticalDistance: false }
       };
       var animationId = null;
+      var cinematicId = null;
+      var cinematicState = {
+        running: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+        startedAt: null,
+        elapsedBeforePause: 0
+      };
 
       geometryOpen.addEventListener("click", function () {
         stopAnimation();
@@ -878,6 +1112,116 @@
           stopDistance: stopDistance,
           displayEnd: fixedDomains.time[1]
         };
+      }
+
+      function clamp(value, minimum, maximum) {
+        return Math.max(minimum, Math.min(maximum, value));
+      }
+
+      function cinematicDurations(model) {
+        return {
+          preRoll: 1.55,
+          reaction: clamp(model.delay * 1.2, .8, 1.9),
+          braking: clamp(model.brakingTime * 1.05, 2.1, 4.9),
+          hold: 1.8,
+          fade: .55
+        };
+      }
+
+      function setCinematicFrame(elapsed) {
+        var model = values();
+        var durations = cinematicDurations(model);
+        var motionStart = durations.preRoll;
+        var brakingStart = motionStart + durations.reaction;
+        var stopAt = brakingStart + durations.braking;
+        var fadeAt = stopAt + durations.hold;
+        var cycle = fadeAt + durations.fade;
+        var local = ((elapsed % cycle) + cycle) % cycle;
+        var carLeft = -24;
+        var phase = "Cruising";
+        var braking = false;
+        var brakingProgress = 0;
+        var treeFall = clamp((local - (motionStart - .45)) / 1.25, 0, 1);
+        var opacity = 1;
+
+        if (local < motionStart) {
+          carLeft = -24 + 31 * (local / motionStart);
+        } else if (local < brakingStart) {
+          var reactionProgress = (local - motionStart) / durations.reaction;
+          var reactionX = model.v0 * model.delay * reactionProgress;
+          carLeft = 7 + 45 * (reactionX / model.stopDistance);
+          phase = "Reaction delay · constant velocity";
+        } else if (local < stopAt) {
+          brakingProgress = (local - brakingStart) / durations.braking;
+          var brakingElapsed = brakingProgress * model.brakingTime;
+          var brakingX = model.reactionDistance
+            + model.v0 * brakingElapsed
+            - .5 * model.braking * brakingElapsed * brakingElapsed;
+          carLeft = 7 + 45 * (brakingX / model.stopDistance);
+          phase = "Braking · velocity decreasing";
+          braking = true;
+        } else {
+          carLeft = 52;
+          phase = "Stopped before the tree";
+          brakingProgress = 1;
+          if (local >= fadeAt) opacity = 1 - (local - fadeAt) / durations.fade;
+        }
+
+        var brakingStartLeft = 7 + 45 * (model.reactionDistance / model.stopDistance);
+        var pitch = braking ? 1.35 * Math.sin(Math.PI * Math.min(1, brakingProgress * 1.35)) : 0;
+        var smokeStrength = braking ? Math.sin(Math.PI * brakingProgress) : 0;
+        var skidWidth = Math.max(0, carLeft - brakingStartLeft + 2.5);
+
+        elements.cinematicCar.style.left = carLeft + "%";
+        elements.cinematicCar.style.transform = "translate3d(0,0,0) rotate(" + pitch.toFixed(2) + "deg)";
+        elements.cinematicCar.classList.toggle("is-braking", braking);
+        elements.cinematicTree.style.transform = "rotate(" + (-78 * treeFall).toFixed(2) + "deg)";
+        elements.cinematicSkid.style.left = (brakingStartLeft + 3) + "%";
+        elements.cinematicSkid.style.width = skidWidth + "%";
+        elements.cinematicSkid.style.opacity = brakingProgress > .04 ? String(clamp(brakingProgress * 1.4, 0, .9)) : "0";
+        elements.cinematicSmoke.style.left = (carLeft - 1.5) + "%";
+        elements.cinematicSmoke.style.opacity = String((smokeStrength * .72).toFixed(3));
+        elements.cinematicSmoke.style.transform = "translate3d(" + (-brakingProgress * 24).toFixed(1) + "%,0,0) scale(" + (1 + brakingProgress * .5).toFixed(2) + ")";
+        elements.cinematicWorld.style.setProperty("--scene-opacity", String(clamp(opacity, 0, 1)));
+        elements.cinematicPhase.textContent = phase;
+        elements.cinematicProgress.style.transform = "scaleX(" + (local / cycle).toFixed(4) + ")";
+      }
+
+      function cinematicStep(timestamp) {
+        if (!cinematicState.running) return;
+        if (cinematicState.startedAt === null) cinematicState.startedAt = timestamp - cinematicState.elapsedBeforePause * 1000;
+        var elapsed = (timestamp - cinematicState.startedAt) / 1000;
+        cinematicState.elapsedBeforePause = elapsed;
+        setCinematicFrame(elapsed);
+        cinematicId = requestAnimationFrame(cinematicStep);
+      }
+
+      function restartCinematic() {
+        cinematicState.startedAt = null;
+        cinematicState.elapsedBeforePause = 0;
+        setCinematicFrame(0);
+      }
+
+      function showCinematicStopped() {
+        var durations = cinematicDurations(values());
+        var stoppedAt = durations.preRoll + durations.reaction + durations.braking + .25;
+        cinematicState.startedAt = null;
+        cinematicState.elapsedBeforePause = stoppedAt;
+        setCinematicFrame(stoppedAt);
+      }
+
+      function setCinematicRunning(running) {
+        cinematicState.running = running;
+        elements.cinematicToggle.setAttribute("aria-pressed", running ? "false" : "true");
+        elements.cinematicToggle.textContent = running ? "Pause animation" : "Resume animation";
+        if (running) {
+          if (cinematicId !== null) cancelAnimationFrame(cinematicId);
+          cinematicState.startedAt = null;
+          cinematicId = requestAnimationFrame(cinematicStep);
+        } else if (cinematicId !== null) {
+          cancelAnimationFrame(cinematicId);
+          cinematicId = null;
+        }
       }
 
       function motionAt(time, model) {
@@ -1675,7 +2019,13 @@
         input.addEventListener("input", function () {
           stopAnimation();
           render();
+          if (cinematicState.running) restartCinematic();
+          else showCinematicStopped();
         });
+      });
+
+      elements.cinematicToggle.addEventListener("click", function () {
+        setCinematicRunning(!cinematicState.running);
       });
 
       elements.timeline.addEventListener("input", function () {
@@ -1710,6 +2060,12 @@
       });
 
       render();
+      if (cinematicState.running) setCinematicRunning(true);
+      else {
+        showCinematicStopped();
+        elements.cinematicToggle.textContent = "Play animation";
+        elements.cinematicToggle.setAttribute("aria-pressed", "true");
+      }
     })();
   </script>
 </body>
