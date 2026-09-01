@@ -77,6 +77,8 @@
     }
     .brand strong { font-size: clamp(1.1rem, 2vw, 1.45rem); }
     .topbar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem; }
+    .family-picker { display: grid; gap: .2rem; color: var(--muted-foreground); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+    .family-picker select { min-height: 40px; max-width: 19rem; padding: .42rem .7rem; border: 1px solid var(--border); border-radius: 10px; background: #fff; color: var(--foreground); font-weight: 750; text-transform: none; letter-spacing: 0; }
     .btn {
       display: inline-flex;
       min-height: 40px;
@@ -726,6 +728,7 @@
         <strong>Kinematics Problem Families</strong>
       </div>
       <div class="topbar-actions">
+        <label class="family-picker" for="problem-family-select">Problem family<select id="problem-family-select" onchange="window.top.location.href=this.value"><option value="problem-families.html" selected>Stopping distance + delay</option><option value="advanced-families.html?family=two-object">Two-object meeting / chase</option><option value="advanced-families.html?family=vertical">Free fall / vertical motion</option><option value="advanced-families.html?family=projectile">2D projectile motion</option></select></label>
         <button id="family-guide-open" type="button" class="btn btn-primary">AP Physics 1 Kinematics Problem Family Guide</button>
         <a class="btn" href="index.html" target="_top">← Back to the playground</a>
       </div>
