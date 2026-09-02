@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10151d" />
+  <title>Simon Forza — Training Dashboard</title>
+  <style>
+    :root{--bg:#0b0f14;--panel:#121923;--card:#18212d;--card2:#1c2735;--text:#eef4fb;--muted:#91a0b3;--line:#2a3746;--accent:#7dd3fc;--accent2:#a7f3d0;--warn:#fde68a;--danger:#fca5a5;--radius:18px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% -10%,#182739 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45}
+    a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 64px}.topbar{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--accent);font-weight:800}.title{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:7px 0 9px;letter-spacing:-.055em}.subtitle{color:var(--muted);max-width:700px;margin:0}.updated{text-align:right;color:var(--muted);font-size:.85rem;white-space:nowrap;padding-top:5px}.updated strong{color:var(--text);display:block}
+    .nav{display:flex;gap:9px;overflow:auto;padding:2px 0 16px;margin-bottom:4px}.nav button{border:1px solid var(--line);background:rgba(24,33,45,.72);color:var(--text);padding:10px 14px;border-radius:999px;white-space:nowrap;font:inherit;font-weight:700;cursor:pointer}.nav button.active{background:var(--text);color:#0b0f14;border-color:var(--text)}
+    .section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:linear-gradient(180deg,rgba(28,39,53,.96),rgba(18,25,35,.96));border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}.span3{grid-column:span 3}.span4{grid-column:span 4}.span5{grid-column:span 5}.span6{grid-column:span 6}.span7{grid-column:span 7}.span8{grid-column:span 8}.span12{grid-column:span 12}
+    .metric-label{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.metric{font-size:clamp(1.8rem,5vw,3.1rem);font-weight:850;letter-spacing:-.045em;margin-top:5px}.unit{font-size:.45em;color:var(--muted);font-weight:700}.delta{margin-top:5px;font-size:.9rem;color:var(--muted)}.good{color:var(--accent2)}.warn{color:var(--warn)}
+    h2{font-size:1.15rem;margin:0 0 14px;letter-spacing:-.01em}h3{font-size:.98rem;margin:0 0 10px}.chart{width:100%;height:250px;display:block}.chart-sm{height:210px}.axis{stroke:#526174;stroke-width:1}.gridline{stroke:#293543;stroke-width:1}.line{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.line2{fill:none;stroke:var(--accent2);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.dot{fill:var(--text);stroke:#0b0f14;stroke-width:2}.chart-label{fill:var(--muted);font-size:11px;font-family:inherit}.target-line{stroke:var(--warn);stroke-width:1.5;stroke-dasharray:6 6}.legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.82rem;margin-top:9px}.swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--accent)}.swatch.alt{background:var(--accent2)}.swatch.target{background:var(--warn)}
+    .progress{height:10px;background:#0c1118;border-radius:999px;overflow:hidden;margin:11px 0 8px}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit}.goal-row{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.85rem}.goal-row strong{color:var(--text)}
+    .day-list{display:grid;gap:10px}.day{border:1px solid var(--line);border-radius:15px;padding:14px;background:rgba(11,15,20,.26)}.day-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.day-date{font-weight:850}.day-weight{font-size:1.25rem;font-weight:850}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{padding:6px 9px;border-radius:999px;background:#222f3e;color:#cbd6e3;font-size:.79rem;border:1px solid #314052}.chip strong{color:#fff}
+    .table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:660px;background:rgba(11,15,20,.25)}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:.86rem}th{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;background:#111923;position:sticky;top:0}tr:last-child td{border-bottom:0}
+    .food-total{display:flex;justify-content:space-between;gap:14px;border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.food-total strong{font-size:1.4rem}.note{font-size:.82rem;color:var(--muted);margin-top:10px}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#263444;color:var(--accent2);font-size:.72rem;font-weight:800}.empty{color:var(--muted);padding:24px 0;text-align:center}
+    .footer{color:var(--muted);font-size:.78rem;margin-top:20px;text-align:center}.footer strong{color:var(--text)}
+    @media(max-width:850px){.span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 6}.topbar{flex-direction:column}.updated{text-align:left}.chart{height:220px}}
+    @media(max-width:560px){.wrap{width:min(100% - 18px,1180px);padding-top:18px}.span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 12}.card{padding:15px}.title{font-size:2.5rem}.chart{height:205px}.metric{font-size:2.35rem}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Training · Nutrition · Body Weight</div>
+        <h1 class="title">Simon Forza</h1>
+        <p class="subtitle">A living fitness dashboard built from daily weigh-ins, stair bouts, rowing, strength sessions, and food logs.</p>
+      </div>
+      <div class="updated">Last updated<strong id="lastUpdated">—</strong></div>
+    </header>
+
+    <nav class="nav" aria-label="Dashboard sections">
+      <button class="active" data-tab="overview">Overview</button>
+      <button data-tab="weight">Weight</button>
+      <button data-tab="training">Training</button>
+      <button data-tab="nutrition">Nutrition</button>
+      <button data-tab="history">Daily Log</button>
+    </nav>
+
+    <section id="overview" class="section active"><div class="grid" id="overviewGrid"></div></section>
+    <section id="weight" class="section"><div class="grid" id="weightGrid"></div></section>
+    <section id="training" class="section"><div class="grid" id="trainingGrid"></div></section>
+    <section id="nutrition" class="section"><div class="grid" id="nutritionGrid"></div></section>
+    <section id="history" class="section"><div class="grid" id="historyGrid"></div></section>
+
+    <div class="footer">Dashboard identity: <strong>Simon Forza</strong>. Data updates are committed to the site’s structured log.</div>
+  </main>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
