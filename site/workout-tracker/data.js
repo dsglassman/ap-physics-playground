@@ -3,7 +3,8 @@ window.SIMON_FORZA_DATA = {
     owner: "Simon Forza",
     lastUpdated: "2026-09-02",
     timezone: "America/New_York",
-    dataVersion: 1
+    dataVersion: 2,
+    foodPortionPolicy: "If a food is reported without an exact amount, use one standard serving. For packaged foods, use the manufacturer's labeled serving size when known; for generic foods, use a conventional standard serving. Record the assumption in the daily log."
   },
   profile: {
     heightIn: 72,
@@ -159,15 +160,15 @@ window.SIMON_FORZA_DATA = {
       ],
       food: {
         completeThrough: "20:00",
-        caloriesKnown: 1338,
+        caloriesKnown: 1438,
         proteinGEstimate: 88,
         incomplete: true,
-        note: "Rao's marinara quantity was not reported, so sauce calories are not included in the known total.",
+        note: "Rao's marinara amount was not reported; one standard labeled serving (1/2 cup, 100 kcal) is assumed under the tracker portion policy.",
         items: [
           { name: "LeafSide Sweet Potato Dal", amount: "80% meal", calories: 522, proteinG: 19 },
           { name: "Wildwood High Protein Tofu", amount: "64% block (80% of an 80% portion)", calories: 416, proteinG: 44.8 },
           { name: "Rummo Maxima 21 Fusilli", amount: "~2 cups cooked", calories: 400, proteinG: 24 },
-          { name: "Rao's Marinara", amount: "quantity not reported", calories: null }
+          { name: "Rao's Marinara", amount: "1 standard serving assumed (1/2 cup)", calories: 100, assumedAmount: true }
         ]
       }
     }
