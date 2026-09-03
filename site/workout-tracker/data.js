@@ -1,9 +1,9 @@
 window.SIMON_FORZA_DATA = {
   meta: {
     owner: "Simon Forza",
-    lastUpdated: "2026-09-02",
+    lastUpdated: "2026-09-03",
     timezone: "America/New_York",
-    dataVersion: 3,
+    dataVersion: 4,
     foodPortionPolicy: "If a food is reported without an exact amount, use one standard serving. For packaged foods, use the manufacturer's labeled serving size when known; for generic foods, use a conventional standard serving. Record the assumption in the daily log."
   },
   profile: { heightIn: 72, age: 35, sex: "male" },
@@ -24,7 +24,30 @@ window.SIMON_FORZA_DATA = {
     { name: "LeafSide Sweet Potato Dal", serving: "1 meal", calories: 652, proteinG: 24 },
     { name: "Rummo Maxima 21 Fusilli", serving: "56 g dry (about 1/2 cup dry)", calories: 200, proteinG: 12 },
     { name: "Rao's Marinara", serving: "1/2 cup", calories: 100, proteinG: null },
-    { name: "Justin's Peanut Butter", serving: "2 Tbsp", calories: 210, proteinG: 7 }
+    { name: "Justin's Peanut Butter", serving: "2 Tbsp", calories: 210, proteinG: 7 },
+    {
+      name: "Santa Fe Wrap",
+      aliases: ["Santa Fe wrap", "Santa de wrap"],
+      serving: "1 wrap",
+      calories: 600,
+      caloriesRange: [600, 635],
+      proteinG: 32,
+      carbsG: 57,
+      fatG: 28,
+      fiberG: 10.5,
+      provisional: true,
+      note: "Baseline nutrition assumes 3 Tbsp cashew cheese. If the usual amount is 4 Tbsp, use about 635 kcal per wrap until the cashew-cheese recipe/portion is measured.",
+      recipe: [
+        { name: "Mission Burrito Restaurant Style Flour Tortilla", amount: "1 tortilla", calories: 170, proteinG: 5, carbsG: 29, fiberG: 3 },
+        { name: "Abbot's Plant-Rich Chorizo", amount: "1.5 servings (127.5 g)", calories: 210, proteinG: 22.5, carbsG: 9, fatG: 9, fiberG: 3 },
+        { name: "Cashew cheese", amount: "3 Tbsp baseline; possibly 4 Tbsp", calories: 105, caloriesRange: [105, 140], estimated: true },
+        { name: "Sriracha", amount: "2 Tbsp", calories: 30, carbsG: 6 },
+        { name: "Guacamole", amount: "3 Tbsp", calories: 71, proteinG: 0.9, carbsG: 3.9, fatG: 6.5, fiberG: 3 },
+        { name: "Shredded lettuce", amount: "small amount", calories: 2, estimated: true },
+        { name: "Red pepper strips", amount: "small amount", calories: 3, estimated: true },
+        { name: "Picante or salsa", amount: "2 Tbsp", calories: 10, carbsG: 2 }
+      ]
+    }
   ],
   daily: [
     { date: "2026-08-13", weightLb: null, stairs: { bouts: 12, completed: 12, ascentSteps: 1224, descentSteps: 1224 }, extras: { pushups: 140, coreCircuits: 10 }, rowing: [], strength: [], food: null },
