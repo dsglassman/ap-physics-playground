@@ -114,6 +114,23 @@ window.SIMON_FORZA_DATA = {
           { name: "Chili oil", amount: "1 Tbsp", calories: 120, proteinG: 0 }
         ]
       }
+    },
+    {
+      date: "2026-09-03", weightLb: null, stairs: null, extras: {}, rowing: [], strength: [],
+      food: {
+        completeThrough: "19:48", caloriesKnown: 1898, proteinGEstimate: 98, incomplete: true,
+        calorieRangeEstimate: [1798, 1998],
+        note: "Food log through 7:48 PM. Santa Fe wraps use the provisional 550-kcal estimate (500–600 kcal plausible range each). Hummus is interpreted as 1 tsp per vegetable stick: 12 tsp total = 4 Tbsp. Carrot/celery calories are estimated from the reported stick dimensions.",
+        items: [
+          { name: "Rummo Maxima 21 Fusilli", amount: "2 cups cooked", calories: 400, proteinG: 24, estimated: true },
+          { name: "Cooked chickpeas", amount: "1/4 cup", calories: 67, proteinG: 3.6, estimated: true },
+          { name: "Chili oil", amount: "1 Tbsp", calories: 120, proteinG: 0 },
+          { name: "Carrot sticks", amount: "6 sticks, about 3 in x 0.75 in diameter", calories: 53, proteinG: 1.2, estimated: true },
+          { name: "Celery sticks", amount: "6 sticks, about 3 in x 0.75 in diameter", calories: 18, proteinG: 0.9, estimated: true },
+          { name: "Hummus", amount: "12 tsp total (1 tsp per vegetable stick)", calories: 140, proteinG: 4, estimated: true },
+          { name: "Santa Fe Wrap", amount: "2 wraps", calories: 1100, proteinG: 64, estimated: true }
+        ]
+      }
     }
   ]
 };
