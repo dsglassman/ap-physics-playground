@@ -116,11 +116,15 @@ window.SIMON_FORZA_DATA = {
       }
     },
     {
-      date: "2026-09-03", weightLb: null, stairs: null, extras: {}, rowing: [], strength: [],
+      date: "2026-09-03", weightLb: 203.2, stairs: null, extras: {}, strength: [],
+      rowing: [
+        { label: "Row 1", durationSec: 900, distanceM: 3205, splitSec500: 140.4, avgWatts: 126, calories: 183, totalStrokes: 317 },
+        { label: "Row 2", durationSec: 901, distanceM: 3176, splitSec500: 141.8, avgWatts: 123, calories: 180, totalStrokes: 311 }
+      ],
       food: {
-        completeThrough: "19:48", caloriesKnown: 1898, proteinGEstimate: 98, incomplete: true,
+        completeThrough: "end of day", caloriesKnown: 1898, proteinGEstimate: 98, incomplete: false,
         calorieRangeEstimate: [1798, 1998],
-        note: "Food log through 7:48 PM. Santa Fe wraps use the provisional 550-kcal estimate (500–600 kcal plausible range each). Hummus is interpreted as 1 tsp per vegetable stick: 12 tsp total = 4 Tbsp. Carrot/celery calories are estimated from the reported stick dimensions.",
+        note: "Complete food log for Sep 3. Santa Fe wraps use the provisional 550-kcal estimate (500–600 kcal plausible range each). Hummus is interpreted as 1 tsp per vegetable stick: 12 tsp total = 4 Tbsp. Carrot/celery calories are estimated from the reported stick dimensions.",
         items: [
           { name: "Rummo Maxima 21 Fusilli", amount: "2 cups cooked", calories: 400, proteinG: 24, estimated: true },
           { name: "Cooked chickpeas", amount: "1/4 cup", calories: 67, proteinG: 3.6, estimated: true },
