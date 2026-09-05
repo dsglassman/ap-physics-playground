@@ -27,5 +27,18 @@ window.LIVE_FITNESS_DATA={
       knownCaloriesSubtotal:800,
       subtotalIsPartial:true
     }
+  },{
+    date:"2026-09-05",
+    weight:{primaryLb:202.0},
+    rowing:[{
+      label:"Rowing 1",
+      timeSec:1461,
+      distanceM:5017,
+      splitSec500:145.7,
+      avgPowerW:113,
+      calories:280,
+      strokes:492
+    }],
+    notes:["Partial day entry; additional activity or nutrition may be added later."]
   }]
 };
