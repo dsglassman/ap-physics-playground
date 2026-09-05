@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-04",
+  "recipes": [
+    {
+      "id": "santa-fe-wrap",
+      "name": "Santa Fe Wrap",
+      "aliases": ["Santa Fe wrap", "Santa de wrap"],
+      "status": "provisional",
+      "serving": {"quantity": 1, "unit": "wrap"},
+      "nutritionPerServing": {
+        "calories": 550,
+        "proteinG": 32,
+        "carbsG": 57,
+        "fatG": 28,
+        "fiberG": 10.5,
+        "calorieRange": [500, 600],
+        "estimated": true
+      },
+      "ingredients": [
+        {"name": "Mission flour tortilla, burrito size - Restaurant Style", "quantity": 1, "unit": "tortilla"},
+        {"name": "Abbot's plant-based chorizo", "quantity": 1.5, "unit": "servings"},
+        {"name": "Cashew cheese", "quantity": 3, "unit": "tbsp", "note": "Possibly closer to 4 tbsp; measure next time."},
+        {"name": "Sriracha", "quantity": 2, "unit": "tbsp"},
+        {"name": "Guacamole", "quantity": 3, "unit": "tbsp"},
+        {"name": "Shredded lettuce", "quantity": null, "unit": null, "note": "Small amount."},
+        {"name": "Red pepper strips", "quantity": null, "unit": null, "note": "Small amount."},
+        {"name": "Picante/salsa", "quantity": 2, "unit": "tbsp"}
+      ],
+      "notes": ["Working household estimate pending weighed ingredients."],
+      "provenance": {"source": "preserved household recipe from prior tracker rebuild", "confirmedByUser": true}
+    }
+  ]
+}

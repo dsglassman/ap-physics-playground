@@ -1,84 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0f14" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Forza Fitness" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <title>Simon Forza — Training Dashboard</title>
-  <style>
-    :root{--bg:#0b0f14;--panel:#121923;--card:#18212d;--card2:#1c2735;--text:#eef4fb;--muted:#91a0b3;--line:#2a3746;--accent:#7dd3fc;--accent2:#a7f3d0;--warn:#fde68a;--danger:#fca5a5;--radius:18px;--navH:76px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;background:radial-gradient(circle at 20% -10%,#182739 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}
-    button,input,select,textarea{font:inherit}button{touch-action:manipulation}a{color:inherit}
-    .wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 64px}
-    .topbar{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--accent);font-weight:800}
-    .title{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:7px 0 9px;letter-spacing:-.055em}.subtitle{color:var(--muted);max-width:700px;margin:0}
-    .updated{text-align:right;color:var(--muted);font-size:.85rem;white-space:nowrap;padding-top:5px}.updated strong{color:var(--text);display:block}.mobile-appbar{display:none}
-    .nav{display:flex;gap:9px;overflow:auto;padding:2px 0 16px;margin-bottom:4px;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
-    .nav button{border:1px solid var(--line);background:rgba(24,33,45,.72);color:var(--text);padding:10px 14px;border-radius:999px;white-space:nowrap;font-weight:700;cursor:pointer;min-height:44px}.nav button.active{background:var(--text);color:#0b0f14;border-color:var(--text)}.nav-icon{display:none}
-    .section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{background:linear-gradient(180deg,rgba(28,39,53,.96),rgba(18,25,35,.96));border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
-    .span3{grid-column:span 3}.span4{grid-column:span 4}.span5{grid-column:span 5}.span6{grid-column:span 6}.span7{grid-column:span 7}.span8{grid-column:span 8}.span12{grid-column:span 12}
-    .metric-label{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.metric{font-size:clamp(1.8rem,5vw,3.1rem);font-weight:850;letter-spacing:-.045em;margin-top:5px}.unit{font-size:.45em;color:var(--muted);font-weight:700}.delta{margin-top:5px;font-size:.9rem;color:var(--muted)}
-    h2{font-size:1.15rem;margin:0 0 14px;letter-spacing:-.01em}h3{font-size:.98rem;margin:0 0 10px}
-    .chart{width:100%;height:250px;display:block}.chart-sm{height:210px}.gridline{stroke:#293543;stroke-width:1}.line{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.line2{fill:none;stroke:var(--accent2);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.dot{fill:var(--text);stroke:#0b0f14;stroke-width:2}.chart-label{fill:var(--muted);font-size:11px;font-family:inherit}.target-line{stroke:var(--warn);stroke-width:1.5;stroke-dasharray:6 6}
-    .legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.82rem;margin-top:9px}.swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--accent)}.swatch.alt{background:var(--accent2)}.swatch.target{background:var(--warn)}
-    .range-picker{display:flex;gap:3px;padding:3px;background:#0c1118;border:1px solid var(--line);border-radius:12px;width:max-content;max-width:100%;overflow:auto;margin:-3px 0 12px;scrollbar-width:none}.range-picker::-webkit-scrollbar{display:none}.range-picker button{border:0;background:transparent;color:var(--muted);min-height:36px;padding:6px 11px;border-radius:9px;font-size:.76rem;font-weight:800;cursor:pointer;white-space:nowrap}.range-picker button.active{background:var(--card2);color:var(--text);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-    .progress{height:10px;background:#0c1118;border-radius:999px;overflow:hidden;margin:11px 0 8px}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit}
-    .goal-row{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.85rem}.goal-row strong{color:var(--text)}
-    .day-list{display:grid;gap:10px}.day{border:1px solid var(--line);border-radius:15px;padding:14px;background:rgba(11,15,20,.26)}.day-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.day-date{font-weight:850}.day-weight{font-size:1.25rem;font-weight:850}
-    .chips{display:flex;flex-wrap:wrap;gap:7px}.chip{padding:6px 9px;border-radius:999px;background:#222f3e;color:#cbd6e3;font-size:.79rem;border:1px solid #314052}.chip strong{color:#fff}
-    .table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);-webkit-overflow-scrolling:touch}table{border-collapse:collapse;width:100%;min-width:660px;background:rgba(11,15,20,.25)}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:.86rem}th{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;background:#111923;position:sticky;top:0}tr:last-child td{border-bottom:0}
-    .note{font-size:.82rem;color:var(--muted);margin-top:10px}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#263444;color:var(--accent2);font-size:.72rem;font-weight:800}.empty{color:var(--muted);padding:24px 0;text-align:center}.footer{color:var(--muted);font-size:.78rem;margin-top:20px;text-align:center}.footer strong{color:var(--text)}
-    @media(max-width:850px){.span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 6}.topbar{flex-direction:column}.updated{text-align:left}.chart{height:220px}}
-    @media(max-width:640px){
-      :root{--radius:20px;--navH:74px}body{background:linear-gradient(180deg,#0b1017 0,#0b0f14 180px,#0b0f14 100%);padding-bottom:calc(var(--navH) + env(safe-area-inset-bottom))}
-      .wrap{width:100%;padding:0 12px 24px}.topbar{display:none}.mobile-appbar{display:flex;position:sticky;top:0;z-index:20;margin:0 -12px 12px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;align-items:flex-end;justify-content:space-between;gap:12px;background:linear-gradient(180deg,rgba(11,15,20,.98),rgba(11,15,20,.92));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
-      .mobile-title{font-size:1.25rem;font-weight:850;letter-spacing:-.025em;line-height:1.1}.mobile-sub{font-size:.72rem;color:var(--muted);margin-top:3px}.mobile-updated{font-size:.68rem;color:var(--muted);text-align:right;line-height:1.25;white-space:nowrap}.mobile-updated strong{display:block;color:var(--text);font-size:.73rem}
-      .nav{position:fixed;left:0;right:0;bottom:0;z-index:50;height:calc(var(--navH) + env(safe-area-inset-bottom));margin:0;padding:6px 8px calc(6px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);gap:2px;overflow:visible;background:rgba(10,14,20,.93);border-top:1px solid rgba(255,255,255,.10);backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%)}
-      .nav button{min-width:0;min-height:58px;padding:5px 2px 4px;border:0;border-radius:14px;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.67rem;font-weight:750;line-height:1.1}.nav button.active{background:rgba(125,211,252,.10);color:var(--accent);border:0}.nav-icon{display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.nav-label{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis}
-      .span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 12}.grid{gap:10px}.card{padding:15px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(26,37,50,.97),rgba(17,24,33,.97));box-shadow:0 1px 0 rgba(255,255,255,.025) inset}.card h2{font-size:1.02rem;margin-bottom:11px}.metric{font-size:2.25rem}.metric-label{font-size:.69rem}.delta{font-size:.82rem}.chart{height:190px}.legend{font-size:.75rem;gap:10px}.day{border-radius:16px;padding:12px}.chip{font-size:.74rem;padding:5px 8px}.goal-row{font-size:.78rem}.note{font-size:.77rem}.table-wrap{margin:0 -2px}th,td{padding:10px;font-size:.80rem}.footer{display:none}
-      .range-picker{width:100%;display:grid;grid-template-columns:repeat(6,1fr);gap:2px;overflow:visible;padding:3px}.range-picker button{min-width:0;padding:6px 1px;font-size:.69rem}.section.active{animation:appfade .16s ease-out}@keyframes appfade{from{opacity:.55;transform:translateY(3px)}to{opacity:1;transform:none}}
-    }
-    @media(max-width:360px){.wrap{padding-left:9px;padding-right:9px}.mobile-appbar{margin-left:-9px;margin-right:-9px;padding-left:13px;padding-right:13px}.nav button{font-size:.61rem}.nav-icon{width:20px;height:20px}.card{padding:13px}.metric{font-size:2.05rem}.range-picker button{font-size:.64rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.section.active{animation:none!important}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0c0f14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Fitness Tracker</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="topbar">
-      <div><div class="eyebrow">Training · Nutrition · Body Weight</div><h1 class="title">Simon Forza</h1><p class="subtitle">A living fitness dashboard built from daily weigh-ins, stair bouts, rowing, strength sessions, and food logs.</p></div>
-      <div class="updated">Last updated<strong id="lastUpdated">—</strong></div>
-    </header>
-    <header class="mobile-appbar" aria-label="Simon Forza fitness dashboard">
-      <div><div class="mobile-title">Simon Forza</div><div class="mobile-sub">Fitness dashboard</div></div>
-      <div class="mobile-updated">Updated<strong id="mobileLastUpdated">—</strong></div>
-    </header>
-    <nav class="nav" aria-label="Dashboard sections">
-      <button class="active" data-tab="overview" aria-label="Overview"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h7V3H3v10Zm11 8h7V11h-7v10ZM3 21h7v-4H3v4Zm11-14h7V3h-7v4Z"/></svg><span class="nav-label">Overview</span></button>
-      <button data-tab="weight" aria-label="Weight"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12a2 2 0 0 1 2 2v14H4V6a2 2 0 0 1 2-2Z"/><path d="M9 9a3 3 0 0 1 6 0"/><path d="m12 9 2-1"/></svg><span class="nav-label">Weight</span></button>
-      <button data-tab="training" aria-label="Training"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12"/></svg><span class="nav-label">Training</span></button>
-      <button data-tab="nutrition" aria-label="Nutrition"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M17 3v18M17 3c2.3 1.6 3.5 4.1 3.5 7H17"/></svg><span class="nav-label">Nutrition</span></button>
-      <button data-tab="history" aria-label="Daily log"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><span class="nav-label">Log</span></button>
-    </nav>
-    <section id="overview" class="section active"><div class="grid" id="overviewGrid"></div></section>
-    <section id="weight" class="section"><div class="grid" id="weightGrid"></div></section>
-    <section id="training" class="section"><div class="grid" id="trainingGrid"></div></section>
-    <section id="nutrition" class="section"><div class="grid" id="nutritionGrid"></div></section>
-    <section id="history" class="section"><div class="grid" id="historyGrid"></div></section>
-    <div class="footer">Dashboard identity: <strong>Simon Forza</strong>. Data updates are committed to the site’s structured log.</div>
+  <header class="topbar">
+    <div><div class="eyebrow">TRAINING · CARDIO · NUTRITION · WEIGHT</div><h1>Fitness Tracker</h1><div id="coverage" class="muted"></div></div>
+    <div id="status" class="status">Loading…</div>
+  </header>
+  <nav class="tabs" aria-label="Tracker sections">
+    <button class="active" data-tab="dashboard">Dashboard</button>
+    <button data-tab="weight">Weight</button>
+    <button data-tab="strength">Strength</button>
+    <button data-tab="exercise">Exercises</button>
+    <button data-tab="cardio">Cardio</button>
+    <button data-tab="nutrition">Nutrition</button>
+    <button data-tab="recipes">Recipes</button>
+    <button data-tab="timeline">Timeline</button>
+    <button data-tab="quality">Data</button>
+  </nav>
+  <main>
+    <section id="dashboard" class="view active"></section>
+    <section id="weight" class="view"></section>
+    <section id="strength" class="view"></section>
+    <section id="exercise" class="view"></section>
+    <section id="cardio" class="view"></section>
+    <section id="nutrition" class="view"></section>
+    <section id="recipes" class="view"></section>
+    <section id="timeline" class="view"></section>
+    <section id="quality" class="view"></section>
   </main>
-  <script src="history.js"></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
-  <script>
-    (()=>{const desktop=document.getElementById('lastUpdated'),mobile=document.getElementById('mobileLastUpdated');if(desktop&&mobile){const sync=()=>{mobile.textContent=desktop.textContent||'—'};sync();new MutationObserver(sync).observe(desktop,{childList:true,subtree:true,characterData:true});}})();
-  </script>
+  <footer>Historical baseline migrated from the corrected master. Future entries use the structured event journal.</footer>
+  <script src="data-pack-1.js"></script>
+  <script src="data-pack-2.js"></script>
+  <script src="data-pack-3.js"></script>
+  <script src="data-pack-4.js"></script>
+  <script src="data-pack-5.js"></script>
+  <script src="data-pack-6.js"></script>
+  <script src="data-pack-7.js"></script>
+  <script src="data-pack-8.js"></script>
+  <script src="data-pack-9.js"></script>
+  <script src="data-pack-10.js"></script>
+  <script src="data-pack-11.js"></script>
+  <script src="data-pack-12.js"></script>
+  <script src="data-pack-13.js"></script>
+  <script src="app-core.js"></script>
+  <script src="app-views-a.js"></script>
+  <script src="app-views-b.js"></script>
+  <script src="app-runtime.js"></script>
+  <script src="live-data.js"></script>
+  <script src="data-loader.js"></script>
 </body>
 </html>
