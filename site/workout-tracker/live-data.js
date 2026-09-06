@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-05",
+  updatedAt:"2026-09-06",
   days:[{
     date:"2026-09-04",
     weight:{primaryLb:203.2},
@@ -61,6 +61,30 @@ window.LIVE_FITNESS_DATA={
       ],
       knownCaloriesSubtotal:1780,
       subtotalIsPartial:true
-    }
+    },
+  {
+    date:"2026-09-06",
+    weight:{primaryLb:201.8},
+    strength:{
+      exercises:[{
+        name:"Bulgarian Split Squat (Dumbbell)",
+        sets:[
+          {setNumber:1,loadLb:40,reps:10,raw:"2x20 lbs x 10 each leg",flags:[]},
+          {setNumber:2,loadLb:50,reps:10,raw:"2x25 lb DBs x 10 each leg",flags:[]}
+        ]
+      }]
+    },
+    rowing:[{
+      label:"Rowing",
+      timeSec:1706,
+      distanceM:6002,
+      splitSec500:142.1,
+      avgPowerW:122,
+      calories:341
+    }],
+    notes:[
+      "Partial day entry; additional activity or nutrition may be added later.",
+      "Bulgarian split-squat set ordering is inferred from the two separately reported entries; both reported performances are preserved."
+    ]
   }]
 };
