@@ -52,13 +52,14 @@ window.LIVE_FITNESS_DATA={
         {id:"leafside_madras_half",description:"1/2 LeafSide Madras Curry Savory-Bowl",calories:285,proteinG:14.5,estimated:false,uncertain:false},
         {id:"wildwood_tofu_half_block",description:"1/2 block Wildwood extra firm tofu",calories:325,proteinG:35,estimated:false,uncertain:false},
         {id:"santa_fe_wrap",description:"Santa Fe Wrap",calories:550,proteinG:32,estimated:true,uncertain:true},
+        {id:"cedars_original_hummus_4tbsp",description:"4 tbsp Cedar's Original Hommus",calories:120,proteinG:4,estimated:false,uncertain:false},
         {id:"sourdough_boule_oil",description:"Sourdough boule with oil",calories:500,proteinG:null,estimated:true,uncertain:true}
       ],
       rawLines:[
-        "4 tbsp Cedar's hummus with carrot sticks",
+        "Carrot sticks (quantity not specified)",
         "1 3 Floyds Zombie Dust IPA"
       ],
-      knownCaloriesSubtotal:1660,
+      knownCaloriesSubtotal:1780,
       subtotalIsPartial:true
     }
   }]
