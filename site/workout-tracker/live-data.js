@@ -34,11 +34,32 @@ window.LIVE_FITNESS_DATA={
       label:"Rowing 1",
       timeSec:1461,
       distanceM:5017,
-      splitSec500:145.7,
+      splitSec500:145.3,
       avgPowerW:113,
       calories:280,
       strokes:492
+    },{
+      label:"Rowing 2",
+      timeSec:1444,
+      distanceM:5001,
+      splitSec500:144.5,
+      avgPowerW:116,
+      calories:280,
+      strokes:476
     }],
-    notes:["Partial day entry; additional activity or nutrition may be added later."]
+    nutrition:{
+      entries:[
+        {id:"wildwood_tofu_half_block",description:"1/2 block Wildwood extra firm tofu",calories:325,proteinG:35,estimated:false,uncertain:false},
+        {id:"santa_fe_wrap",description:"Santa Fe Wrap",calories:550,proteinG:32,estimated:true,uncertain:true},
+        {id:"sourdough_boule_oil",description:"Sourdough boule with oil",calories:500,proteinG:null,estimated:true,uncertain:true}
+      ],
+      rawLines:[
+        "1/2 LeafSide Madras curry",
+        "4 tbsp Cedar's hummus with carrot sticks",
+        "1 3 Floyds Zombie Dust IPA"
+      ],
+      knownCaloriesSubtotal:1375,
+      subtotalIsPartial:true
+    }
   }]
 };
