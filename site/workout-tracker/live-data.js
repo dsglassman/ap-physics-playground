@@ -87,7 +87,7 @@ window.LIVE_FITNESS_DATA={
       weight:{primaryLb:204.8},
       strength:{
         exercises:[{
-          name:"Bulgarian Split Squat (Dumbbell) — 10-inch Step",
+          name:"Bulgarian Split Squat (Dumbbell)",
           sets:[
             {setNumber:1,loadLb:50,reps:8,raw:"2x25 lb DBs x 8 reps",flags:[]},
             {setNumber:2,loadLb:50,reps:8,raw:"2x25 lb DBs x 8 reps",flags:[]}
@@ -109,7 +109,8 @@ window.LIVE_FITNESS_DATA={
       rowing:[
         {label:"Rowing",timeSec:901,distanceM:3292,splitSec500:136.9,avgPowerW:137,calories:192,strokes:370}
       ],
-      notes:["Food not logged."]
+      nutrition:{entries:[{id:"assumed_daily_intake",description:"Assumed total daily intake",calories:1900,proteinG:null,estimated:true,uncertain:true}],knownCaloriesSubtotal:1900,subtotalIsPartial:false},
+      notes:["Daily intake assumed at 1,900 kcal for energy-balance tracking; detailed foods not logged."]
     }
   ]
 };
