@@ -115,13 +115,11 @@ window.LIVE_FITNESS_DATA={
     {
       date:"2026-09-11",
       manualTraining:[
-        "Stairs: approximately 1,900 ascent steps and 1,900 descent steps",
-        "Stair workout: 5:00, 63 floors"
+        "Stairs: approximately 1,900 ascent steps and 1,900 descent steps"
       ],
       nutrition:{entries:[{id:"approx_intake_so_far",description:"Approximate intake so far",calories:1800,proteinG:null,estimated:true,uncertain:true}],knownCaloriesSubtotal:1800,subtotalIsPartial:true},
       notes:[
-        "Partial day entry.",
-        "Calorie estimate should avoid double-counting the 5-minute/63-floor stair workout if it overlaps the 1,900 ascent-step total."
+        "Partial day entry."
       ]
     }
   ]
