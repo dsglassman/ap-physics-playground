@@ -115,7 +115,8 @@ window.LIVE_FITNESS_DATA={
     {
       date:"2026-09-11",
       manualTraining:[
-        "Stairs: approximately 1,900 ascent steps and 1,900 descent steps"
+        "Stairs: approximately 1,900 ascent steps and 1,900 descent steps",
+        "Walk: 2.6 miles"
       ],
       nutrition:{entries:[{id:"approx_intake_so_far",description:"Approximate intake so far",calories:1800,proteinG:null,estimated:true,uncertain:true}],knownCaloriesSubtotal:1800,subtotalIsPartial:true},
       notes:[
