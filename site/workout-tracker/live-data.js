@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-12",
+  updatedAt:"2026-09-13",
   days:[
     {
       date:"2026-09-04",
@@ -118,6 +118,37 @@ window.LIVE_FITNESS_DATA={
         ],
         subtotalIsPartial:false
       }
+    },
+    {
+      date:"2026-09-13",
+      weight:{primaryLb:202.8},
+      strength:{exercises:[
+        {name:"Romanian Deadlift (Barbell)",sets:[
+          {setNumber:1,loadLb:134,reps:6,raw:"134 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:184,reps:3,raw:"184 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:204,reps:1,raw:"204 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:224,reps:8,raw:"224 lbs x 8",flags:[]}
+        ]},
+        {name:"Seated Leg Curl (Machine)",sets:[{setNumber:1,loadLb:105,reps:10,raw:"105 lbs x 10",flags:[]},{setNumber:2,loadLb:105,reps:6,raw:"105 lbs x 6",flags:[]}]},
+        {name:"Leg Extension (Machine)",sets:[{setNumber:1,loadLb:165,reps:12,raw:"165 lbs x 12",flags:[]},{setNumber:2,loadLb:165,reps:8,raw:"165 lbs x 8",flags:[]}]},
+        {name:"Back Extension (Weighted Hyperextension)",sets:[{setNumber:1,loadLb:20,reps:10,raw:"20 lbs x 10",flags:[]},{setNumber:2,loadLb:20,reps:12,raw:"20 lbs x 12",flags:[]}]},
+        {name:"Hip Abduction (Machine)",sets:[{setNumber:1,loadLb:145,reps:16,raw:"145 lbs x 16",flags:[]},{setNumber:2,loadLb:145,reps:13,raw:"145 lbs x 13",flags:[]}]},
+        {name:"Farmers Walk",sets:[{setNumber:1,loadLb:110,reps:null,raw:"110 lbs - 60 yd",flags:[]}]}
+      ]},
+      nutrition:{
+        entries:[
+          {id:"vegan_biscuits_gravy_serving",description:"Homemade vegan biscuits and gravy — 1 serving",calories:345,proteinG:10,estimated:true,uncertain:true},
+          {id:"tostitos_scoops_serving",description:"Tostitos Scoops — 1 serving (13 chips)",calories:140,proteinG:null,estimated:false,uncertain:false},
+          {id:"salsa",description:"Salsa with chips",calories:null,proteinG:null,estimated:true,uncertain:true}
+        ],
+        knownCaloriesSubtotal:485,
+        subtotalIsPartial:true
+      },
+      notes:[
+        "Partial day entry.",
+        "After 224 lb x 8 RDL, attempted a second 224-lb working set but failed the first rep; ended RDLs after one working set.",
+        "Hip thrusts and lunges were omitted because of poor lower-body readiness/performance."
+      ]
     }
   ]
 };
