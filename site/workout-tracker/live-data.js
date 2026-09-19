@@ -226,10 +226,10 @@ window.LIVE_FITNESS_DATA={
         {sequence:7,time:"12:00",completed:true,pattern:"1"}
       ],
       strength:{exercises:[
-        {name:"Romanian Deadlift (Dumbbell)",sets:[
-          {setNumber:1,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb) x 20",flags:[]},
-          {setNumber:2,loadLb:110,reps:30,raw:"110 lbs (2 x 55 lb) x 30",flags:[]},
-          {setNumber:3,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb) x 20",flags:[]}
+        {name:"Romanian Deadlift (Kettlebell)",sets:[
+          {setNumber:1,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb KBs) x 20",flags:[]},
+          {setNumber:2,loadLb:110,reps:30,raw:"110 lbs (2 x 55 lb KBs) x 30",flags:[]},
+          {setNumber:3,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb KBs) x 20",flags:[]}
         ]},
         {name:"Romanian Deadlift (Barbell)",sets:[
           {setNumber:1,loadLb:134,reps:10,raw:"134 lbs x 10",flags:[]},
@@ -254,7 +254,14 @@ window.LIVE_FITNESS_DATA={
           {setNumber:2,loadLb:145,reps:14,raw:"145 lbs x 14",flags:[]}
         ]}
       ]},
-      notes:["Leg workout 1 at 6:49pm."]
+      notes:[
+        "Leg workout 1 at 6:49pm.",
+        "Before the kettlebell RDLs, a ~135-lb barbell RDL warmup attempt felt unusually difficult; after 2 reps the set was stopped.",
+        "Switched to two 55-lb kettlebells to groove the hinge pattern: 20, 30, and 20 reps.",
+        "Second kettlebell RDL set was limited by cardiovascular/respiratory demand rather than strength; heart rate exceeded 170 and bracing became difficult.",
+        "Third kettlebell RDL set was stopped at 20 because of grip fatigue.",
+        "Returned to barbell RDLs using straps to reduce grip limitation."
+      ]
     }
   ]
 };
