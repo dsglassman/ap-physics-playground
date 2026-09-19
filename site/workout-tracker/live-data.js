@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-13",
+  updatedAt:"2026-09-18",
   days:[
     {
       date:"2026-09-04",
@@ -141,14 +141,120 @@ window.LIVE_FITNESS_DATA={
           {id:"tostitos_scoops_serving",description:"Tostitos Scoops — 1 serving (13 chips)",calories:140,proteinG:null,estimated:false,uncertain:false},
           {id:"salsa",description:"Salsa with chips",calories:null,proteinG:null,estimated:true,uncertain:true}
         ],
+        rawLines:[
+          "1 medium-large pizza slice (~1/6 pie) from a 12-inch vegan cheese pizza; crust not eaten",
+          "5 cups cooked pasta with red sauce"
+        ],
         knownCaloriesSubtotal:485,
-        subtotalIsPartial:true
+        subtotalIsPartial:false
       },
       notes:[
-        "Partial day entry.",
+        "Food log later completed with pizza and pasta.",
         "After 224 lb x 8 RDL, attempted a second 224-lb working set but failed the first rep; ended RDLs after one working set.",
         "Hip thrusts and lunges were omitted because of poor lower-body readiness/performance."
       ]
+    },
+    {
+      date:"2026-09-14",
+      weight:{primaryLb:207.6},
+      stairs:[
+        {sequence:1,time:"1:40",completed:true,pattern:"1"},
+        {sequence:2,time:"2:20",completed:true,pattern:"1"},
+        {sequence:3,time:"3:00",completed:true,pattern:"1"},
+        {sequence:4,time:"3:30",completed:true,pattern:"1"},
+        {sequence:5,time:"4:00",completed:true,pattern:"1"}
+      ]
+    },
+    {
+      date:"2026-09-15",
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"10:20",completed:true,pattern:"1"},
+        {sequence:3,time:"11:40",completed:true,pattern:"1"},
+        {sequence:4,time:"12:20",completed:true,pattern:"1"},
+        {sequence:5,time:"1:00",completed:true,pattern:"1"},
+        {sequence:6,time:"1:40",completed:true,pattern:"1"},
+        {sequence:7,time:"2:20",completed:true,pattern:"1"},
+        {sequence:8,time:"3:00",completed:true,pattern:"1"},
+        {sequence:9,time:"3:40",completed:true,pattern:"1"},
+        {sequence:10,time:"4:20",completed:true,pattern:"1"},
+        {sequence:11,time:"5:00",completed:true,pattern:"1"}
+      ],
+      notes:["Weight not provided."]
+    },
+    {
+      date:"2026-09-16",
+      weight:{primaryLb:203.0},
+      stairs:[
+        {sequence:1,time:"9:40",completed:true,pattern:"1"},
+        {sequence:2,time:"10:20",completed:true,pattern:"1"},
+        {sequence:3,time:"11:00",completed:true,pattern:"1"},
+        {sequence:4,time:"11:40",completed:true,pattern:"1"},
+        {sequence:5,time:"12:20",completed:true,pattern:"1"},
+        {sequence:6,time:"1:00",completed:true,pattern:"1"},
+        {sequence:7,time:"1:40",completed:true,pattern:"1"},
+        {sequence:8,time:"2:20",completed:true,pattern:"1"},
+        {sequence:9,time:"3:00",completed:true,pattern:"1"},
+        {sequence:10,time:"3:40",completed:true,pattern:"1"},
+        {sequence:11,time:"4:20",completed:true,pattern:"1"},
+        {sequence:12,time:"5:00",completed:true,pattern:"1"}
+      ]
+    },
+    {
+      date:"2026-09-17",
+      weight:{primaryLb:202.0},
+      stairs:[
+        {sequence:1,time:"12:15",completed:true,pattern:"1"},
+        {sequence:2,time:"1:00",completed:true,pattern:"1"},
+        {sequence:3,time:"2:00",completed:true,pattern:"1"},
+        {sequence:4,time:"3:00",completed:true,pattern:"1"},
+        {sequence:5,time:"4:00",completed:true,pattern:"1"},
+        {sequence:6,time:"5:00",completed:true,pattern:"1"},
+        {sequence:7,time:"5:30",completed:true,pattern:"1"}
+      ]
+    },
+    {
+      date:"2026-09-18",
+      weight:{primaryLb:204.2},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:30",completed:true,pattern:"1"},
+        {sequence:3,time:"10:00",completed:true,pattern:"1"},
+        {sequence:4,time:"10:30",completed:true,pattern:"1"},
+        {sequence:5,time:"11:00",completed:true,pattern:"1"},
+        {sequence:6,time:"11:30",completed:true,pattern:"1"},
+        {sequence:7,time:"12:00",completed:true,pattern:"1"}
+      ],
+      strength:{exercises:[
+        {name:"Romanian Deadlift (Dumbbell)",sets:[
+          {setNumber:1,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb) x 20",flags:[]},
+          {setNumber:2,loadLb:110,reps:30,raw:"110 lbs (2 x 55 lb) x 30",flags:[]},
+          {setNumber:3,loadLb:110,reps:20,raw:"110 lbs (2 x 55 lb) x 20",flags:[]}
+        ]},
+        {name:"Romanian Deadlift (Barbell)",sets:[
+          {setNumber:1,loadLb:134,reps:10,raw:"134 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:155,reps:8,raw:"155 lbs x 8",flags:[]},
+          {setNumber:3,loadLb:175,reps:10,raw:"175 lbs x 10",flags:[]}
+        ]},
+        {name:"Leg Press Horizontal (Machine)",sets:[
+          {setNumber:1,loadLb:240,reps:12,raw:"240 lbs x 12",flags:[]},
+          {setNumber:2,loadLb:260,reps:8,raw:"260 lbs x 8",flags:[]},
+          {setNumber:3,loadLb:260,reps:6,raw:"260 lbs x 6",flags:[]}
+        ]},
+        {name:"Seated Leg Curl (Machine)",sets:[
+          {setNumber:1,loadLb:105,reps:10,raw:"105 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:105,reps:6,raw:"105 lbs x 6",flags:[]}
+        ]},
+        {name:"Leg Extension (Machine)",sets:[
+          {setNumber:1,loadLb:165,reps:11,raw:"165 lbs x 11",flags:[]},
+          {setNumber:2,loadLb:165,reps:7,raw:"165 lbs x 7",flags:[]}
+        ]},
+        {name:"Hip Abduction (Machine)",sets:[
+          {setNumber:1,loadLb:165,reps:12,raw:"165 lbs x 12",flags:[]},
+          {setNumber:2,loadLb:145,reps:14,raw:"145 lbs x 14",flags:[]}
+        ]}
+      ]},
+      notes:["Leg workout 1 at 6:49pm."]
     }
   ]
 };
