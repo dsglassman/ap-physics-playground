@@ -264,6 +264,16 @@ window.LIVE_FITNESS_DATA={
       ]
     },
     {
+      date:"2026-09-19",
+      weight:{primaryLb:204.2},
+      manualTraining:[
+        "Walk: 2.66 mi in 59:22",
+        "Walk calories: 301",
+        "Walk steps: 6,100",
+        "Walk elevation gain: 56 ft"
+      ]
+    },
+    {
       date:"2026-09-20",
       weight:{primaryLb:205.8},
       strength:{exercises:[
