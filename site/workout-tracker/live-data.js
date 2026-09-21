@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-20",
+  updatedAt:"2026-09-21",
   days:[
     {
       date:"2026-09-04",
@@ -291,6 +291,40 @@ window.LIVE_FITNESS_DATA={
         ]}
       ]},
       notes:["Upper body 1 (Home), 1:28pm."]
+    },
+    {
+      date:"2026-09-21",
+      weight:{primaryLb:206.6},
+      stairs:{bouts:[
+        {time:"9:00 AM",count:1},
+        {time:"9:40 AM",count:1},
+        {time:"10:20 AM",count:1},
+        {time:"11:00 AM",count:1},
+        {time:"11:40 AM",count:1},
+        {time:"12:20 PM",count:1},
+        {time:"1:00 PM",count:1}
+      ]},
+      strength:{exercises:[
+        {name:"45 Degree Sled Leg Press",sets:[
+          {setNumber:1,loadLb:167,reps:6,raw:"167 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:257,reps:3,raw:"257 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:307,reps:1,raw:"307 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:347,reps:3,raw:"347 lbs x 3",flags:["warmup"]},
+          {setNumber:5,loadLb:417,reps:1,raw:"417 lbs x 1",flags:["warmup"]},
+          {setNumber:6,loadLb:507,reps:2,raw:"507 lbs x 2",flags:["failure"]},
+          {setNumber:7,loadLb:397,reps:10,raw:"397 lbs x 10",flags:[]},
+          {setNumber:8,loadLb:397,reps:10,raw:"397 lbs x 10",flags:[]}
+        ],notes:[
+          "Weights include the weight of the sled.",
+          "User-stated benchmark: Intermediate 307 lb for 10 reps; Advanced 457 lb for 10 reps."
+        ]}
+      ]},
+      nutrition:{raw:[
+        "1/2 LeafSide Thai Veggie Noodle savory bowl with 1/2 block Wildwood Extra Firm Tofu",
+        "Santa Fe Wrap x2",
+        "Bagel with vegan butter — 440 kcal total"
+      ]},
+      notes:["Leg workout 1 at 4:22pm."]
     }
   ]
 };
