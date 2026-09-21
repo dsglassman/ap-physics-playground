@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-18",
+  updatedAt:"2026-09-20",
   days:[
     {
       date:"2026-09-04",
@@ -262,6 +262,25 @@ window.LIVE_FITNESS_DATA={
         "Third kettlebell RDL set was stopped at 20 because of grip fatigue.",
         "Returned to barbell RDLs using straps to reduce grip limitation."
       ]
+    },
+    {
+      date:"2026-09-20",
+      weight:{primaryLb:205.8},
+      strength:{exercises:[
+        {name:"Incline Bench Press (Dumbbell)",sets:[
+          {setNumber:1,loadLb:70,reps:7,raw:"70 lbs x 7",flags:[]},
+          {setNumber:2,loadLb:70,reps:5,raw:"70 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:4,loadLb:70,reps:2,raw:"70 lbs x 2",flags:[]},
+          {setNumber:5,loadLb:70,reps:6,raw:"70 lbs x 6",flags:[]},
+          {setNumber:6,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:7,loadLb:70,reps:2,raw:"70 lbs x 2",flags:[]},
+          {setNumber:8,loadLb:70,reps:6,raw:"70 lbs x 6",flags:[]},
+          {setNumber:9,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:10,loadLb:70,reps:2,raw:"70 lbs x 2",flags:[]}
+        ]}
+      ]},
+      notes:["Upper body 1 (Home), 1:28pm."]
     }
   ]
 };
