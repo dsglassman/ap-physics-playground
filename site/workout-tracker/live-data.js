@@ -316,7 +316,7 @@ window.LIVE_FITNESS_DATA={
           {setNumber:8,loadLb:397,reps:10,raw:"397 lbs x 10",flags:[]}
         ],notes:[
           "Weights include the weight of the sled.",
-          "User-stated benchmark: Intermediate 307 lb for 10 reps; Advanced 457 lb for 10 reps."
+          "Machine sled weighs 167 lb. Logged loads include sled + external plates. User-stated standards are external plates only: Intermediate 307 lb plates for 10 reps; Advanced 457 lb plates for 10 reps. Therefore 397 lb logged total = 230 lb external plates."
         ]}
       ]},
       nutrition:{raw:[
