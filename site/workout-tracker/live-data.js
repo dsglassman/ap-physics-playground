@@ -359,8 +359,8 @@ window.LIVE_FITNESS_DATA={
         {sequence:9,time:"2:20",completed:true,pattern:"1"},
         {sequence:10,time:"3:00",completed:true,pattern:"1"},
         {sequence:11,time:"3:40",completed:true,pattern:"1"},
-        {sequence:12,time:"4:20",completed:false,pattern:"1",note:"Listed without completion marker"},
-        {sequence:13,time:"5:00",completed:false,pattern:"1",note:"Listed without completion marker"}
+        {sequence:12,time:"4:20",completed:true,pattern:"1"},
+        {sequence:13,time:"5:00",completed:true,pattern:"1"}
       ],
       nutrition:{raw:[
         "LeafSide Smoky Pea Soup with 1 full block/package Hodo Extra Firm Tofu",
