@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-21",
+  updatedAt:"2026-09-23",
   days:[
     {
       date:"2026-09-04",
@@ -325,6 +325,48 @@ window.LIVE_FITNESS_DATA={
         "Bagel with vegan butter — 440 kcal total"
       ]},
       notes:["Leg workout 1 at 4:22pm."]
+    },
+    {
+      date:"2026-09-23",
+      weight:{primaryLb:205.4},
+      strength:{exercises:[
+        {name:"Incline Bench Press (Dumbbell)",sets:[
+          {setNumber:1,loadLb:70,reps:8,raw:"70 lbs x 8",flags:[]},
+          {setNumber:2,loadLb:70,reps:6,raw:"70 lbs x 6",flags:[]},
+          {setNumber:3,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:4,loadLb:70,reps:4,raw:"70 lbs x 4",flags:[]},
+          {setNumber:5,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]}
+        ]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:85,reps:6,raw:"85 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:130,reps:3,raw:"130 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:155,reps:1,raw:"155 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:175,reps:6,raw:"175 lbs x 6",flags:[]},
+          {setNumber:5,loadLb:165,reps:7,raw:"165 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:165,reps:5,raw:"165 lbs x 5",flags:[]},
+          {setNumber:7,loadLb:165,reps:5,raw:"165 lbs x 5",flags:[]}
+        ]}
+      ]},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:40",completed:true,pattern:"1"},
+        {sequence:3,time:"10:20",completed:true,pattern:"1"},
+        {sequence:4,time:"11:00",completed:true,pattern:"1"},
+        {sequence:5,time:"11:40",completed:true,pattern:"1"},
+        {sequence:6,time:"12:20",completed:true,pattern:"1"},
+        {sequence:7,time:"1:00",completed:true,pattern:"1"},
+        {sequence:8,time:"1:40",completed:true,pattern:"1"},
+        {sequence:9,time:"2:20",completed:true,pattern:"1"},
+        {sequence:10,time:"3:00",completed:true,pattern:"1"},
+        {sequence:11,time:"3:40",completed:true,pattern:"1"},
+        {sequence:12,time:"4:20",completed:false,pattern:"1",note:"Listed without completion marker"},
+        {sequence:13,time:"5:00",completed:false,pattern:"1",note:"Listed without completion marker"}
+      ],
+      nutrition:{raw:[
+        "LeafSide Smoky Pea Soup with 1 full block/package Hodo Extra Firm Tofu",
+        "2 servings: 9 oz cooked Rummo High Protein Linguine with 7.2 oz Rao's Marinara sauce"
+      ]},
+      notes:["Upper #1 YMCA Fishers at 6:28am."]
     }
   ]
 };
