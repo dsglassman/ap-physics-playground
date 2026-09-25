@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-23",
+  updatedAt:"2026-09-24",
   days:[
     {
       date:"2026-09-04",
@@ -367,6 +367,55 @@ window.LIVE_FITNESS_DATA={
         "2 servings: 9 oz cooked Rummo High Protein Linguine with 7.2 oz Rao's Marinara sauce"
       ]},
       notes:["Upper #1 YMCA Fishers at 6:28am."]
+    },
+    {
+      date:"2026-09-24",
+      weight:{primaryLb:203.0},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:40",completed:true,pattern:"1"},
+        {sequence:3,time:"10:20",completed:true,pattern:"1"},
+        {sequence:4,time:"11:00",completed:true,pattern:"1"},
+        {sequence:5,time:"11:40",completed:true,pattern:"1"},
+        {sequence:6,time:"12:20",completed:true,pattern:"1"},
+        {sequence:7,time:"1:00",completed:true,pattern:"1"},
+        {sequence:8,time:"1:40",completed:true,pattern:"1"},
+        {sequence:9,time:"2:20",completed:true,pattern:"1"},
+        {sequence:10,time:"3:00",completed:true,pattern:"1"},
+        {sequence:11,time:"3:40",completed:true,pattern:"1"},
+        {sequence:12,time:"4:20",completed:true,pattern:"1"},
+        {sequence:13,time:"5:00",completed:true,pattern:"1"}
+      ],
+      strength:{exercises:[
+        {name:"Incline Bench Press (Dumbbell)",sets:[
+          {setNumber:1,loadLb:70,reps:9,raw:"70 lbs x 9",flags:[]},
+          {setNumber:2,loadLb:70,reps:7,raw:"70 lbs x 7",flags:[]},
+          {setNumber:3,loadLb:70,reps:4,raw:"70 lbs x 4",flags:[]},
+          {setNumber:4,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:5,loadLb:70,reps:4,raw:"70 lbs x 4",flags:[]}
+        ]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:85,reps:6,raw:"85 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:125,reps:3,raw:"125 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:150,reps:1,raw:"150 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:165,reps:10,raw:"165 lbs x 10",flags:[]},
+          {setNumber:5,loadLb:165,reps:6,raw:"165 lbs x 6",flags:[]},
+          {setNumber:6,loadLb:165,reps:4,raw:"165 lbs x 4",flags:[]},
+          {setNumber:7,loadLb:165,reps:4,raw:"165 lbs x 4",flags:[]}
+        ]}
+      ]},
+      nutrition:{
+        entries:[
+          {id:"hodo_extra_firm_285g",description:"Hodo Organic Extra Firm Tofu — 285 g",calories:402,proteinG:46.9,estimated:false,uncertain:false},
+          {id:"leafside_pesto_peppers_pasta",description:"LeafSide Pesto & Peppers Pasta Savory-Bowl — 1 pack",calories:547,proteinG:27,estimated:false,uncertain:false},
+          {id:"leafside_golden_garlic_half",description:"1/2 LeafSide Golden Garlic Bean Soup",calories:247.5,proteinG:10.5,estimated:false,uncertain:false},
+          {id:"wildwood_tofu_half",description:"1/2 block Wildwood Organic High Protein Tofu",calories:325,proteinG:35,estimated:false,uncertain:false}
+        ],
+        knownCaloriesSubtotal:1521.5,
+        knownProteinG:119.4,
+        subtotalIsPartial:false
+      },
+      notes:["Upper #1 YMCA Fishers at 6:45pm."]
     }
   ]
 };
