@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-24",
+  updatedAt:"2026-09-25",
   days:[
     {
       date:"2026-09-04",
@@ -416,6 +416,38 @@ window.LIVE_FITNESS_DATA={
         subtotalIsPartial:false
       },
       notes:["Upper #1 YMCA Fishers at 6:45pm."]
+    },
+    {
+      date:"2026-09-25",
+      weight:{primaryLb:201.6},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:40",completed:true,pattern:"1"},
+        {sequence:3,time:"10:20",completed:true,pattern:"1"},
+        {sequence:4,time:"11:00",completed:true,pattern:"1"},
+        {sequence:5,time:"11:40",completed:true,pattern:"1"},
+        {sequence:6,time:"12:20",completed:true,pattern:"1"},
+        {sequence:7,time:"12:50",completed:true,pattern:"1"},
+        {sequence:8,time:"1:40",completed:true,pattern:"1"},
+        {sequence:9,time:"2:20",completed:true,pattern:"1"},
+        {sequence:10,time:"3:00",completed:true,pattern:"1"},
+        {sequence:11,time:"3:40",completed:true,pattern:"1"},
+        {sequence:12,time:"4:20",completed:true,pattern:"1"},
+        {sequence:13,time:"5:00",completed:true,pattern:"1"}
+      ],
+      nutrition:{
+        entries:[
+          {id:"hodo_extra_firm_285g",description:"Hodo Organic Extra Firm Tofu — 285 g",calories:402,proteinG:46.9,estimated:false,uncertain:false},
+          {id:"leafside_madras_curry",description:"LeafSide Madras Curry Savory-Bowl — 1 pack",calories:570,proteinG:29,estimated:false,uncertain:false}
+        ],
+        rawLines:[
+          "Santa Fe Wrap x2, without guacamole",
+          "Small serving tortilla chips (~10 chips) with vegan cashew cream nacho cheese"
+        ],
+        knownCaloriesSubtotal:972,
+        knownProteinG:75.9,
+        subtotalIsPartial:true
+      }
     }
   ]
 };
