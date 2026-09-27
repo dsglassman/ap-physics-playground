@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-25",
+  updatedAt:"2026-09-27",
   days:[
     {
       date:"2026-09-04",
@@ -448,6 +448,54 @@ window.LIVE_FITNESS_DATA={
         knownProteinG:75.9,
         subtotalIsPartial:true
       }
+    },
+    {
+      date:"2026-09-26",
+      weight:{primaryLb:201.6},
+      strength:{exercises:[
+        {name:"Incline Bench Press (Dumbbell)",sets:[
+          {setNumber:1,loadLb:70,reps:9,raw:"70 lbs x 9",flags:[]},
+          {setNumber:2,loadLb:70,reps:5,raw:"70 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:70,reps:4,raw:"70 lbs x 4",flags:[]},
+          {setNumber:4,loadLb:70,reps:3,raw:"70 lbs x 3",flags:[]},
+          {setNumber:5,loadLb:70,reps:2,raw:"70 lbs x 2",flags:[]}
+        ]},
+        {name:"Seated Cable Row - Bar Grip",sets:[
+          {setNumber:1,loadLb:80,reps:6,raw:"80 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:120,reps:3,raw:"120 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:145,reps:1,raw:"145 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:170,reps:7,raw:"170 lbs x 7",flags:[]},
+          {setNumber:5,loadLb:160,reps:4,raw:"160 lbs x 4",flags:[]},
+          {setNumber:6,loadLb:150,reps:6,raw:"150 lbs x 6",flags:[]}
+        ],notes:["Try warm up with 80/120/140 next time. Then working sets at 155."]},
+        {name:"Lateral Raise (Machine)",sets:[
+          {setNumber:1,loadLb:105,reps:6,raw:"105 lbs x 6",flags:[]},
+          {setNumber:2,loadLb:92.5,reps:7,raw:"92.5 lbs x 7",flags:[]},
+          {setNumber:3,loadLb:92.5,reps:3,raw:"92.5 lbs x 3",flags:[]},
+          {setNumber:4,loadLb:72.5,reps:6,raw:"72.5 lbs x 6",flags:["drop"]},
+          {setNumber:5,loadLb:52.5,reps:6,raw:"52.5 lbs x 6",flags:["drop"]},
+          {setNumber:6,loadLb:32.5,reps:6,raw:"32.5 lbs x 6",flags:["drop"]}
+        ],notes:["Fishers"]},
+        {name:"Preacher Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:37,reps:6,raw:"37 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:52,reps:3,raw:"52 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:62,reps:1,raw:"62 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:67,reps:9,raw:"67 lbs x 9",flags:[]},
+          {setNumber:5,loadLb:67,reps:5,raw:"67 lbs x 5",flags:[]},
+          {setNumber:6,loadLb:67,reps:5,raw:"67 lbs x 5",flags:[]}
+        ]}
+      ]},
+      nutrition:{raw:[
+        "Vegan biscuits and gravy x2 servings",
+        "Santa Fe Wrap x1",
+        "Bagel",
+        "Dinner eaten out — not tracked"
+      ]},
+      notes:["Upper #1 YMCA Fishers at 12:22pm."]
+    },
+    {
+      date:"2026-09-27",
+      weight:{primaryLb:206.8}
     }
   ]
 };
