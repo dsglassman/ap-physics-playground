@@ -511,8 +511,8 @@ window.LIVE_FITNESS_DATA={
         {sequence:8,time:"1:40",completed:true,pattern:"1",count:1},
         {sequence:9,time:"2:20",completed:true,pattern:"1",count:1},
         {sequence:10,time:"3:00",completed:true,pattern:"1",count:1},
-        {sequence:11,time:"3:40",completed:true,pattern:"2",count:2},
-        {sequence:12,time:"4:20",completed:true,pattern:"2",count:2},
+        {sequence:11,time:"3:40",completed:true,pattern:"2",count:1},
+        {sequence:12,time:"4:20",completed:true,pattern:"2",count:1},
         {sequence:13,time:"5:00",completed:true,pattern:"1",count:1}
       ],
       strength:{exercises:[
