@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-27",
+  updatedAt:"2026-09-28",
   days:[
     {
       date:"2026-09-04",
@@ -496,6 +496,46 @@ window.LIVE_FITNESS_DATA={
     {
       date:"2026-09-27",
       weight:{primaryLb:206.8}
+    },
+    {
+      date:"2026-09-28",
+      weight:{primaryLb:208.0},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1",count:1},
+        {sequence:2,time:"9:40",completed:true,pattern:"1",count:1},
+        {sequence:3,time:"10:20",completed:true,pattern:"1",count:1},
+        {sequence:4,time:"11:00",completed:true,pattern:"1",count:1},
+        {sequence:5,time:"11:40",completed:true,pattern:"1",count:1},
+        {sequence:6,time:"12:20",completed:true,pattern:"1",count:1},
+        {sequence:7,time:"1:00",completed:true,pattern:"1",count:1},
+        {sequence:8,time:"1:40",completed:true,pattern:"1",count:1},
+        {sequence:9,time:"2:20",completed:true,pattern:"1",count:1},
+        {sequence:10,time:"3:00",completed:true,pattern:"1",count:1},
+        {sequence:11,time:"3:40",completed:true,pattern:"2",count:2},
+        {sequence:12,time:"4:20",completed:true,pattern:"2",count:2},
+        {sequence:13,time:"5:00",completed:true,pattern:"1",count:1}
+      ],
+      strength:{exercises:[
+        {name:"Incline Bench Press (Smith Machine)",sets:[
+          {setNumber:1,loadLb:165,reps:2,raw:"165 lbs x 2",flags:[]},
+          {setNumber:2,loadLb:145,reps:6,raw:"145 lbs x 6",flags:[]},
+          {setNumber:3,loadLb:145,reps:3,raw:"145 lbs x 3",flags:[]}
+        ]},
+        {name:"Bench Press (Smith Machine)",sets:[
+          {setNumber:1,loadLb:145,reps:3,raw:"145 lbs x 3",flags:[]}
+        ]},
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:60,reps:14,raw:"60 lbs x 14",flags:[]},
+          {setNumber:2,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]},
+          {setNumber:3,loadLb:75,reps:7,raw:"75 lbs x 7",flags:[]}
+        ]}
+      ]},
+      nutrition:{raw:[
+        "LeafSide Tex-Mex Savory-Bowl with 1/2 block Wildwood Extra Firm Tofu",
+        "4 oz cooked Rummo High Protein Linguine with homemade vegan cashew cream Alfredo sauce",
+        "Bagel with vegan butter"
+      ]},
+      notes:["Evening workout at 7:27pm."]
     }
   ]
 };
