@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-28",
+  updatedAt:"2026-09-29",
   days:[
     {
       date:"2026-09-04",
@@ -536,6 +536,63 @@ window.LIVE_FITNESS_DATA={
         "Bagel with vegan butter"
       ]},
       notes:["Evening workout at 7:27pm."]
+    },
+    {
+      date:"2026-09-29",
+      weight:{primaryLb:205.4},
+      stairs:[
+        {sequence:1,time:"12:20",completed:true,pattern:"1"},
+        {sequence:2,time:"1:00",completed:true,pattern:"1"},
+        {sequence:3,time:"1:40",completed:true,pattern:"1"},
+        {sequence:4,time:"2:20",completed:true,pattern:"1"},
+        {sequence:5,time:"3:00",completed:true,pattern:"1"},
+        {sequence:6,time:"3:40",completed:true,pattern:"1"},
+        {sequence:7,time:"4:20",completed:true,pattern:"1"},
+        {sequence:8,time:"5:00",completed:true,pattern:"1"}
+      ],
+      strength:{exercises:[
+        {name:"Seated Row (Machine)",sets:[
+          {setNumber:1,loadLb:160,reps:14,raw:"160 lbs x 14",flags:[]},
+          {setNumber:2,loadLb:160,reps:11,raw:"160 lbs x 11",flags:[]},
+          {setNumber:3,loadLb:160,reps:7,raw:"160 lbs x 7",flags:[]}
+        ],notes:["Matrix selectorized. Seat at 5. Chest pad at 8. 1s hold at peak contraction. 2 partials after concentric failure; recorded reps are full reps only."]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:85,reps:6,raw:"85 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:125,reps:3,raw:"125 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:150,reps:1,raw:"150 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:165,reps:5,raw:"165 lbs x 5",flags:[]},
+          {setNumber:5,loadLb:165,reps:5,raw:"165 lbs x 5",flags:[]},
+          {setNumber:6,loadLb:165,reps:4,raw:"165 lbs x 4",flags:[]}
+        ],notes:["Grip failed on first work set. Grip had one more rep on set 2 but left scapular stabilization failed at 5. Grip and left scapular stabilization failed on set 3."]},
+        {name:"Rear Delt Reverse Fly (Machine)",sets:[
+          {setNumber:1,loadLb:97.5,reps:9,raw:"97.5 lbs x 9",flags:[]},
+          {setNumber:2,loadLb:97.5,reps:5,raw:"97.5 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:97.5,reps:6,raw:"97.5 lbs x 6",flags:[]}
+        ],notes:["First time performing this exercise. One partial after failure on third set; recorded reps are full reps only."]},
+        {name:"Bicep Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:30,reps:6,raw:"30 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:50,reps:3,raw:"50 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:60,reps:1,raw:"60 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:70,reps:6,raw:"70 lbs x 6",flags:[]},
+          {setNumber:5,loadLb:70,reps:5,raw:"70 lbs x 5",flags:[]}
+        ],notes:["Only 2 working sets because biceps were already heavily involved in back work."]}
+      ]},
+      nutrition:{
+        entries:[
+          {id:"leafside_tex_mex",description:"LeafSide Tex-Mex Savory-Bowl — 1 pack",calories:607,proteinG:25,estimated:false,uncertain:false},
+          {id:"hodo_extra_firm_285g",description:"Hodo Organic Extra Firm Tofu — 1 block (~285 g)",calories:402,proteinG:46.9,estimated:true,uncertain:false},
+          {id:"leafside_southwest_black_bean",description:"LeafSide Southwest Black Bean Soup — 1 pack",calories:611,proteinG:27,estimated:false,uncertain:false},
+          {id:"whole_foods_rice_lentil_blend",description:"Whole Foods Market rice & lentil blend — 1 pouch (249 g)",calories:400,proteinG:12,estimated:false,uncertain:false}
+        ],
+        rawLines:[
+          "Guacamole — 6 tbsp",
+          "Homemade cashew cheese — 3 tbsp"
+        ],
+        knownCaloriesSubtotal:2020,
+        knownProteinG:110.9,
+        subtotalIsPartial:true
+      },
+      notes:["Evening workout at 8:04pm."]
     }
   ]
 };
