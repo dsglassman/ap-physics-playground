@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-29",
+  updatedAt:"2026-09-30",
   days:[
     {
       date:"2026-09-04",
@@ -593,6 +593,33 @@ window.LIVE_FITNESS_DATA={
         subtotalIsPartial:true
       },
       notes:["Evening workout at 8:04pm."]
+    },
+    {
+      date:"2026-09-30",
+      weight:{primaryLb:204.0},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:40",completed:true,pattern:"1"},
+        {sequence:3,time:"10:20",completed:true,pattern:"1"},
+        {sequence:4,time:"11:00",completed:true,pattern:"1"},
+        {sequence:5,time:"11:40",completed:true,pattern:"1"},
+        {sequence:6,time:"12:20",completed:true,pattern:"1"},
+        {sequence:7,time:"1:00",completed:true,pattern:"1"},
+        {sequence:8,time:"1:40",completed:true,pattern:"1"},
+        {sequence:9,time:"2:20",completed:true,pattern:"1"},
+        {sequence:10,time:"3:00",completed:true,pattern:"1"},
+        {sequence:11,time:"3:40",completed:true,pattern:"1"},
+        {sequence:12,time:"4:20",completed:true,pattern:"1"},
+        {sequence:13,time:"5:00",completed:true,pattern:"1"}
+      ],
+      nutrition:{
+        raw:[
+          "1/4 LeafSide Tex-Mex with 1/4 block Hodo Extra Firm Tofu",
+          "1/4 LeafSide Black Bean Soup with 1/4 block Hodo Extra Firm Tofu",
+          "4 cups cooked Rummo High Protein pasta with Rao's marinara",
+          "1 bagel with vegan butter"
+        ]
+      }
     }
   ]
 };
