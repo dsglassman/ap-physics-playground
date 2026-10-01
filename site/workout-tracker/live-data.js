@@ -676,12 +676,12 @@ window.LIVE_FITNESS_DATA={
       ],
       strength:{exercises:[
         {name:"Incline Bench Press (Dumbbell)",sets:[
-          {setNumber:1,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
-          {setNumber:2,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
-          {setNumber:3,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
-          {setNumber:4,loadLb:75,reps:4,raw:"75 lbs x 4",flags:[]},
-          {setNumber:5,loadLb:75,reps:3,raw:"75 lbs x 3",flags:[]}
-        ]}
+          {setNumber:1,loadLb:75,reps:5,raw:"75 lbs x 5",flags:["1-2 RIR"]},
+          {setNumber:2,loadLb:75,reps:5,raw:"75 lbs x 5",flags:["1 RIR"]},
+          {setNumber:3,loadLb:75,reps:5,raw:"75 lbs x 5",flags:["failure"]},
+          {setNumber:4,loadLb:75,reps:4,raw:"75 lbs x 4",flags:["failure"]},
+          {setNumber:5,loadLb:75,reps:3,raw:"75 lbs x 3",flags:["failure"]}
+        ],notes:["Set 1 stopped 1-2 reps shy of failure; set 2 stopped ~1 rep shy; sets 3-5 taken to concentric failure. Prior 70 lb x 9 benchmark was a failure set."]}
       ]},
       nutrition:{
         entries:[
