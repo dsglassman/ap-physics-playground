@@ -327,6 +327,10 @@ window.LIVE_FITNESS_DATA={
       notes:["Leg workout 1 at 4:22pm."]
     },
     {
+      date:"2026-09-22",
+      notes:["No weight, workout, stairs, cardio, or food log provided."]
+    },
+    {
       date:"2026-09-23",
       weight:{primaryLb:205.4},
       strength:{exercises:[
@@ -495,7 +499,38 @@ window.LIVE_FITNESS_DATA={
     },
     {
       date:"2026-09-27",
-      weight:{primaryLb:206.8}
+      weight:{primaryLb:206.8},
+      strength:{exercises:[
+        {name:"Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:120,reps:22,raw:"120 lbs x 22",flags:[]},
+          {setNumber:2,loadLb:140,reps:11,raw:"140 lbs x 11",flags:[]},
+          {setNumber:3,loadLb:150,reps:7,raw:"150 lbs x 7",flags:[]},
+          {setNumber:4,loadLb:150,reps:6,raw:"150 lbs x 6",flags:[]}
+        ],notes:["Try 160 lb for 9-12 next time."]},
+        {name:"Seated Row (Machine)",sets:[
+          {setNumber:1,loadLb:150,reps:13,raw:"150 lbs x 13",flags:[]},
+          {setNumber:2,loadLb:150,reps:11,raw:"150 lbs x 11",flags:[]},
+          {setNumber:3,loadLb:150,reps:8,raw:"150 lbs x 8",flags:[]},
+          {setNumber:4,loadLb:150,reps:6,raw:"150 lbs x 6",flags:[]}
+        ],notes:["Matrix selectorized. Seat at 5. Chest pad at 8."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:21.8,reps:6,raw:"21.8 lbs x 6 right arm",flags:[]},
+          {setNumber:2,loadLb:18,reps:9,raw:"18 lbs x 9 left arm",flags:[]},
+          {setNumber:3,loadLb:18,reps:7,raw:"18 lbs x 7 right arm",flags:[]},
+          {setNumber:4,loadLb:18,reps:5,raw:"18 lbs x 5 left arm",flags:[]},
+          {setNumber:5,loadLb:18,reps:5,raw:"18 lbs x 5 right arm",flags:[]},
+          {setNumber:6,loadLb:18,reps:4,raw:"18 lbs x 4 left arm",flags:[]}
+        ],notes:["Odd-numbered sets right arm; even-numbered sets left arm. Partials after sets 1-4; three partials after sets 5-6. Recorded reps are full reps to failure."]},
+        {name:"Preacher Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:37,reps:6,raw:"37 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:52,reps:3,raw:"52 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:62,reps:1,raw:"62 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:72,reps:9,raw:"72 lbs x 9",flags:[]},
+          {setNumber:5,loadLb:72,reps:5,raw:"72 lbs x 5",flags:[]},
+          {setNumber:6,loadLb:72,reps:4,raw:"72 lbs x 4",flags:[]}
+        ],notes:["Two forced negatives after the last set."]}
+      ]},
+      notes:["Afternoon workout at 1:38pm."]
     },
     {
       date:"2026-09-28",
