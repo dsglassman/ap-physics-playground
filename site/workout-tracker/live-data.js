@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-09-30",
+  updatedAt:"2026-10-01",
   days:[
     {
       date:"2026-09-04",
@@ -655,6 +655,49 @@ window.LIVE_FITNESS_DATA={
           "1 bagel with vegan butter"
         ]
       }
+    },
+    {
+      date:"2026-10-01",
+      weight:{primaryLb:202.2},
+      stairs:[
+        {sequence:1,time:"9:00",completed:true,pattern:"1"},
+        {sequence:2,time:"9:40",completed:true,pattern:"1"},
+        {sequence:3,time:"10:20",completed:true,pattern:"1"},
+        {sequence:4,time:"11:00",completed:true,pattern:"1"},
+        {sequence:5,time:"11:40",completed:true,pattern:"1"},
+        {sequence:6,time:"12:20",completed:true,pattern:"1"},
+        {sequence:7,time:"1:00",completed:true,pattern:"1"},
+        {sequence:8,time:"1:40",completed:true,pattern:"1"},
+        {sequence:9,time:"2:20",completed:true,pattern:"1"},
+        {sequence:10,time:"3:00",completed:true,pattern:"1"},
+        {sequence:11,time:"3:40",completed:true,pattern:"1"},
+        {sequence:12,time:"4:20",completed:true,pattern:"1"},
+        {sequence:13,time:"5:00",completed:true,pattern:"1"}
+      ],
+      strength:{exercises:[
+        {name:"Incline Bench Press (Dumbbell)",sets:[
+          {setNumber:1,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
+          {setNumber:2,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:75,reps:5,raw:"75 lbs x 5",flags:[]},
+          {setNumber:4,loadLb:75,reps:4,raw:"75 lbs x 4",flags:[]},
+          {setNumber:5,loadLb:75,reps:3,raw:"75 lbs x 3",flags:[]}
+        ]}
+      ]},
+      nutrition:{
+        entries:[
+          {id:"leafside_southwest_black_bean_half",description:"1/2 LeafSide Southwest Black Bean Soup",calories:305.5,proteinG:13.5,estimated:false,uncertain:false},
+          {id:"hodo_extra_firm_half",description:"1/2 block Hodo Organic Extra Firm Tofu",calories:201,proteinG:23.45,estimated:true,uncertain:false}
+        ],
+        rawLines:[
+          "1 piece whole-grain bread with 2 tbsp homemade vegan gravy from biscuits-and-gravy recipe",
+          "2 cups cooked fettuccine with vegan Alfredo sauce",
+          "Crackers with vegan cheese — amounts pending"
+        ],
+        knownCaloriesSubtotal:506.5,
+        knownProteinG:36.95,
+        subtotalIsPartial:true
+      },
+      notes:["Evening workout at 7:21pm."]
     }
   ]
 };
