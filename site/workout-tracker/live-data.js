@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-01",
+  updatedAt:"2026-10-02",
   days:[
     {
       date:"2026-09-04",
@@ -698,6 +698,33 @@ window.LIVE_FITNESS_DATA={
         subtotalIsPartial:true
       },
       notes:["Evening workout at 7:21pm."]
+    },
+    {
+      date:"2026-10-02",
+      strength:{exercises:[
+        {name:"Seated Row (Machine)",sets:[
+          {setNumber:1,loadLb:180,reps:10,raw:"180 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:180,reps:8,raw:"180 lbs x 8",flags:[]},
+          {setNumber:3,loadLb:180,reps:6,raw:"180 lbs x 6",flags:[]},
+          {setNumber:4,loadLb:180,reps:5,raw:"180 lbs x 5",flags:[]}
+        ]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:85,reps:6,raw:"85 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:125,reps:3,raw:"125 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:150,reps:1,raw:"150 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:155,reps:7,raw:"155 lbs x 7",flags:[]},
+          {setNumber:5,loadLb:155,reps:6,raw:"155 lbs x 6",flags:[]},
+          {setNumber:6,loadLb:155,reps:4,raw:"155 lbs x 4",flags:[]}
+        ],notes:["Left scapular stabilization failed on the last rep of each working set."]},
+        {name:"Preacher Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:37,reps:6,raw:"37 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:52,reps:3,raw:"52 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:62,reps:1,raw:"62 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:77,reps:4,raw:"77 lbs x 4",flags:[]},
+          {setNumber:5,loadLb:67,reps:3,raw:"67 lbs x 3",flags:[]}
+        ]}
+      ]},
+      notes:["Morning workout at 6:13am."]
     }
   ]
 };
