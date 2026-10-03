@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-02",
+  updatedAt:"2026-10-03",
   days:[
     {
       date:"2026-09-04",
@@ -725,6 +725,43 @@ window.LIVE_FITNESS_DATA={
         ]}
       ]},
       notes:["Morning workout at 6:13am."]
+    },
+    {
+      date:"2026-10-03",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:97.5,reps:5,raw:"97.5 lbs x 5",flags:["~2 RIR target"]},
+          {setNumber:2,loadLb:100,reps:5,raw:"100 lbs x 5",flags:["~1 RIR target"]},
+          {setNumber:3,loadLb:102.5,reps:5,raw:"102.5 lbs x 5",flags:["target near failure"]},
+          {setNumber:4,loadLb:105,reps:5,raw:"105 lbs x 5",flags:["target near failure"]},
+          {setNumber:5,loadLb:105,reps:3,raw:"105 lbs x 3",flags:["failure"]}
+        ],notes:["Testing load for a 5x5. Goal was ~2 RIR on set 1, ~1 RIR on set 2, failure around rep 5 on sets 3-4, and possible failure before 5 reps on set 5. User's current estimate: 105 lb is likely the right load next time."]},
+        {name:"Single Arm Lat Pulldown",sets:[
+          {setNumber:1,loadLb:40,reps:6,raw:"40 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:60,reps:3,raw:"60 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:70,reps:1,raw:"70 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:90,reps:8,raw:"90 lbs x 8",flags:[]},
+          {setNumber:5,loadLb:90,reps:7,raw:"90 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:90,reps:7,raw:"90 lbs x 7",flags:["failure"]}
+        ]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:18,reps:12,raw:"18 lbs x 12 left arm",flags:[]},
+          {setNumber:2,loadLb:18,reps:10,raw:"18 lbs x 10 right arm",flags:[]},
+          {setNumber:3,loadLb:18,reps:8,raw:"18 lbs x 8 left arm",flags:[]},
+          {setNumber:4,loadLb:18,reps:8,raw:"18 lbs x 8 right arm",flags:[]},
+          {setNumber:5,loadLb:18,reps:7,raw:"18 lbs x 7 left arm",flags:["drop"]},
+          {setNumber:6,loadLb:18,reps:6,raw:"18 lbs x 6 right arm",flags:["drop"]}
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Three partials after failure on sets 5 and 6; recorded reps are full reps only."]},
+        {name:"Overhead Triceps Extension (Cable)",sets:[
+          {setNumber:1,loadLb:70,reps:8,raw:"70 lbs x 8",flags:[]},
+          {setNumber:2,loadLb:70,reps:6,raw:"70 lbs x 6",flags:["failure"]},
+          {setNumber:3,loadLb:70,reps:3,raw:"70 lbs x 3",flags:["failure"]}
+        ]},
+        {name:"Bicep Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]}
+        ]}
+      ]},
+      notes:["Upper #1 YMCA Fishers at 9:32am.","Weight not provided."]
     }
   ]
 };
