@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-03",
+  updatedAt:"2026-10-05",
   days:[
     {
       date:"2026-09-04",
@@ -762,6 +762,39 @@ window.LIVE_FITNESS_DATA={
         ]}
       ]},
       notes:["Upper #1 YMCA Fishers at 9:32am.","Weight not provided."]
+    },
+    {
+      date:"2026-10-05",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:2,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:105,reps:5,raw:"105 lbs x 5",flags:["failure"]},
+          {setNumber:4,loadLb:105,reps:4,raw:"105 lbs x 4",flags:["failure"]},
+          {setNumber:5,loadLb:105,reps:4,raw:"105 lbs x 4",flags:["failure"]}
+        ]},
+        {name:"Single Arm Lat Pulldown",sets:[
+          {setNumber:1,loadLb:43,reps:6,raw:"43 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:63,reps:3,raw:"63 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:73,reps:1,raw:"73 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:88,reps:8,raw:"88 lbs x 8",flags:[]},
+          {setNumber:5,loadLb:88,reps:7,raw:"88 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:88,reps:7,raw:"88 lbs x 7",flags:["failure"]}
+        ],notes:["Try 90.5 lb for a 5x5 next time."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:18,reps:12,raw:"18 lbs x 12",flags:[]},
+          {setNumber:2,loadLb:18,reps:12,raw:"18 lbs x 12",flags:[]},
+          {setNumber:3,loadLb:18,reps:10,raw:"18 lbs x 10",flags:[]},
+          {setNumber:4,loadLb:18,reps:10,raw:"18 lbs x 10",flags:[]},
+          {setNumber:5,loadLb:18,reps:6,raw:"18 lbs x 6",flags:[]},
+          {setNumber:6,loadLb:18,reps:6,raw:"18 lbs x 6",flags:[]}
+        ]},
+        {name:"Bicep Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:80,reps:6,raw:"80 lbs x 6",flags:[]},
+          {setNumber:2,loadLb:80,reps:4,raw:"80 lbs x 4",flags:[]}
+        ]}
+      ]},
+      notes:["Upper #1 YMCA Fishers at 4:01pm."]
     }
   ]
 };
