@@ -792,9 +792,20 @@ window.LIVE_FITNESS_DATA={
         {name:"Bicep Curl (Barbell)",sets:[
           {setNumber:1,loadLb:80,reps:6,raw:"80 lbs x 6",flags:[]},
           {setNumber:2,loadLb:80,reps:4,raw:"80 lbs x 4",flags:[]}
-        ]}
+        ]},
+        {name:"Overhead Press (Barbell)",sets:[
+          {setNumber:1,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:3,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:4,loadLb:65,reps:9,raw:"65 lbs x 9",flags:[]},
+          {setNumber:5,loadLb:65,reps:7,raw:"65 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]},
+          {setNumber:7,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]},
+          {setNumber:8,loadLb:65,reps:4,raw:"65 lbs x 4",flags:[]},
+          {setNumber:9,loadLb:65,reps:4,raw:"65 lbs x 4",flags:[]}
+        ],notes:["Evening session at 7:46pm. Attempted GVT-style 10x10; completed 9 sets and 66 total reps."]}
       ]},
-      notes:["Upper #1 YMCA Fishers at 4:01pm."]
+      notes:["Upper #1 YMCA Fishers at 4:01pm.","Evening overhead press session at 7:46pm."]
     }
   ]
 };
