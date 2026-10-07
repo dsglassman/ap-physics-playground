@@ -823,10 +823,10 @@ window.LIVE_FITNESS_DATA={
           {setNumber:10,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]}
         ],notes:["Evening session at 7:18pm. GVT-style 10x10 attempt; completed all 10 sets with 74 total reps."]},
         {name:"Bicep Curl (Barbell)",sets:[
-          {setNumber:1,loadLb:0,reps:7,raw:"0 lbs x 7",flags:[]},
-          {setNumber:2,loadLb:0,reps:6,raw:"0 lbs x 6",flags:[]},
-          {setNumber:3,loadLb:0,reps:6,raw:"0 lbs x 6",flags:[]}
-        ],notes:["Load preserved exactly as entered; 0-lb meaning not inferred."]}
+          {setNumber:1,loadLb:80,reps:7,raw:"80 lbs x 7",flags:[]},
+          {setNumber:2,loadLb:80,reps:6,raw:"80 lbs x 6",flags:[]},
+          {setNumber:3,loadLb:80,reps:6,raw:"80 lbs x 6",flags:[]}
+        ]}
       ]},
       notes:["Evening workout at 7:18pm.","Weight not provided."]
     }
