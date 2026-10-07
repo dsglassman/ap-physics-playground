@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-05",
+  updatedAt:"2026-10-06",
   days:[
     {
       date:"2026-09-04",
@@ -806,6 +806,29 @@ window.LIVE_FITNESS_DATA={
         ],notes:["Evening session at 7:46pm. Attempted GVT-style 10x10; completed 9 sets and 66 total reps."]}
       ]},
       notes:["Upper #1 YMCA Fishers at 4:01pm.","Evening overhead press session at 7:46pm."]
+    },
+    {
+      date:"2026-10-06",
+      strength:{exercises:[
+        {name:"Overhead Press (Barbell)",sets:[
+          {setNumber:1,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:3,loadLb:65,reps:10,raw:"65 lbs x 10",flags:[]},
+          {setNumber:4,loadLb:65,reps:9,raw:"65 lbs x 9",flags:[]},
+          {setNumber:5,loadLb:65,reps:7,raw:"65 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]},
+          {setNumber:7,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]},
+          {setNumber:8,loadLb:65,reps:5,raw:"65 lbs x 5",flags:[]},
+          {setNumber:9,loadLb:65,reps:5,raw:"65 lbs x 5",flags:[]},
+          {setNumber:10,loadLb:65,reps:6,raw:"65 lbs x 6",flags:[]}
+        ],notes:["Evening session at 7:18pm. GVT-style 10x10 attempt; completed all 10 sets with 74 total reps."]},
+        {name:"Bicep Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:0,reps:7,raw:"0 lbs x 7",flags:[]},
+          {setNumber:2,loadLb:0,reps:6,raw:"0 lbs x 6",flags:[]},
+          {setNumber:3,loadLb:0,reps:6,raw:"0 lbs x 6",flags:[]}
+        ],notes:["Load preserved exactly as entered; 0-lb meaning not inferred."]}
+      ]},
+      notes:["Evening workout at 7:18pm.","Weight not provided."]
     }
   ]
 };
