@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-06",
+  updatedAt:"2026-10-08",
   days:[
     {
       date:"2026-09-04",
@@ -829,6 +829,35 @@ window.LIVE_FITNESS_DATA={
         ]}
       ]},
       notes:["Evening workout at 7:18pm.","Weight not provided."]
+    },
+    {
+      date:"2026-10-08",
+      strength:{exercises:[
+        {name:"Romanian Deadlift (Barbell)",sets:[
+          {setNumber:1,loadLb:95,reps:6,raw:"95 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:135,reps:3,raw:"135 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:165,reps:1,raw:"165 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:185,reps:1,raw:"185 lbs x 1",flags:["warmup"]},
+          {setNumber:5,loadLb:205,reps:12,raw:"205 lbs x 12",flags:[]},
+          {setNumber:6,loadLb:224,reps:10,raw:"224 lbs x 10",flags:[]}
+        ]},
+        {name:"Leg Press (Machine)",sets:[
+          {setNumber:1,loadLb:187,reps:6,raw:"187 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:287,reps:3,raw:"287 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:357,reps:1,raw:"357 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:397,reps:10,raw:"397 lbs x 10",flags:[]},
+          {setNumber:5,loadLb:397,reps:10,raw:"397 lbs x 10",flags:[]}
+        ]},
+        {name:"Seated Leg Curl (Machine)",sets:[
+          {setNumber:1,loadLb:105,reps:10,raw:"105 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]}
+        ]},
+        {name:"Leg Extension (Machine)",sets:[
+          {setNumber:1,loadLb:187.5,reps:6,raw:"187.5 lbs x 6",flags:[]},
+          {setNumber:2,loadLb:187.5,reps:4,raw:"187.5 lbs x 4",flags:[]}
+        ],notes:["Leg extensions felt hard after leg press. User had considered 205 lb but judged it clearly too heavy for useful reps."]}
+      ]},
+      notes:["Leg workout 1 at 7:45pm.","Weight not provided."]
     }
   ]
 };
