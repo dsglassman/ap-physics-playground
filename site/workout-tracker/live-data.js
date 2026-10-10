@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-09",
+  updatedAt:"2026-10-10",
   days:[
     {
       date:"2026-09-04",
@@ -897,6 +897,34 @@ window.LIVE_FITNESS_DATA={
         ]}
       ]},
       notes:["Evening workout at 7:31pm."]
+    },
+    {
+      date:"2026-10-10",
+      strength:{exercises:[
+        {name:"Romanian Deadlift (Barbell)",sets:[
+          {setNumber:1,loadLb:95,reps:6,raw:"95 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:135,reps:3,raw:"135 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:165,reps:1,raw:"165 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:210,reps:12,raw:"210 lbs x 12",flags:[]},
+          {setNumber:5,loadLb:210,reps:9,raw:"210 lbs x 9",flags:[]}
+        ]},
+        {name:"Leg Press (Machine)",sets:[
+          {setNumber:1,loadLb:187,reps:6,raw:"187 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:297,reps:3,raw:"297 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:357,reps:1,raw:"357 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:402,reps:10,raw:"402 lbs x 10",flags:[]},
+          {setNumber:5,loadLb:402,reps:11,raw:"402 lbs x 11",flags:[]}
+        ]},
+        {name:"Seated Leg Curl (Machine)",sets:[
+          {setNumber:1,loadLb:115,reps:8,raw:"115 lbs x 8",flags:[]},
+          {setNumber:2,loadLb:115,reps:4,raw:"115 lbs x 4",flags:[]}
+        ],notes:["Two partial reps after failure on each set; recorded reps are complete reps only."]},
+        {name:"Leg Extension (Machine)",sets:[
+          {setNumber:1,loadLb:187.5,reps:7,raw:"187.5 lbs x 7",flags:["failure"]},
+          {setNumber:2,loadLb:187.5,reps:5,raw:"187.5 lbs x 5",flags:["failure"]}
+        ],notes:["Recorded reps are full reps to failure. Set 1: 20-second rest-pause then 2 additional reps. Set 2: 20-second rest-pause then 1 rep, another 20-second rest-pause, then 1 more rep."]}
+      ]},
+      notes:["Leg workout 1 at 9:39am.","Weight not provided."]
     }
   ]
 };
