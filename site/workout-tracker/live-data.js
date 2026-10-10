@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-08",
+  updatedAt:"2026-10-09",
   days:[
     {
       date:"2026-09-04",
@@ -858,6 +858,45 @@ window.LIVE_FITNESS_DATA={
         ],notes:["Leg extensions felt hard after leg press. User had considered 205 lb but judged it clearly too heavy for useful reps."]}
       ]},
       notes:["Leg workout 1 at 7:45pm.","Weight not provided."]
+    },
+    {
+      date:"2026-10-09",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:2,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:4,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]},
+          {setNumber:5,loadLb:105,reps:5,raw:"105 lbs x 5",flags:[]}
+        ]},
+        {name:"Seated Cable Row - Bar Grip",sets:[
+          {setNumber:1,loadLb:80,reps:6,raw:"80 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:120,reps:3,raw:"120 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:150,reps:1,raw:"150 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:165,reps:7,raw:"165 lbs x 7",flags:["warmup"]},
+          {setNumber:5,loadLb:180,reps:8,raw:"180 lbs x 8",flags:[]},
+          {setNumber:6,loadLb:180,reps:5,raw:"180 lbs x 5",flags:[]},
+          {setNumber:7,loadLb:180,reps:4,raw:"180 lbs x 4",flags:[]}
+        ],notes:["Load measured with a tension meter. One-second pause at peak contraction on every full rep. Two partials after failure on each working set; recorded reps are full reps only."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:18,reps:12,raw:"18 lbs x 12 left arm",flags:[]},
+          {setNumber:2,loadLb:18,reps:13,raw:"18 lbs x 13 right arm",flags:[]},
+          {setNumber:3,loadLb:18,reps:10,raw:"18 lbs x 10 left arm",flags:[]},
+          {setNumber:4,loadLb:18,reps:10,raw:"18 lbs x 10 right arm",flags:[]},
+          {setNumber:5,loadLb:18,reps:7,raw:"18 lbs x 7 left arm",flags:[]},
+          {setNumber:6,loadLb:18,reps:7,raw:"18 lbs x 7 right arm",flags:[]}
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partial reps after failure on the last set for each arm."]},
+        {name:"Overhead Triceps Extension (Cable)",sets:[
+          {setNumber:1,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:70,reps:7,raw:"70 lbs x 7",flags:["failure"]},
+          {setNumber:3,loadLb:70,reps:6,raw:"70 lbs x 6",flags:["failure"]}
+        ],notes:["Two forced reps plus a slow negative after failure on the last set; recorded reps are full reps only."]},
+        {name:"EZ Bar Biceps Curl",sets:[
+          {setNumber:1,loadLb:77,reps:7,raw:"77 lbs x 7",flags:[]},
+          {setNumber:2,loadLb:77,reps:5,raw:"77 lbs x 5",flags:[]}
+        ]}
+      ]},
+      notes:["Evening workout at 7:31pm."]
     }
   ]
 };
