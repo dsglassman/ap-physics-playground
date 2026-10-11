@@ -955,9 +955,9 @@ window.LIVE_FITNESS_DATA={
           {setNumber:6,loadLb:20.5,reps:5,raw:"20.5 lbs x 5 right arm",flags:[]}
         ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partial reps after failure on the last set for each arm."]},
         {name:"Overhead Triceps Extension (Cable)",sets:[
-          {setNumber:1,loadLb:70,reps:9,raw:"70 lbs x 9",flags:["failure"]},
-          {setNumber:2,loadLb:70,reps:7,raw:"70 lbs x 7",flags:["failure"]},
-          {setNumber:3,loadLb:70,reps:5,raw:"70 lbs x 5",flags:["failure"]}
+          {setNumber:1,loadLb:72.5,reps:9,raw:"72.5 lbs x 9",flags:["failure"]},
+          {setNumber:2,loadLb:72.5,reps:7,raw:"72.5 lbs x 7",flags:["failure"]},
+          {setNumber:3,loadLb:72.5,reps:5,raw:"72.5 lbs x 5",flags:["failure"]}
         ],notes:["Two forced reps plus slow negative after failure on the last set; recorded reps are full reps only."]},
         {name:"EZ Bar Biceps Curl",sets:[
           {setNumber:1,loadLb:77,reps:8,raw:"77 lbs x 8",flags:[]},
