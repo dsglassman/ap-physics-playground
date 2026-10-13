@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-11",
+  updatedAt:"2026-10-13",
   days:[
     {
       date:"2026-09-04",
@@ -965,6 +965,45 @@ window.LIVE_FITNESS_DATA={
         ],notes:["Two forced reps with slow negative after failure on the last set; recorded reps exclude forced reps."]}
       ]},
       notes:["Upper-body workout at 2:11pm."]
+    },
+    {
+      date:"2026-10-13",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:107.5,reps:5,raw:"107.5 lbs x 5",flags:[]},
+          {setNumber:2,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]},
+          {setNumber:3,loadLb:107.5,reps:3,raw:"107.5 lbs x 3",flags:[]},
+          {setNumber:4,loadLb:107.5,reps:3,raw:"107.5 lbs x 3",flags:[]},
+          {setNumber:5,loadLb:107.5,reps:2,raw:"107.5 lbs x 2",flags:[]}
+        ],notes:["First set felt much harder than expected. User noticed the back pad has a subtle adjustment in addition to the seat and suspects setup differences may explain day-to-day difficulty. On set 4, right arm completed 3 reps while left arm completed 2."]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:85,reps:6,raw:"85 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:120,reps:3,raw:"120 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:155,reps:1,raw:"155 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:167,reps:10,raw:"167 lbs x 10",flags:[]},
+          {setNumber:5,loadLb:167,reps:7,raw:"167 lbs x 7",flags:[]},
+          {setNumber:6,loadLb:167,reps:5,raw:"167 lbs x 5",flags:[]},
+          {setNumber:7,loadLb:167,reps:5,raw:"167 lbs x 5",flags:["grip failure"]}
+        ],notes:["Load is actual tension measured at the hands with a tension meter. Final working set ended from grip failure; back had about one more rep available."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:20.5,reps:11,raw:"20.5 lbs x 11 left arm",flags:[]},
+          {setNumber:2,loadLb:20.5,reps:11,raw:"20.5 lbs x 11 right arm",flags:[]},
+          {setNumber:3,loadLb:20.5,reps:8,raw:"20.5 lbs x 8 left arm",flags:[]},
+          {setNumber:4,loadLb:20.5,reps:8,raw:"20.5 lbs x 8 right arm",flags:[]},
+          {setNumber:5,loadLb:20.5,reps:6,raw:"20.5 lbs x 6 left arm",flags:[]},
+          {setNumber:6,loadLb:20.5,reps:6,raw:"20.5 lbs x 6 right arm",flags:[]}
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partials after the final failure set for each arm."]},
+        {name:"Triceps Pushdown",sets:[
+          {setNumber:1,loadLb:80,reps:6,raw:"80 lbs x 6",flags:[]},
+          {setNumber:2,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]},
+          {setNumber:3,loadLb:70,reps:9,raw:"70 lbs x 9",flags:[]}
+        ],notes:["Three forced reps with slow negatives after failure on the final set; recorded reps are full reps before forced reps."]},
+        {name:"EZ Bar Biceps Curl",sets:[
+          {setNumber:1,loadLb:77,reps:8,raw:"77 lbs x 8",flags:[]},
+          {setNumber:2,loadLb:77,reps:5,raw:"77 lbs x 5",flags:[]}
+        ],notes:["Two forced reps with slow negatives after failure on the final set; recorded reps are full reps before forced reps."]}
+      ]},
+      notes:["Upper-body workout on 2026-10-13. Weight not provided."]
     }
   ]
 };
