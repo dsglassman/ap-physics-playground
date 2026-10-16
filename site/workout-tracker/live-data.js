@@ -1019,7 +1019,7 @@ window.LIVE_FITNESS_DATA={
         ],notes:[
           "Set 1: seat 5, back 4 (all the way forward). Felt very hard; hands at bottom were well behind the front of chest, creating a very large stretch.",
           "Set 2: seat 5, back 1 (all the way back). Easier, with about 1.5-2 inches shorter ROM; arms still even with or just behind the front of chest.",
-          "Back-pad position materially changes ROM and difficulty; later sets followed the more favorable back-pad setup unless otherwise noted."
+          "Back-pad position materially changes ROM and difficulty. Pad position for sets 3-7 was not specified and is not inferred."
         ]},
         {name:"Seated Row (Machine)",sets:[
           {setNumber:1,loadLb:190,reps:9,raw:"190 lbs x 9",flags:["failure"]},
