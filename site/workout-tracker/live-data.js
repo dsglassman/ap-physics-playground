@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-13",
+  updatedAt:"2026-10-15",
   days:[
     {
       date:"2026-09-04",
@@ -1004,6 +1004,51 @@ window.LIVE_FITNESS_DATA={
         ],notes:["Two forced reps with slow negatives after failure on the final set; recorded reps are full reps before forced reps."]}
       ]},
       notes:["Upper-body workout on 2026-10-13. Weight not provided."]
+    },
+    {
+      date:"2026-10-15",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]},
+          {setNumber:2,loadLb:107.5,reps:5,raw:"107.5 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]},
+          {setNumber:4,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]},
+          {setNumber:5,loadLb:107.5,reps:3,raw:"107.5 lbs x 3",flags:[]},
+          {setNumber:6,loadLb:107.5,reps:3,raw:"107.5 lbs x 3",flags:[]},
+          {setNumber:7,loadLb:90,reps:8,raw:"90 lbs x 8",flags:[]}
+        ],notes:[
+          "Set 1: seat 5, back 4 (all the way forward). Felt very hard; hands at bottom were well behind the front of chest, creating a very large stretch.",
+          "Set 2: seat 5, back 1 (all the way back). Easier, with about 1.5-2 inches shorter ROM; arms still even with or just behind the front of chest.",
+          "Back-pad position materially changes ROM and difficulty; later sets followed the more favorable back-pad setup unless otherwise noted."
+        ]},
+        {name:"Seated Row (Machine)",sets:[
+          {setNumber:1,loadLb:190,reps:9,raw:"190 lbs x 9",flags:["failure"]},
+          {setNumber:2,loadLb:190,reps:7,raw:"190 lbs x 7",flags:["failure"]},
+          {setNumber:3,loadLb:190,reps:5,raw:"190 lbs x 5",flags:["failure"]},
+          {setNumber:4,loadLb:190,reps:5,raw:"190 lbs x 5",flags:["failure"]},
+          {setNumber:5,loadLb:165,reps:8,raw:"165 lbs x 8",flags:["failure"]}
+        ],notes:["One-second hold at peak contraction each rep. Three partials after concentric failure on every set; recorded reps are complete full reps only."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:25.5,reps:9,raw:"25.5 lbs x 9 left arm",flags:["accidental overload"]},
+          {setNumber:2,loadLb:25.5,reps:9,raw:"25.5 lbs x 9 right arm",flags:["accidental overload"]},
+          {setNumber:3,loadLb:20.5,reps:7,raw:"20.5 lbs x 7 left arm",flags:[]},
+          {setNumber:4,loadLb:20.5,reps:7,raw:"20.5 lbs x 7 right arm",flags:[]},
+          {setNumber:5,loadLb:20.5,reps:6,raw:"20.5 lbs x 6 left arm",flags:[]},
+          {setNumber:6,loadLb:20.5,reps:5,raw:"20.5 lbs x 5 right arm",flags:[]}
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. User intended 20.5 lb but an extra 5-lb weight had been left on the stack, so first pair was actually 25.5 lb. Four partial reps after failure on the last set for each arm."]},
+        {name:"Triceps Pushdown",sets:[
+          {setNumber:1,loadLb:75,reps:10,raw:"75 lbs x 10",flags:["failure"]},
+          {setNumber:2,loadLb:75,reps:8,raw:"75 lbs x 8",flags:["failure"]},
+          {setNumber:3,loadLb:75,reps:6,raw:"75 lbs x 6",flags:["failure"]}
+        ],notes:["Three forced reps with slow negatives on the last set."]},
+        {name:"EZ Bar Biceps Curl",sets:[
+          {setNumber:1,loadLb:77,reps:8,raw:"77 lbs x 8",flags:[]},
+          {setNumber:2,loadLb:77,reps:5,raw:"77 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:77,reps:4,raw:"77 lbs x 4",flags:[]},
+          {setNumber:4,loadLb:62,reps:8,raw:"62 lbs x 8",flags:[]}
+        ],notes:["Two forced reps with slow negatives after failure on set 3; recorded reps are full reps before forced reps."]}
+      ]},
+      notes:["Morning workout at 11:08am and afternoon workout at 2:09pm.","Weight not provided."]
     }
   ]
 };
