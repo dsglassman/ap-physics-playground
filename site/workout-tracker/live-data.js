@@ -1,6 +1,6 @@
 window.LIVE_FITNESS_DATA={
   schemaVersion:1,
-  updatedAt:"2026-10-15",
+  updatedAt:"2026-10-17",
   days:[
     {
       date:"2026-09-04",
@@ -1049,6 +1049,49 @@ window.LIVE_FITNESS_DATA={
         ],notes:["Two forced reps with slow negatives after failure on set 3; recorded reps are full reps before forced reps."]}
       ]},
       notes:["Morning workout at 11:08am and afternoon workout at 2:09pm.","Weight not provided."]
+    },
+    {
+      date:"2026-10-16",
+      notes:["No exercise. User took daughter on a college tour.","Weight not provided."]
+    },
+    {
+      date:"2026-10-17",
+      strength:{exercises:[
+        {name:"Iso-Lateral Chest Press (Machine)",sets:[
+          {setNumber:1,loadLb:107.5,reps:5,raw:"107.5 lbs x 5",flags:[]},
+          {setNumber:2,loadLb:107.5,reps:5,raw:"107.5 lbs x 5",flags:[]},
+          {setNumber:3,loadLb:107.5,reps:5,raw:"107.5 lbs x 5",flags:[]},
+          {setNumber:4,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]},
+          {setNumber:5,loadLb:107.5,reps:4,raw:"107.5 lbs x 4",flags:[]}
+        ],notes:["Seat at 5. Back at 1."]},
+        {name:"Lat Pulldown (Cable)",sets:[
+          {setNumber:1,loadLb:77,reps:6,raw:"77 lbs x 6",flags:["warmup"]},
+          {setNumber:2,loadLb:123,reps:3,raw:"123 lbs x 3",flags:["warmup"]},
+          {setNumber:3,loadLb:153,reps:1,raw:"153 lbs x 1",flags:["warmup"]},
+          {setNumber:4,loadLb:185.5,reps:6,raw:"185.5 lbs x 6",flags:["failure"]},
+          {setNumber:5,loadLb:168,reps:7,raw:"168 lbs x 7",flags:["failure"]},
+          {setNumber:6,loadLb:168,reps:5,raw:"168 lbs x 5",flags:["failure"]},
+          {setNumber:7,loadLb:143,reps:9,raw:"143 lbs x 9",flags:["failure"]}
+        ],notes:["Load is actual resistance felt at the hands measured with a tension meter."]},
+        {name:"Single Arm Lateral Raise (Cable)",sets:[
+          {setNumber:1,loadLb:25.5,reps:7,raw:"25.5 lbs x 7 left arm",flags:[]},
+          {setNumber:2,loadLb:25.5,reps:6,raw:"25.5 lbs x 6 right arm",flags:[]},
+          {setNumber:3,loadLb:23,reps:6,raw:"23 lbs x 6 left arm",flags:[]},
+          {setNumber:4,loadLb:23,reps:5,raw:"23 lbs x 5 right arm",flags:[]},
+          {setNumber:5,loadLb:18,reps:9,raw:"18 lbs x 9 left arm",flags:[]},
+          {setNumber:6,loadLb:18,reps:8,raw:"18 lbs x 8 right arm",flags:[]}
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partial reps after failure on the last set for each arm."]},
+        {name:"Skullcrusher (Barbell)",sets:[
+          {setNumber:1,loadLb:67,reps:12,raw:"67 lbs x 12",flags:["failure"]},
+          {setNumber:2,loadLb:72,reps:9,raw:"72 lbs x 9",flags:["failure"]},
+          {setNumber:3,loadLb:72,reps:8,raw:"72 lbs x 8",flags:["failure"]}
+        ],notes:["EZ-curl bar. Performed on an incline bench at about 30 degrees."]},
+        {name:"Bicep Curl (Barbell)",sets:[
+          {setNumber:1,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]},
+          {setNumber:2,loadLb:70,reps:5,raw:"70 lbs x 5",flags:[]}
+        ],notes:["Three cheat reps with slow eccentrics after failure on the last set."]}
+      ]},
+      notes:["Morning workout at 9:35am.","Weight not provided."]
     }
   ]
 };
