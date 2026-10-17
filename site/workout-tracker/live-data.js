@@ -885,7 +885,7 @@ window.LIVE_FITNESS_DATA={
           {setNumber:4,loadLb:18,reps:10,raw:"18 lbs x 10 right arm",flags:[]},
           {setNumber:5,loadLb:18,reps:7,raw:"18 lbs x 7 left arm",flags:[]},
           {setNumber:6,loadLb:18,reps:7,raw:"18 lbs x 7 right arm",flags:[]}
-        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partial reps after failure on the last set for each arm."]},
+        ],notes:["Lean-in cable lateral raise. Odd-numbered sets left arm; even-numbered sets right arm. Four partial reps after failure on the last set for each arm. User notes that the non-working arm is elevated and supports bodyweight against the machine for roughly 30 seconds while the other arm works, creating an isometric pre-fatigue/order effect. Because the left arm always works first, the right arm may begin each paired set slightly pre-fatigued; apparent 1-rep left/right differences should not be interpreted as true unilateral weakness without reversing the order."]},
         {name:"Overhead Triceps Extension (Cable)",sets:[
           {setNumber:1,loadLb:70,reps:10,raw:"70 lbs x 10",flags:[]},
           {setNumber:2,loadLb:70,reps:7,raw:"70 lbs x 7",flags:["failure"]},
